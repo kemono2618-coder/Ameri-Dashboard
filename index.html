@@ -16,14 +16,30 @@
         @media (max-width: 768px) { .sidebar { width: auto; border-right: none; border-bottom: 1px solid #333; } }
         .main { flex-grow: 1; padding: 2rem 3rem; overflow-y: auto; }
         @media (max-width: 768px) { .main { padding: 1rem; } }
+        
+        /* Metric Box */
         .metric-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
         .metric-box { background: #1c1e24; padding: 1rem; border-radius: 0.5rem; border: 1px solid #333; }
         .metric-label { font-size: 0.9rem; color: #aaa; }
         .metric-value { font-size: 1.8rem; font-weight: bold; margin: 0.2rem 0; }
+        
+        /* Progress Bar */
         .progress-bar-bg { background-color: #333; height: 1.5rem; border-radius: 0.75rem; overflow: hidden; margin-top: 0.5rem; }
         .progress-bar-fill { background-color: #228B22; height: 100%; width: 0%; transition: width 0.5s ease; }
         
-        /* 診断レポート用 */
+        /* Phase Info Box (復活) */
+        .info-box { background-color: #1e2a3b; border-left: 5px solid #3b82f6; padding: 1rem; margin-top: 1rem; border-radius: 4px; transition: all 0.5s ease; }
+        
+        /* Roadmap Details (復活) */
+        details.roadmap { background: #1c1e24; border-radius: 0.5rem; border: 1px solid #333; margin-top: 1rem; margin-bottom: 2rem; }
+        details.roadmap summary { padding: 1rem; cursor: pointer; font-weight: bold; color: #ccc; }
+        .roadmap-content { padding: 0 1rem 1rem 1rem; border-top: 1px solid #333; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
+        .phase-block { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #333; }
+        .phase-block:last-child { border-bottom: none; }
+        .phase-title { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; display: block;}
+        .phase-score { font-size: 0.85rem; color: #aaa; margin-left: 0.5rem; }
+
+        /* Diagnosis Report */
         .diagnosis-box { background-color: #1e2a3b; border: 1px solid #444; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border-radius: 8px; }
         .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
         .diag-item { background: #262730; padding: 1rem; border-radius: 4px; }
@@ -31,9 +47,7 @@
         .diag-val { font-size: 1.1rem; font-weight: bold; }
         .status-badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; background: #333; color: #fff; margin-top: 1rem; width: 100%; text-align: center; box-sizing: border-box;}
 
-        details.roadmap { background: #1c1e24; border-radius: 0.5rem; border: 1px solid #333; margin-bottom: 2rem; }
-        details.roadmap summary { padding: 1rem; cursor: pointer; font-weight: bold; color: #ccc; }
-        .roadmap-content { padding: 0 1rem 1rem 1rem; border-top: 1px solid #333; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
+        /* Table & Charts */
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
         th { text-align: left; border-bottom: 1px solid #444; padding: 0.5rem; color: #aaa; }
         td { border-bottom: 1px solid #333; padding: 0.5rem; }
@@ -66,6 +80,17 @@
 
             <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-bar"></div></div>
 
+            <div class="info-box" id="phase-box">
+                <strong id="phase-title">--</strong><br><span id="phase-desc">Analyzing data...</span>
+            </div>
+
+            <details class="roadmap">
+                <summary>📖 学習ロードマップ (クリックで展開)</summary>
+                <div class="roadmap-content" id="roadmap-container">
+                    Loading roadmap definition...
+                </div>
+            </details>
+
             <div class="diagnosis-box">
                 <h3 style="margin-top:0;">📊 AI成長診断レポート</h3>
                 <div class="diag-grid">
@@ -91,7 +116,7 @@
                 </div>
             </details>
 
-            <h3>📈 行動内訳 (数値付き)</h3><div id="chart-bar" class="chart-wrapper"></div>
+            <h3>📈 行動内訳 (累積数値付き)</h3><div id="chart-bar" class="chart-wrapper"></div>
             <h3>📉 スコア推移</h3><div id="chart-line" class="chart-wrapper"></div>
         </div>
     </div>
@@ -116,6 +141,7 @@
         }
 
         function renderDashboard(data) {
+            // 基本ステータス
             document.getElementById('ai-status').innerText = "AI Status: " + data.ai_status;
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
             document.getElementById('avg-score').innerText = data.avg_score.toFixed(1);
@@ -125,22 +151,42 @@
             document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
             document.getElementById('prog-bar').style.width = data.prog_pct + "%";
 
-            // 診断データの反映
+            // ★復活: フェーズ情報
+            document.getElementById('phase-title').innerText = data.phase_title;
+            document.getElementById('phase-desc').innerText = data.phase_desc;
+            document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
+
+            // ★復活: ロードマップ
+            if (data.config && data.config.phases) {
+                const roadmapHtml = data.config.phases.map(p => `
+                    <div class="phase-block">
+                        <span class="phase-title" style="color: ${p.color};">
+                            ${p.title} <span class="phase-score">Min Score: ${p.min_score}</span>
+                        </span>
+                        <strong>${p.desc}</strong>
+                    </div>
+                `).join('');
+                document.getElementById('roadmap-container').innerHTML = roadmapHtml;
+            }
+
+            // 診断データ
             if (data.diagnosis) {
                 document.getElementById('diag-expect').innerText = data.diagnosis.expected_phase;
                 document.getElementById('diag-actual').innerText = data.diagnosis.actual_phase;
                 const badge = document.getElementById('diag-status');
                 badge.innerText = "判定: " + data.diagnosis.status_text;
                 badge.style.backgroundColor = data.diagnosis.status_color;
-                badge.style.color = "#000"; // 文字色は黒で見やすく
+                badge.style.color = "#000"; 
             }
 
+            // グラフ
             const opts = { actions: false, theme: 'dark', background: 'transparent' };
             if (data.chart_json) {
                 vegaEmbed('#chart-bar', data.chart_json, opts);
                 vegaEmbed('#chart-line', data.line_json, opts);
             }
 
+            // ログテーブル
             let rows = "";
             data.logs.forEach(log => {
                 rows += `<tr><td>${log.t}</td><td style="color:${log.r >= 0 ? '#00FF00' : '#FF4B4B'}">${log.r}</td><td>${log.l}</td><td>${log.beh}</td></tr>`;
