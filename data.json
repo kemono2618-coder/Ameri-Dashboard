@@ -1,26 +1,294 @@
 {
-    "status": "ok",
-    "total_steps": 1500000,
+    "status": "active",
+    "total_steps": 5632,
     "target_steps": 5000000,
-    "prog_pct": 30.0,
-    "phase_title": "Phase 2: テスト中",
-    "phase_desc": "これはGitHub Pagesの表示テストです。",
-    "phase_color": "#FFA500",
-    "ai_status": "Testing...",
-    "total_eps": 1234,
-    "avg_score": -150.5,
-    "surv_rate": 45.2,
-    "bust_rate": 12.5,
+    "prog_pct": 0.1,
+    "phase_title": "Phase 1: 阿鼻叫喚の特攻 (0~20%)",
+    "phase_desc": "Wait廃止・空決済禁止。戦わなければ即死する状況で資金管理を体に刻む。",
+    "phase_color": "#FF4B4B",
+    "ai_status": "Learning (Step: 5632)",
+    "total_eps": 22,
+    "avg_score": -1160.9,
+    "surv_rate": 81.8,
+    "bust_rate": 45.5,
     "config": {
         "phases": [
-            { "color": "#FF4B4B", "title": "Phase 1", "score_pred": "-1000", "status_label": "Test 1", "desc": "テストフェーズ1" },
-            { "color": "#FFA500", "title": "Phase 2", "score_pred": "-300", "status_label": "Test 2", "desc": "テストフェーズ2" }
+            {
+                "id": 1,
+                "limit_ratio": 0.2,
+                "color": "#FF4B4B",
+                "title": "Phase 1: 阿鼻叫喚の特攻 (0~20%)",
+                "desc": "Wait廃止・空決済禁止。戦わなければ即死する状況で資金管理を体に刻む。",
+                "score_pred": "-800 ～ -1000",
+                "status_label": "Lv.1 暴走中"
+            },
+            {
+                "id": 2,
+                "limit_ratio": 0.5,
+                "color": "#FFA500",
+                "title": "Phase 2: 血塗れの学習 (20~50%)",
+                "desc": "無駄な特攻が減り、生存時間が延び始める。",
+                "score_pred": "-500 ～ -100",
+                "status_label": "Lv.2 死に物狂い"
+            },
+            {
+                "id": 3,
+                "limit_ratio": 0.7,
+                "color": "#FFFF00",
+                "title": "Phase 3: 覚醒への分水嶺 (50~70%)",
+                "desc": "損切りを覚え、プラス収支のエピソードが出現し始める。",
+                "score_pred": "-50 ～ +300",
+                "status_label": "Lv.3 生存者"
+            },
+            {
+                "id": 4,
+                "limit_ratio": 0.9,
+                "color": "#00FF00",
+                "title": "Phase 4: 覇道 (70~90%)",
+                "desc": "トレンドに乗ることを覚え、資産を大きく伸ばす。",
+                "score_pred": "+500 Over",
+                "status_label": "Lv.4 戦士"
+            },
+            {
+                "id": 5,
+                "limit_ratio": 1.01,
+                "color": "#0088FF",
+                "title": "Phase 5: 市場支配 (90%~)",
+                "desc": "完成されたロジックで利益を最大化。",
+                "score_pred": "+1000 Over",
+                "status_label": "Lv.5 覇者"
+            }
         ]
     },
-    "chart_json": null,
-    "line_json": null,
+    "chart_json": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+            "values": [
+                {
+                    "Behavior": "即死・破綻",
+                    "Count": 10
+                },
+                {
+                    "Behavior": "損切り・敗北",
+                    "Count": 9
+                },
+                {
+                    "Behavior": "辛勝・微益",
+                    "Count": 0
+                },
+                {
+                    "Behavior": "大勝利",
+                    "Count": 3
+                }
+            ]
+        },
+        "mark": "bar",
+        "encoding": {
+            "x": {
+                "field": "Behavior",
+                "type": "nominal",
+                "sort": "-y",
+                "axis": {
+                    "labelColor": "#ddd"
+                }
+            },
+            "y": {
+                "field": "Count",
+                "type": "quantitative",
+                "axis": {
+                    "labelColor": "#ddd"
+                }
+            },
+            "color": {
+                "field": "Behavior",
+                "scale": {
+                    "domain": [
+                        "即死・破綻",
+                        "損切り・敗北",
+                        "辛勝・微益",
+                        "大勝利"
+                    ],
+                    "range": [
+                        "#FF4B4B",
+                        "#FFA500",
+                        "#FFFF00",
+                        "#00FF00"
+                    ]
+                }
+            }
+        },
+        "background": "transparent"
+    },
+    "line_json": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+            "values": [
+                {
+                    "index": 0,
+                    "r": -2819.279337
+                },
+                {
+                    "index": 1,
+                    "r": -9327.993876
+                },
+                {
+                    "index": 2,
+                    "r": -1921.352299
+                },
+                {
+                    "index": 3,
+                    "r": -2025.935933
+                },
+                {
+                    "index": 4,
+                    "r": -1625.779313
+                },
+                {
+                    "index": 5,
+                    "r": 1280.593529
+                },
+                {
+                    "index": 6,
+                    "r": -1416.876745
+                },
+                {
+                    "index": 7,
+                    "r": -620.074056
+                },
+                {
+                    "index": 8,
+                    "r": -1717.095378
+                },
+                {
+                    "index": 9,
+                    "r": -303.961635
+                },
+                {
+                    "index": 10,
+                    "r": -320.097489
+                },
+                {
+                    "index": 11,
+                    "r": -2928.427701
+                },
+                {
+                    "index": 12,
+                    "r": -623.992587
+                },
+                {
+                    "index": 13,
+                    "r": -1017.62934
+                },
+                {
+                    "index": 14,
+                    "r": -722.584322
+                },
+                {
+                    "index": 15,
+                    "r": -1117.444481
+                },
+                {
+                    "index": 16,
+                    "r": -321.003239
+                },
+                {
+                    "index": 17,
+                    "r": -224.144531
+                },
+                {
+                    "index": 18,
+                    "r": -113.462859
+                },
+                {
+                    "index": 19,
+                    "r": -113.295727
+                },
+                {
+                    "index": 20,
+                    "r": 1232.865233
+                },
+                {
+                    "index": 21,
+                    "r": 1226.739547
+                }
+            ]
+        },
+        "mark": {
+            "type": "line",
+            "color": "#FF4B4B"
+        },
+        "encoding": {
+            "x": {
+                "field": "index",
+                "type": "quantitative"
+            },
+            "y": {
+                "field": "r",
+                "type": "quantitative"
+            }
+        },
+        "background": "transparent"
+    },
     "logs": [
-        {"t": 10, "r": -300, "l": 50, "beh": "損切り"},
-        {"t": 9, "r": 100, "l": 200, "beh": "利確"}
+        {
+            "t": 9,
+            "r": 1226.7,
+            "l": 72,
+            "beh": "大勝利"
+        },
+        {
+            "t": 8,
+            "r": 1232.9,
+            "l": 65,
+            "beh": "大勝利"
+        },
+        {
+            "t": 7,
+            "r": -113.3,
+            "l": 288,
+            "beh": "損切り・敗北"
+        },
+        {
+            "t": 6,
+            "r": -113.5,
+            "l": 288,
+            "beh": "損切り・敗北"
+        },
+        {
+            "t": 5,
+            "r": -224.1,
+            "l": 288,
+            "beh": "損切り・敗北"
+        },
+        {
+            "t": 4,
+            "r": -321.0,
+            "l": 288,
+            "beh": "損切り・敗北"
+        },
+        {
+            "t": 3,
+            "r": -1117.4,
+            "l": 193,
+            "beh": "即死・破綻"
+        },
+        {
+            "t": 2,
+            "r": -722.6,
+            "l": 288,
+            "beh": "損切り・敗北"
+        },
+        {
+            "t": 1,
+            "r": -1017.6,
+            "l": 288,
+            "beh": "即死・破綻"
+        },
+        {
+            "t": 0,
+            "r": -624.0,
+            "l": 288,
+            "beh": "損切り・敗北"
+        }
     ]
 }
