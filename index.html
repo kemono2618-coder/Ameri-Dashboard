@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ameri-AI Dashboard (Cloud)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        :root { --bg-color: #0E1117; --secondary-bg: #262730; --text-color: #FAFAFA; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: "Source Sans Pro", sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Layout for Mobile/Desktop */
+        .container { display: flex; flex: 1; }
+        @media (max-width: 768px) { .container { flex-direction: column; } }
+
+        .sidebar { width: 300px; background-color: var(--secondary-bg); padding: 2rem 1rem; border-right: 1px solid #333; flex-shrink: 0; }
+        @media (max-width: 768px) { .sidebar { width: auto; border-right: none; border-bottom: 1px solid #333; } }
+
+        .main { flex-grow: 1; padding: 2rem 3rem; overflow-y: auto; }
+        @media (max-width: 768px) { .main { padding: 1rem; } }
+
+        .metric-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .metric-box { background: #1c1e24; padding: 1rem; border-radius: 0.5rem; border: 1px solid #333; }
+        .metric-label { font-size: 0.9rem; color: #aaa; }
+        .metric-value { font-size: 1.8rem; font-weight: bold; margin: 0.2rem 0; }
+
+        .progress-bar-bg { background-color: #333; height: 1.5rem; border-radius: 0.75rem; overflow: hidden; margin-top: 0.5rem; }
+        .progress-bar-fill { background-color: #228B22; height: 100%; width: 0%; transition: width 0.5s ease; }
+        
+        .info-box { background-color: #1e2a3b; border-left: 5px solid #3b82f6; padding: 1rem; margin-top: 1rem; border-radius: 4px; transition: all 0.5s ease; }
+
+        /* Roadmap */
+        details.roadmap { background: #1c1e24; border-radius: 0.5rem; border: 1px solid #333; margin-bottom: 2rem; }
+        details.roadmap summary { padding: 1rem; cursor: pointer; font-weight: bold; color: #ccc; }
+        .roadmap-content { padding: 0 1rem 1rem 1rem; border-top: 1px solid #333; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
+        .phase-block { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #333; }
+        .phase-block:last-child { border-bottom: none; }
+        .phase-title { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; display: block;}
+        .phase-score { font-size: 0.85rem; color: #aaa; margin-left: 0.5rem; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+        th { text-align: left; border-bottom: 1px solid #444; padding: 0.5rem; color: #aaa; }
+        td { border-bottom: 1px solid #333; padding: 0.5rem; }
+        .chart-wrapper { width: 100%; height: 250px; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>📡 Ameri-AI Web</h2>
+            <div class="info-box" style="border-left-color: #00FF00; background: #1a2e1a;">
+                <p><strong>Cloud Mode</strong></p>
+                <p>Status: <span id="sync-status">Syncing...</span></p>
+                <p id="last-update" style="font-size:0.8rem; color:#aaa;">--</p>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #444; margin: 2rem 0;">
+            <p><strong>目標ステップ数:</strong><br><span id="target-steps">--</span></p>
+        </div>
+
+        <div class="main">
+            <h1>Ameri-AI 戦況分析</h1>
+            <h2 id="ai-status">現在のAI状態: Loading...</h2>
+
+            <div class="metric-container">
+                <div class="metric-box"><div class="metric-label">総エピソード数</div><div class="metric-value" id="total-eps">--</div></div>
+                <div class="metric-box"><div class="metric-label">平均スコア (直近50戦)</div><div class="metric-value" id="avg-score">--</div></div>
+                <div class="metric-box"><div class="metric-label">生存率 (24H完走)</div><div class="metric-value" id="surv-rate">--%</div></div>
+                <div class="metric-box"><div class="metric-label">破綻率 (即死)</div><div class="metric-value" id="bust-rate" style="color:#FF4B4B">--%</div></div>
+            </div>
+
+            <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-bar"></div></div>
+            <div class="info-box" id="phase-box">
+                <strong id="phase-title">--</strong><br><span id="phase-desc">Analyzing data...</span>
+            </div>
+
+            <details class="roadmap" style="margin-top: 1rem;">
+                <summary>📖 学習ロードマップ (Config連動)</summary>
+                <div class="roadmap-content" id="roadmap-container">
+                    Loading roadmap definition...
+                </div>
+            </details>
+
+            <details open style="margin-top:2rem; margin-bottom: 2rem; background:#1c1e24; border-radius:0.5rem; border:1px solid #333;">
+                <summary style="padding:1rem; cursor:pointer; color:#aaa; font-weight:bold;">📊 直近の戦闘記録</summary>
+                <div style="padding:1rem; max-height: 300px; overflow-y: auto;">
+                    <table>
+                        <thead><tr><th>Time</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
+                        <tbody id="log-table-body"></tbody>
+                    </table>
+                </div>
+            </details>
+
+            <h3>🔍 直近100戦の行動内訳</h3><div id="chart-bar" class="chart-wrapper"></div>
+            <h3>📈 スコア推移</h3><div id="chart-line" class="chart-wrapper"></div>
+        </div>
+    </div>
+
+    <script>
+        // 設定: 更新頻度(ミリ秒)
+        const REFRESH_RATE = 10000; 
+
+        async function fetchData() {
+            try {
+                // キャッシュ回避のためにタイムスタンプ付与
+                const res = await fetch('data.json?' + new Date().getTime());
+                if (!res.ok) throw new Error("Data fetch failed");
+                const data = await res.json();
+                renderDashboard(data);
+                document.getElementById('sync-status').innerText = "Online";
+                document.getElementById('sync-status').style.color = "#00FF00";
+                document.getElementById('last-update').innerText = "Update: " + new Date().toLocaleTimeString();
+            } catch (e) {
+                console.error(e);
+                document.getElementById('sync-status').innerText = "Offline / Waiting";
+                document.getElementById('sync-status').style.color = "#FF4B4B";
+            }
+        }
+
+        function renderDashboard(data) {
+            // Metrics
+            document.getElementById('ai-status').innerText = "AI Status: " + data.ai_status;
+            document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
+            document.getElementById('avg-score').innerText = data.avg_score.toFixed(1);
+            document.getElementById('avg-score').style.color = data.avg_score >= 0 ? '#00FF00' : '#FF4B4B';
+            document.getElementById('surv-rate').innerText = data.surv_rate.toFixed(1) + " %";
+            document.getElementById('bust-rate').innerText = data.bust_rate.toFixed(1) + " %";
+            document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
+            
+            // Progress & Phase
+            document.getElementById('prog-bar').style.width = data.prog_pct + "%";
+            document.getElementById('phase-title').innerText = data.phase_title;
+            document.getElementById('phase-desc').innerText = data.phase_desc;
+            document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
+
+            // Roadmap (初回または変更時のみ生成すべきだが、簡易実装として毎回再生成)
+            if (data.config && data.config.phases) {
+                const roadmapHtml = data.config.phases.map(p => `
+                    <div class="phase-block">
+                        <span class="phase-title" style="color: ${p.color};">
+                            ${p.title} <span class="phase-score">予想: ${p.score_pred}</span>
+                        </span>
+                        <strong>${p.status_label}</strong><br>
+                        ${p.desc}
+                    </div>
+                `).join('');
+                document.getElementById('roadmap-container').innerHTML = roadmapHtml;
+            }
+
+            // Charts
+            const opts = { actions: false, theme: 'dark', background: 'transparent' };
+            if (data.chart_json) {
+                vegaEmbed('#chart-bar', data.chart_json, opts);
+                vegaEmbed('#chart-line', data.line_json, opts);
+            }
+
+            // Logs
+            let rows = "";
+            data.logs.forEach(log => {
+                rows += `<tr><td>${log.t}</td><td style="color:${log.r >= 0 ? '#00FF00' : '#FF4B4B'}">${log.r}</td><td>${log.l}</td><td>${log.beh}</td></tr>`;
+            });
+            document.getElementById('log-table-body').innerHTML = rows;
+        }
+
+        // 初回実行と定期実行
+        fetchData();
+        setInterval(fetchData, REFRESH_RATE);
+    </script>
+</body>
+</html>

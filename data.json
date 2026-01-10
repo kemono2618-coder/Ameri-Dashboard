@@ -1,0 +1,26 @@
+{
+    "status": "ok",
+    "total_steps": 1500000,
+    "target_steps": 5000000,
+    "prog_pct": 30.0,
+    "phase_title": "Phase 2: テスト中",
+    "phase_desc": "これはGitHub Pagesの表示テストです。",
+    "phase_color": "#FFA500",
+    "ai_status": "Testing...",
+    "total_eps": 1234,
+    "avg_score": -150.5,
+    "surv_rate": 45.2,
+    "bust_rate": 12.5,
+    "config": {
+        "phases": [
+            { "color": "#FF4B4B", "title": "Phase 1", "score_pred": "-1000", "status_label": "Test 1", "desc": "テストフェーズ1" },
+            { "color": "#FFA500", "title": "Phase 2", "score_pred": "-300", "status_label": "Test 2", "desc": "テストフェーズ2" }
+        ]
+    },
+    "chart_json": null,
+    "line_json": null,
+    "logs": [
+        {"t": 10, "r": -300, "l": 50, "beh": "損切り"},
+        {"t": 9, "r": 100, "l": 200, "beh": "利確"}
+    ]
+}
