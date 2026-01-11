@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1897921,
+    "total_steps": 1902529,
     "target_steps": 3000000,
-    "prog_pct": 63.3,
+    "prog_pct": 63.4,
     "phase_title": "Phase 3: 精密機械化",
     "phase_desc": "感情を捨て、機械的に2000円を抜き取る。",
     "phase_color": "#FFFF00",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 49268,
+        "WIN": 49396,
         "FAIL": 5,
-        "BUST": 27112
+        "BUST": 27192
     },
-    "ai_status": "Training (1,897,921)",
-    "total_eps": 76385,
+    "ai_status": "Training (1,902,529)",
+    "total_eps": 76593,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,92 +70,92 @@
     "logs": [
         {
             "t": 14,
-            "r": -10083.3,
-            "l": 43,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10020.8,
+            "l": 8,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 13,
-            "r": -10082.1,
-            "l": 15,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10033.5,
+            "l": 3,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 12,
-            "r": -10074.4,
-            "l": 9,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10024.9,
+            "l": 15,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 11,
-            "r": 10022.1,
-            "l": 46,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 10,
-            "r": 10040.1,
-            "l": 17,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 9,
-            "r": 10043.5,
-            "l": 11,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 8,
-            "r": 10022.3,
-            "l": 23,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 7,
-            "r": -10075.6,
-            "l": 38,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 6,
-            "r": 10021.2,
-            "l": 9,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 5,
-            "r": 10035.2,
-            "l": 4,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 4,
-            "r": -10189.8,
-            "l": 33,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 3,
-            "r": 10024.2,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 2,
-            "r": 10029.1,
-            "l": 71,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 1,
-            "r": 10031.3,
+            "r": 10030.6,
             "l": 13,
             "beh": "SURVIVAL (WIN)"
         },
         {
+            "t": 10,
+            "r": -10079.0,
+            "l": 115,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 9,
+            "r": -10093.3,
+            "l": 13,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 8,
+            "r": 10024.8,
+            "l": 5,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 7,
+            "r": -10075.7,
+            "l": 19,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 6,
+            "r": -10000.0,
+            "l": 2,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 5,
+            "r": -10076.8,
+            "l": 12,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 4,
+            "r": 10070.4,
+            "l": 18,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 3,
+            "r": 10021.7,
+            "l": 9,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 2,
+            "r": 10028.5,
+            "l": 17,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 1,
+            "r": 10027.8,
+            "l": 4,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
             "t": 0,
-            "r": 10040.4,
-            "l": 8,
+            "r": 10020.7,
+            "l": 7,
             "beh": "SURVIVAL (WIN)"
         }
     ]
