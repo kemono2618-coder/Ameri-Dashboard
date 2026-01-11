@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 676801,
+    "total_steps": 680833,
     "target_steps": 3000000,
-    "prog_pct": 22.6,
+    "prog_pct": 22.7,
     "phase_title": "Phase 1: 生存への渇望",
     "phase_desc": "死(待機/敗北)を避け、唯一の生(勝利)を探す。",
     "phase_color": "#FF4B4B",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 14873,
+        "WIN": 14965,
         "FAIL": 3,
-        "BUST": 8161
+        "BUST": 8206
     },
-    "ai_status": "Training (676,801)",
-    "total_eps": 23037,
+    "ai_status": "Training (680,833)",
+    "total_eps": 23174,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,92 +70,92 @@
     "logs": [
         {
             "t": 14,
-            "r": 10021.9,
-            "l": 8,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10058.3,
+            "l": 39,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 13,
-            "r": 10022.2,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10089.2,
+            "l": 20,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 12,
-            "r": 10027.9,
-            "l": 37,
+            "r": 10021.6,
+            "l": 10,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 11,
-            "r": 10036.5,
-            "l": 66,
+            "r": 10025.3,
+            "l": 33,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 10,
-            "r": 10029.1,
-            "l": 9,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 9,
-            "r": -10075.3,
-            "l": 59,
+            "r": -10079.6,
+            "l": 12,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
+            "t": 9,
+            "r": 10032.2,
+            "l": 20,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
             "t": 8,
-            "r": 10023.5,
-            "l": 104,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 7,
-            "r": 10025.0,
-            "l": 31,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 6,
-            "r": 10026.7,
-            "l": 39,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 5,
-            "r": 10027.8,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 4,
-            "r": 10022.0,
-            "l": 4,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 3,
-            "r": 10023.4,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 2,
-            "r": 10025.3,
-            "l": 16,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 1,
-            "r": 10022.5,
+            "r": 10033.3,
             "l": 8,
             "beh": "SURVIVAL (WIN)"
         },
         {
-            "t": 0,
-            "r": 10021.6,
+            "t": 7,
+            "r": 10021.0,
             "l": 4,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 6,
+            "r": -10191.9,
+            "l": 53,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 5,
+            "r": 10021.8,
+            "l": 8,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 4,
+            "r": -10068.6,
+            "l": 5,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 3,
+            "r": 10021.3,
+            "l": 12,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 2,
+            "r": 10025.8,
+            "l": 15,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 1,
+            "r": 10027.4,
+            "l": 6,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 0,
+            "r": 10022.7,
+            "l": 25,
             "beh": "SURVIVAL (WIN)"
         }
     ]
