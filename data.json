@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 79360,
+    "total_steps": 84480,
     "target_steps": 2000000,
-    "prog_pct": 4.0,
+    "prog_pct": 4.2,
     "phase_title": "Phase 4: 覇道",
     "phase_desc": "トレンドフォロー・利益追求",
     "phase_color": "#00FF00",
@@ -22,9 +22,9 @@
         "SELL": "0",
         "HOLD": "0"
     },
-    "ai_status": "Training (79,360)",
+    "ai_status": "Training (84,480)",
     "total_eps": 100,
-    "avg_score": 179.5,
+    "avg_score": 218.5,
     "config": {
         "phases": [
             {
@@ -78,9 +78,9 @@
         },
         {
             "t": 13,
-            "r": -2021.2,
-            "l": 213,
-            "beh": "💀 BUSTED"
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 12,
@@ -96,39 +96,39 @@
         },
         {
             "t": 10,
-            "r": -2004.6,
-            "l": 47,
-            "beh": "💀 BUSTED"
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 9,
-            "r": -2013.3,
-            "l": 134,
-            "beh": "💀 BUSTED"
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 8,
-            "r": 2208.3,
-            "l": 248,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -528.8,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 7,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2001.2,
+            "l": 13,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 6,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2004.8,
+            "l": 49,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 5,
-            "r": -2010.4,
-            "l": 105,
-            "beh": "💀 BUSTED"
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 4,
@@ -138,21 +138,21 @@
         },
         {
             "t": 3,
-            "r": 1971.2,
+            "r": -528.8,
             "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "beh": "❌ FAILED"
         },
         {
             "t": 2,
-            "r": 1971.2,
+            "r": -528.8,
             "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "beh": "❌ FAILED"
         },
         {
             "t": 1,
-            "r": -2001.1,
-            "l": 12,
-            "beh": "💀 BUSTED"
+            "r": -536.8,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 0,
