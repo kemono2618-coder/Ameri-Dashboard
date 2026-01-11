@@ -1,12 +1,12 @@
 {
     "status": "active",
-    "total_steps": 109056,
+    "total_steps": 114688,
     "target_steps": 2000000,
-    "prog_pct": 5.5,
+    "prog_pct": 5.7,
     "phase_title": "Phase 2: 損失恐怖・硬直",
     "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
     "phase_color": "#FFA500",
-    "phase_mastery": 11.2,
+    "phase_mastery": 11.1,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
         "actual_phase": "Phase 2: 損失恐怖・硬直",
@@ -20,12 +20,12 @@
     },
     "combat_stats": {
         "WIN": 50,
-        "FAIL": 357,
+        "FAIL": 377,
         "BUST": 4
     },
-    "ai_status": "Training (109,056)",
+    "ai_status": "Training (114,688)",
     "total_eps": 100,
-    "avg_score": -455.1,
+    "avg_score": -455.5,
     "config": {
         "phases": [
             {
@@ -85,13 +85,13 @@
         },
         {
             "t": 12,
-            "r": -528.8,
+            "r": -529.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 11,
-            "r": -528.8,
+            "r": -528.3,
             "l": 288,
             "beh": "FAILED"
         },
@@ -103,7 +103,7 @@
         },
         {
             "t": 9,
-            "r": -528.8,
+            "r": -526.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -127,7 +127,7 @@
         },
         {
             "t": 5,
-            "r": -527.3,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -139,19 +139,19 @@
         },
         {
             "t": 3,
-            "r": -529.9,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 2,
-            "r": -525.5,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 1,
-            "r": -529.3,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
