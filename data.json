@@ -20,7 +20,7 @@
         "FAIL": 0,
         "BUST": 2307
     },
-    "ai_status": "Training (137,089)",
+    "ai_status": "Analyzed",
     "total_eps": 6827,
     "avg_score": 0,
     "config": {
@@ -158,5 +158,20 @@
             "l": 4,
             "beh": "SURVIVAL (WIN)"
         }
-    ]
+    ],
+    "analysis_report": {
+        "analyzed_eps": 7056,
+        "overall_win_rate": "66.17 %",
+        "overall_bust_rate": "33.83 %",
+        "speed_stats": {
+            "fastest": 2,
+            "slowest": 207,
+            "avg": 16.6
+        },
+        "margin_stats": {
+            "lowest": 50.1,
+            "highest": 999.0
+        },
+        "conclusion": "生存圏 確立 (Safe)"
+    }
 }
