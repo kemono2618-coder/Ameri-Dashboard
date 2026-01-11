@@ -193,7 +193,8 @@
                 // 背景色に応じた文字色調整
                 let bgColor = data.diagnosis.status_color;
                 let textColor = "#fff";
-                if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00"].includes(bgColor)) {
+                // 明るい色（緑、水色、黄、金）の場合は黒文字
+                if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700"].includes(bgColor)) {
                     textColor = "#000";
                 }
                 badge.style.backgroundColor = bgColor;
@@ -228,7 +229,7 @@
             let rows = "";
             data.logs.forEach(log => {
                 let cls = "";
-                // SAW判定: Win(SURVIVAL)は緑、それ以外(DEATH/LOSS)は赤
+                // SAW判定
                 if (log.beh.includes("WIN") || log.beh.includes("SURVIVAL")) cls = "res-win";
                 else if (log.beh.includes("BUST") || log.beh.includes("DEATH") || log.beh.includes("LOSS")) cls = "res-bust";
                 else cls = "res-fail";
