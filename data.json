@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1605313,
+    "total_steps": 1610352,
     "target_steps": 2000000,
-    "prog_pct": 80.3,
+    "prog_pct": 80.5,
     "phase_title": "Phase 4: 最終精度調整 (80-100%)",
     "phase_desc": "勝率とRR比の最適化。完成形へ。",
     "phase_color": "#00FF00",
@@ -20,11 +20,11 @@
     },
     "combat_stats": {
         "WIN": 53,
-        "FAIL": 5551,
+        "FAIL": 5568,
         "BUST": 4
     },
-    "ai_status": "Training (1,605,313)",
-    "total_eps": 5608,
+    "ai_status": "Training (1,610,352)",
+    "total_eps": 5625,
     "avg_score": 0,
     "config": {
         "phases": [
