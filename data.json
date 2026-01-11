@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 280576,
+    "total_steps": 286208,
     "target_steps": 2000000,
-    "prog_pct": 14.0,
+    "prog_pct": 14.3,
     "phase_title": "Phase 1: 無秩序・自滅",
     "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
     "phase_color": "#FF4B4B",
@@ -20,10 +20,10 @@
     },
     "combat_stats": {
         "WIN": 52,
-        "FAIL": 952,
+        "FAIL": 971,
         "BUST": 4
     },
-    "ai_status": "Training (280,576)",
+    "ai_status": "Training (286,208)",
     "total_eps": 100,
     "avg_score": -528.8,
     "config": {
@@ -139,7 +139,7 @@
         },
         {
             "t": 3,
-            "r": -529.9,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
