@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1787905,
+    "total_steps": 1792513,
     "target_steps": 3000000,
-    "prog_pct": 59.6,
+    "prog_pct": 59.8,
     "phase_title": "Phase 2: 勝ち筋の固定",
     "phase_desc": "まぐれ勝ちを捨て、再現性のある勝利のみを繰り返す。",
     "phase_color": "#FFA500",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 45918,
+        "WIN": 46057,
         "FAIL": 5,
-        "BUST": 25312
+        "BUST": 25386
     },
-    "ai_status": "Training (1,787,905)",
-    "total_eps": 71235,
+    "ai_status": "Training (1,792,513)",
+    "total_eps": 71448,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,92 +70,92 @@
     "logs": [
         {
             "t": 14,
-            "r": 10022.9,
-            "l": 38,
+            "r": 10024.7,
+            "l": 7,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 13,
-            "r": -10089.2,
-            "l": 17,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 12,
-            "r": 10037.8,
-            "l": 11,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 11,
-            "r": 10022.3,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 10,
-            "r": 10021.5,
-            "l": 6,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 9,
-            "r": 10023.9,
-            "l": 3,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 8,
-            "r": -10072.5,
-            "l": 11,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 7,
-            "r": -10189.9,
-            "l": 12,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 6,
-            "r": -10085.9,
-            "l": 18,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 5,
-            "r": -10067.9,
-            "l": 22,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 4,
-            "r": 10021.6,
-            "l": 9,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 3,
-            "r": 10023.8,
+            "r": 10040.6,
             "l": 5,
             "beh": "SURVIVAL (WIN)"
         },
         {
-            "t": 2,
-            "r": 10031.8,
-            "l": 20,
+            "t": 12,
+            "r": 10037.0,
+            "l": 6,
             "beh": "SURVIVAL (WIN)"
         },
         {
+            "t": 11,
+            "r": -10188.4,
+            "l": 12,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 10,
+            "r": 10027.4,
+            "l": 7,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 9,
+            "r": 10038.0,
+            "l": 12,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 8,
+            "r": -10090.6,
+            "l": 53,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 7,
+            "r": 10034.6,
+            "l": 15,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 6,
+            "r": 10028.2,
+            "l": 5,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 5,
+            "r": -10085.5,
+            "l": 42,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 4,
+            "r": -10185.7,
+            "l": 73,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 3,
+            "r": 10030.1,
+            "l": 8,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 2,
+            "r": -10186.7,
+            "l": 38,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
             "t": 1,
-            "r": 10022.7,
-            "l": 63,
+            "r": 10028.5,
+            "l": 5,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 0,
-            "r": -10088.5,
-            "l": 37,
+            "r": -10092.7,
+            "l": 23,
             "beh": "DEATH (LOSS/WAIT)"
         }
     ]
