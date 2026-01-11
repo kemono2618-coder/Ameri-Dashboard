@@ -1,14 +1,14 @@
 {
     "status": "active",
-    "total_steps": 29696,
+    "total_steps": 34816,
     "target_steps": 2000000,
-    "prog_pct": 1.5,
-    "phase_title": "Phase 5: 市場支配",
-    "phase_desc": "完成されたロジック",
-    "phase_color": "#0088FF",
+    "prog_pct": 1.7,
+    "phase_title": "Phase 4: 覇道",
+    "phase_desc": "トレンドフォロー・利益追求",
+    "phase_color": "#00FF00",
     "diagnosis": {
         "expected_phase": "Phase 1: 阿鼻叫喚の特攻",
-        "actual_phase": "Phase 5: 市場支配",
+        "actual_phase": "Phase 4: 覇道",
         "status_text": "🚀 覚醒中 (Sniper)",
         "status_color": "#00FFFF",
         "sniper_stats": {
@@ -22,9 +22,9 @@
         "SELL": "0",
         "HOLD": "0"
     },
-    "ai_status": "Training (29,696)",
+    "ai_status": "Training (34,816)",
     "total_eps": 100,
-    "avg_score": 960.3,
+    "avg_score": 495.3,
     "config": {
         "phases": [
             {
@@ -72,93 +72,93 @@
     "logs": [
         {
             "t": 14,
-            "r": -2005.2,
-            "l": 53,
+            "r": -2018.0,
+            "l": 181,
             "beh": "💀 BUSTED"
         },
         {
             "t": 13,
-            "r": 1965.1,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2005.7,
+            "l": 58,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 12,
-            "r": -2030.2,
-            "l": 25,
+            "r": -2039.5,
+            "l": 281,
             "beh": "💀 BUSTED"
         },
         {
             "t": 11,
-            "r": -545.6,
+            "r": 1993.6,
             "l": 288,
-            "beh": "❌ FAILED"
-        },
-        {
-            "t": 10,
-            "r": -532.4,
-            "l": 288,
-            "beh": "❌ FAILED"
-        },
-        {
-            "t": 9,
-            "r": -2007.4,
-            "l": 88,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 8,
-            "r": -526.5,
-            "l": 288,
-            "beh": "❌ FAILED"
-        },
-        {
-            "t": 7,
-            "r": 2327.6,
-            "l": 223,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
-            "t": 6,
-            "r": -518.3,
+            "t": 10,
+            "r": 1969.9,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 9,
+            "r": 2766.7,
+            "l": 145,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 8,
+            "r": 2365.0,
+            "l": 213,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 7,
+            "r": -522.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
+            "t": 6,
+            "r": 1977.3,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
             "t": 5,
-            "r": 3188.2,
-            "l": 53,
+            "r": 1972.6,
+            "l": 288,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 4,
-            "r": 2664.6,
-            "l": 157,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 3,
-            "r": 3403.5,
-            "l": 10,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 2,
-            "r": -2014.2,
-            "l": 86,
+            "r": -2001.0,
+            "l": 11,
             "beh": "💀 BUSTED"
         },
         {
-            "t": 1,
-            "r": -543.9,
+            "t": 3,
+            "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
-            "t": 0,
-            "r": -548.3,
+            "t": 2,
+            "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
+        },
+        {
+            "t": 1,
+            "r": 3121.8,
+            "l": 67,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 0,
+            "r": 1962.7,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         }
     ]
 }
