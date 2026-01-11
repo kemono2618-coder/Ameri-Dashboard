@@ -25,7 +25,7 @@
         .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
         .metric-label { font-size: 0.8rem; color: #8b949e; }
 
-        /* Sniper Report (New) */
+        /* Sniper Report */
         .sniper-box { background: rgba(56, 139, 253, 0.1); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
         .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; margin-top: 1rem; }
         .s-val { font-size: 2rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(56, 139, 253, 0.5); }
@@ -33,8 +33,10 @@
 
         /* Phase Info */
         .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
+        .phase-progress { width: 100%; background: #30363d; height: 4px; border-radius: 2px; margin-bottom: 1rem; overflow: hidden; }
+        .phase-bar { height: 100%; background: #238636; width: 0%; transition: width 1s; }
         
-        /* Action Stats (Text) */
+        /* Action Stats */
         .action-row { display: flex; gap: 2rem; justify-content: center; background: var(--secondary-bg); padding: 1rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .act-item { font-size: 1.1rem; }
         .act-buy { color: #3fb950; }
@@ -89,8 +91,9 @@
             </div>
 
             <div class="phase-box" id="phase-box">
+                <div class="phase-progress"><div class="phase-bar" id="phase-bar"></div></div>
                 <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
-                <div id="phase-desc">Loading...</div>
+                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8;">Loading...</div>
             </div>
 
             <h3>⚖️ Action Distribution (Bias Check)</h3>
@@ -130,8 +133,11 @@
         }
 
         function render(data) {
-            // Basic Metrics
-            document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
+            // Metrics
+            // ステップ数を Current / Max 形式に
+            const maxSteps = data.target_steps ? data.target_steps.toLocaleString() : "2,000,000";
+            document.getElementById('total-steps').innerText = `${data.total_steps.toLocaleString()} / ${maxSteps}`;
+            
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
             document.getElementById('prog-pct').innerText = data.prog_pct + "%";
 
@@ -142,12 +148,10 @@
                 document.getElementById('s-fast').innerText = s.fastest_kill;
                 document.getElementById('s-margin').innerText = s.lowest_margin;
                 
-                // Status Badge
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
                 badge.style.backgroundColor = data.diagnosis.status_color;
                 
-                // 明るい背景色の場合は文字を黒く
                 const brightColors = ["#00FF00", "#00FFFF", "#FFFF00", "#FFA500"];
                 if(brightColors.includes(data.diagnosis.status_color)) {
                     badge.style.color = "#000";
@@ -160,6 +164,9 @@
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
+            // 進捗バーの色と幅
+            document.getElementById('phase-bar').style.width = data.prog_pct + "%";
+            document.getElementById('phase-bar').style.backgroundColor = data.phase_color;
 
             // Action Stats
             if (data.action_stats) {
