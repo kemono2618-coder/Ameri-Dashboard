@@ -1,30 +1,30 @@
 {
     "status": "active",
-    "total_steps": 104960,
+    "total_steps": 109568,
     "target_steps": 2000000,
-    "prog_pct": 5.2,
-    "phase_title": "Phase 4: ノルマ達成・安定",
-    "phase_desc": "1万円を稼ぐコツを把握。リスクを抑えて任務を完了できる状態。",
-    "phase_color": "#00FF00",
+    "prog_pct": 5.5,
+    "phase_title": "Phase 5: 完全攻略・瞬殺",
+    "phase_desc": "最短ステップ・最小リスクで、機械的に1万円を抜き取る完成形。",
+    "phase_color": "#0088FF",
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
-        "actual_phase": "Phase 4: ノルマ達成・安定",
+        "actual_phase": "Phase 5: 完全攻略・瞬殺",
         "status_text": "🚀 覚醒中",
         "status_color": "#00FFFF",
         "sniper_stats": {
-            "mission_rate": "36.0 %",
-            "fastest_kill": "8 steps",
+            "mission_rate": "39.0 %",
+            "fastest_kill": "15 steps",
             "lowest_margin": "22.2 %"
         }
     },
     "action_stats": {
-        "BUY": "28757 (27.4%)",
-        "SELL": "45072 (42.9%)",
-        "HOLD": "31131 (29.7%)"
+        "BUY": "28800 (26.3%)",
+        "SELL": "49554 (45.2%)",
+        "HOLD": "31214 (28.5%)"
     },
-    "ai_status": "Training (104,960)",
+    "ai_status": "Training (109,568)",
     "total_eps": 100,
-    "avg_score": 107.1,
+    "avg_score": 694.1,
     "config": {
         "phases": [
             {
@@ -72,92 +72,92 @@
     "logs": [
         {
             "t": 14,
-            "r": -537.6,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": 3229.5,
+            "l": 44,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 13,
-            "r": -2000.0,
-            "l": 217,
+            "r": -2003.7,
+            "l": 38,
             "beh": "💀 BUSTED"
         },
         {
             "t": 12,
-            "r": -545.0,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": 3345.2,
+            "l": 21,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 11,
-            "r": 2470.8,
-            "l": 197,
+            "r": 3077.0,
+            "l": 74,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 10,
-            "r": -530.3,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": 3109.8,
+            "l": 67,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 9,
-            "r": -2032.0,
-            "l": 128,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 8,
-            "r": -529.8,
+            "r": -557.7,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
+            "t": 8,
+            "r": -2054.7,
+            "l": 191,
+            "beh": "💀 BUSTED"
+        },
+        {
             "t": 7,
-            "r": 2598.8,
-            "l": 172,
+            "r": 3057.9,
+            "l": 77,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 6,
-            "r": -528.3,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": 3176.8,
+            "l": 56,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 5,
-            "r": -522.7,
+            "r": -571.9,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
             "t": 4,
-            "r": 2415.6,
-            "l": 204,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 3,
-            "r": -570.5,
+            "r": -524.4,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
+            "t": 3,
+            "r": 3295.5,
+            "l": 33,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
             "t": 2,
-            "r": -2004.2,
-            "l": 14,
-            "beh": "💀 BUSTED"
+            "r": 3304.8,
+            "l": 30,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 1,
-            "r": -2005.5,
-            "l": 30,
-            "beh": "💀 BUSTED"
+            "r": 3368.8,
+            "l": 16,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 0,
-            "r": 2633.9,
-            "l": 166,
+            "r": 2956.1,
+            "l": 99,
             "beh": "🎯 MISSION COMPLETE"
         }
     ]
