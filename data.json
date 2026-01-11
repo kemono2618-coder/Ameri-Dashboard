@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 123904,
+    "total_steps": 128512,
     "target_steps": 2000000,
-    "prog_pct": 6.2,
+    "prog_pct": 6.4,
     "phase_title": "Phase 2: 損失恐怖・硬直",
     "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
     "phase_color": "#FFA500",
@@ -12,19 +12,19 @@
         "status_text": "🚀 覚醒中",
         "status_color": "#00FFFF",
         "sniper_stats": {
-            "mission_rate": "33.0 %",
-            "fastest_kill": "16 steps",
+            "mission_rate": "27.0 %",
+            "fastest_kill": "18 steps",
             "lowest_margin": "93.8 %"
         }
     },
     "action_stats": {
-        "BUY": "28843 (23.3%)",
-        "SELL": "63734 (51.4%)",
-        "HOLD": "31327 (25.3%)"
+        "BUY": "28847 (22.4%)",
+        "SELL": "68312 (53.2%)",
+        "HOLD": "31353 (24.4%)"
     },
-    "ai_status": "Training (123,904)",
+    "ai_status": "Training (128,512)",
     "total_eps": 100,
-    "avg_score": -220.3,
+    "avg_score": -192.7,
     "config": {
         "phases": [
             {
@@ -72,93 +72,93 @@
     "logs": [
         {
             "t": 14,
-            "r": -2024.7,
-            "l": 248,
-            "beh": "💀 BUSTED"
+            "r": 3069.4,
+            "l": 82,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 13,
-            "r": -2000.7,
-            "l": 8,
-            "beh": "💀 BUSTED"
+            "r": -546.5,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 12,
-            "r": 3252.0,
-            "l": 45,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -543.4,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 11,
-            "r": -2005.5,
-            "l": 37,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 10,
-            "r": 2717.3,
-            "l": 151,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 9,
-            "r": -2001.5,
-            "l": 16,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 8,
             "r": -511.2,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
-            "t": 7,
-            "r": 2735.2,
-            "l": 158,
+            "t": 10,
+            "r": -529.0,
+            "l": 288,
+            "beh": "❌ FAILED"
+        },
+        {
+            "t": 9,
+            "r": 2928.2,
+            "l": 112,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
-            "t": 6,
-            "r": -2005.6,
-            "l": 57,
+            "t": 8,
+            "r": -548.9,
+            "l": 288,
+            "beh": "❌ FAILED"
+        },
+        {
+            "t": 7,
+            "r": -2019.6,
+            "l": 146,
             "beh": "💀 BUSTED"
         },
         {
-            "t": 5,
-            "r": -555.7,
+            "t": 6,
+            "r": -532.8,
             "l": 288,
             "beh": "❌ FAILED"
+        },
+        {
+            "t": 5,
+            "r": -2014.2,
+            "l": 155,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 4,
-            "r": -551.2,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": -2012.5,
+            "l": 126,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 3,
-            "r": -2003.6,
-            "l": 37,
+            "r": -2037.9,
+            "l": 268,
             "beh": "💀 BUSTED"
         },
         {
             "t": 2,
-            "r": -2000.2,
-            "l": 3,
-            "beh": "💀 BUSTED"
+            "r": -533.0,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 1,
-            "r": -2000.5,
-            "l": 6,
+            "r": -2006.3,
+            "l": 64,
             "beh": "💀 BUSTED"
         },
         {
             "t": 0,
-            "r": 1971.2,
+            "r": -512.0,
             "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "beh": "❌ FAILED"
         }
     ]
 }
