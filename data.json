@@ -20,7 +20,7 @@
         "FAIL": 168,
         "BUST": 2018
     },
-    "ai_status": "Training (589,825)",
+    "ai_status": "Analyzed",
     "total_eps": 3920,
     "avg_score": 0,
     "config": {
@@ -158,5 +158,20 @@
             "l": 28,
             "beh": "DEATH (LOSS/WAIT)"
         }
-    ]
+    ],
+    "analysis_report": {
+        "analyzed_eps": 3929,
+        "overall_win_rate": "44.24 %",
+        "overall_bust_rate": "51.46 %",
+        "speed_stats": {
+            "fastest": 2,
+            "slowest": 288,
+            "avg": 212.2
+        },
+        "margin_stats": {
+            "lowest": 51.4,
+            "highest": 993.9
+        },
+        "conclusion": "生存ルート開拓中"
+    }
 }
