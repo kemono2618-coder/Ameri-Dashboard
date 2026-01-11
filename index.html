@@ -122,7 +122,7 @@
                     <span class="c-val c-win" id="c-win">0</span>
                 </div>
                 <div class="combat-item">
-                    <span class="metric-label">FAILED (TimeUp/Loss)</span>
+                    <span class="metric-label">FAILED (Loss/TimeUp)</span>
                     <span class="c-val c-fail" id="c-fail">0</span>
                 </div>
                 <div class="combat-item">
@@ -190,7 +190,7 @@
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
                 
-                // 色処理 (黒文字か白文字か)
+                // 背景色に応じた文字色調整
                 let bgColor = data.diagnosis.status_color;
                 let textColor = "#fff";
                 if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00"].includes(bgColor)) {
@@ -228,10 +228,10 @@
             let rows = "";
             data.logs.forEach(log => {
                 let cls = "";
-                // SAWプロトコル対応: WIN含むなら緑、DEATH/BUSTなら赤
+                // SAW判定: Win(SURVIVAL)は緑、それ以外(DEATH/LOSS)は赤
                 if (log.beh.includes("WIN") || log.beh.includes("SURVIVAL")) cls = "res-win";
                 else if (log.beh.includes("BUST") || log.beh.includes("DEATH") || log.beh.includes("LOSS")) cls = "res-bust";
-                else cls = "res-fail"; // その他
+                else cls = "res-fail";
                 
                 rows += `<tr>
                     <td>${log.t}</td>
