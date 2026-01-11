@@ -1,31 +1,31 @@
 {
     "status": "active",
-    "total_steps": 26112,
+    "total_steps": 31232,
     "target_steps": 2000000,
-    "prog_pct": 1.3,
-    "phase_title": "Phase 5: 完全攻略・瞬殺",
-    "phase_desc": "最短ステップ・最小リスクで、機械的に1万円を抜き取る完成形。",
-    "phase_color": "#0088FF",
-    "phase_mastery": 100.0,
+    "prog_pct": 1.6,
+    "phase_title": "Phase 4: ノルマ達成・安定",
+    "phase_desc": "1万円を稼ぐコツを把握。リスクを抑えて任務を完了できる状態。",
+    "phase_color": "#00FF00",
+    "phase_mastery": 52.1,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
-        "actual_phase": "Phase 5: 完全攻略・瞬殺",
+        "actual_phase": "Phase 4: ノルマ達成・安定",
         "status_text": "覚醒中",
         "status_color": "#00FFFF",
         "sniper_stats": {
-            "mission_rate": "35.0 %",
+            "mission_rate": "33.0 %",
             "speed_range": "4 - 286",
             "margin_range": "360.3 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 44,
-        "FAIL": 72,
+        "WIN": 46,
+        "FAIL": 89,
         "BUST": 4
     },
-    "ai_status": "Training (26,112)",
+    "ai_status": "Training (31,232)",
     "total_eps": 100,
-    "avg_score": 634.3,
+    "avg_score": 308.3,
     "config": {
         "phases": [
             {
@@ -73,91 +73,91 @@
     "logs": [
         {
             "t": 14,
-            "r": -529.3,
+            "r": -532.3,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 13,
-            "r": -531.1,
+            "r": -530.6,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 12,
-            "r": 3407.1,
-            "l": 9,
+            "r": 2586.9,
+            "l": 170,
             "beh": "MISSION COMPLETE"
         },
         {
             "t": 11,
-            "r": 2490.4,
-            "l": 190,
-            "beh": "MISSION COMPLETE"
+            "r": -526.5,
+            "l": 288,
+            "beh": "FAILED"
         },
         {
             "t": 10,
-            "r": 2844.8,
-            "l": 120,
-            "beh": "MISSION COMPLETE"
+            "r": -511.4,
+            "l": 288,
+            "beh": "FAILED"
         },
         {
             "t": 9,
-            "r": -543.5,
+            "r": -527.0,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 8,
-            "r": -557.4,
+            "r": -523.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 7,
-            "r": -533.0,
+            "r": -529.2,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 6,
-            "r": -529.0,
+            "r": -530.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 5,
-            "r": -532.2,
+            "r": -530.0,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 4,
-            "r": 2751.6,
-            "l": 138,
+            "r": 2967.1,
+            "l": 98,
             "beh": "MISSION COMPLETE"
         },
         {
             "t": 3,
-            "r": -529.6,
+            "r": -505.4,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 2,
-            "r": -531.8,
+            "r": -525.9,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 1,
-            "r": 2623.4,
-            "l": 164,
-            "beh": "MISSION COMPLETE"
+            "r": -509.6,
+            "l": 288,
+            "beh": "FAILED"
         },
         {
             "t": 0,
-            "r": -547.9,
+            "r": -528.5,
             "l": 288,
             "beh": "FAILED"
         }
