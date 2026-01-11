@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1440577,
+    "total_steps": 1445388,
     "target_steps": 2000000,
-    "prog_pct": 72.0,
+    "prog_pct": 72.3,
     "phase_title": "Phase 3: 積極性回復課程 (50-80%)",
     "phase_desc": "リスクを取って攻める時期。ここでニートなのは異常(要改善)。",
     "phase_color": "#FFFF00",
@@ -13,18 +13,18 @@
         "status_text": "劣等生: 消極的すぎます (More Risk)",
         "status_color": "#FF4B4B",
         "sniper_stats": {
-            "mission_rate": "1.1 %",
+            "mission_rate": "1.0 %",
             "speed_range": "4 - 286",
             "margin_range": "294.4 - 999.0 %"
         }
     },
     "combat_stats": {
         "WIN": 53,
-        "FAIL": 4979,
+        "FAIL": 4995,
         "BUST": 4
     },
-    "ai_status": "Training (1,440,577)",
-    "total_eps": 5036,
+    "ai_status": "Training (1,445,388)",
+    "total_eps": 5052,
     "avg_score": 0,
     "config": {
         "phases": [
