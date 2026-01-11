@@ -3,193 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ameri-AI Data Analysis</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <title>Ameri-Sniper Dashboard</title>
     <style>
-        :root { --bg-color: #0E1117; --secondary-bg: #262730; --text-color: #FAFAFA; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: "Source Sans Pro", sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        .container { display: flex; flex: 1; }
+        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --accent-green: #238636; --accent-red: #da3633; --border: #30363d; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: "Consolas", "Monaco", monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Layout */
+        .container { display: flex; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
         @media (max-width: 768px) { .container { flex-direction: column; } }
-        .sidebar { width: 300px; background-color: var(--secondary-bg); padding: 2rem 1rem; border-right: 1px solid #333; flex-shrink: 0; }
-        @media (max-width: 768px) { .sidebar { width: auto; border-right: none; border-bottom: 1px solid #333; } }
-        .main { flex-grow: 1; padding: 2rem 3rem; overflow-y: auto; }
-        @media (max-width: 768px) { .main { padding: 1rem; } }
         
-        /* Metric Box */
-        .metric-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .metric-box { background: #1c1e24; padding: 1rem; border-radius: 0.5rem; border: 1px solid #333; }
-        .metric-label { font-size: 0.9rem; color: #aaa; }
-        .metric-value { font-size: 1.8rem; font-weight: bold; margin: 0.2rem 0; }
+        .main { flex-grow: 1; padding: 2rem; }
         
-        /* Progress Bar */
-        .progress-bar-bg { background-color: #333; height: 1.5rem; border-radius: 0.75rem; overflow: hidden; margin-top: 0.5rem; }
-        .progress-bar-fill { background-color: #228B22; height: 100%; width: 0%; transition: width 0.5s ease; }
-        
-        /* Phase Info Box (復活) */
-        .info-box { background-color: #1e2a3b; border-left: 5px solid #3b82f6; padding: 1rem; margin-top: 1rem; border-radius: 4px; transition: all 0.5s ease; }
-        
-        /* Roadmap Details (復活) */
-        details.roadmap { background: #1c1e24; border-radius: 0.5rem; border: 1px solid #333; margin-top: 1rem; margin-bottom: 2rem; }
-        details.roadmap summary { padding: 1rem; cursor: pointer; font-weight: bold; color: #ccc; }
-        .roadmap-content { padding: 0 1rem 1rem 1rem; border-top: 1px solid #333; font-size: 0.9rem; line-height: 1.6; color: #ddd; }
-        .phase-block { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #333; }
-        .phase-block:last-child { border-bottom: none; }
-        .phase-title { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; display: block;}
-        .phase-score { font-size: 0.85rem; color: #aaa; margin-left: 0.5rem; }
+        /* Headers */
+        h1, h2, h3 { color: #f0f6fc; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .status-active { color: #3fb950; font-weight: bold; }
+        .status-offline { color: #f85149; font-weight: bold; }
 
-        /* Diagnosis Report */
-        .diagnosis-box { background-color: #1e2a3b; border: 1px solid #444; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; border-radius: 8px; }
-        .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        .diag-item { background: #262730; padding: 1rem; border-radius: 4px; }
-        .diag-label { color: #aaa; font-size: 0.85rem; }
-        .diag-val { font-size: 1.1rem; font-weight: bold; }
-        .status-badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; background: #333; color: #fff; margin-top: 1rem; width: 100%; text-align: center; box-sizing: border-box;}
+        /* Metric Boxes (Top) */
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .metric-card { background: var(--secondary-bg); padding: 1rem; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+        .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
+        .metric-label { font-size: 0.8rem; color: #8b949e; }
 
-        /* Table & Charts */
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
-        th { text-align: left; border-bottom: 1px solid #444; padding: 0.5rem; color: #aaa; }
-        td { border-bottom: 1px solid #333; padding: 0.5rem; }
-        .chart-wrapper { width: 100%; height: 250px; margin-bottom: 2rem; }
+        /* Sniper Report (New) */
+        .sniper-box { background: rgba(56, 139, 253, 0.1); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; margin-top: 1rem; }
+        .s-val { font-size: 2rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(56, 139, 253, 0.5); }
+        .s-label { display: block; color: #8b949e; font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+        /* Phase Info */
+        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
+        
+        /* Action Stats (Text) */
+        .action-row { display: flex; gap: 2rem; justify-content: center; background: var(--secondary-bg); padding: 1rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
+        .act-item { font-size: 1.1rem; }
+        .act-buy { color: #3fb950; }
+        .act-sell { color: #f85149; }
+        .act-hold { color: #e1e4e8; }
+
+        /* Logs Table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { text-align: left; border-bottom: 1px solid var(--border); padding: 0.5rem; color: #8b949e; }
+        td { border-bottom: 1px solid var(--border); padding: 0.5rem; }
+        .res-win { color: #3fb950; }
+        .res-bust { color: #f85149; font-weight: bold; }
+        .res-fail { color: #d2a8ff; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <h2>📡 Ameri-AI Web</h2>
-            <div style="padding:1rem; background:#1a2e1a; border-left:5px solid #00FF00; border-radius:4px;">
-                <p><strong>Cloud Mode</strong></p>
-                <p>Status: <span id="sync-status" style="color:#00FF00">Online</span></p>
-                <p id="last-update" style="font-size:0.8rem; color:#aaa;">Waiting data...</p>
-            </div>
-            <hr style="border: 0; border-top: 1px solid #444; margin: 2rem 0;">
-            <p><strong>Goal Steps:</strong><br><span id="target-steps" style="font-size:1.5rem">--</span></p>
-        </div>
-
         <div class="main">
-            <h1>Ameri-AI Data Analysis</h1>
-            <h2 id="ai-status">AI Status: Loading...</h2>
-
-            <div class="metric-container">
-                <div class="metric-box"><div class="metric-label">総エピソード数</div><div class="metric-value" id="total-eps">--</div></div>
-                <div class="metric-box"><div class="metric-label">平均スコア (直近50戦)</div><div class="metric-value" id="avg-score">--</div></div>
-                <div class="metric-box"><div class="metric-label">生存率 (24H完走)</div><div class="metric-value" id="surv-rate">--%</div></div>
-                <div class="metric-box"><div class="metric-label">破綻率 (即死)</div><div class="metric-value" id="bust-rate" style="color:#FF4B4B">--%</div></div>
-            </div>
-
-            <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-bar"></div></div>
-
-            <div class="info-box" id="phase-box">
-                <strong id="phase-title">--</strong><br><span id="phase-desc">Analyzing data...</span>
-            </div>
-
-            <details class="roadmap">
-                <summary>📖 学習ロードマップ (クリックで展開)</summary>
-                <div class="roadmap-content" id="roadmap-container">
-                    Loading roadmap definition...
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h1>Ameri-Sniper System</h1>
+                <div style="text-align:right;">
+                    <div id="sync-status" class="status-offline">OFFLINE</div>
+                    <small id="last-update" style="color:#8b949e">--</small>
                 </div>
-            </details>
+            </div>
 
-            <div class="diagnosis-box">
-                <h3 style="margin-top:0;">📊 AI成長診断レポート</h3>
-                <div class="diag-grid">
-                    <div class="diag-item">
-                        <div class="diag-label">📅 経過時間からの期待値</div>
-                        <div class="diag-val" id="diag-expect" style="color: #aaa;">--</div>
+            <div class="metric-grid">
+                <div class="metric-card"><span class="metric-label">Total Steps</span><span class="metric-val" id="total-steps">--</span></div>
+                <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
+                <div class="metric-card"><span class="metric-label">Goal (+10k)</span><span class="metric-val">100% / Day</span></div>
+                <div class="metric-card"><span class="metric-label">Progress</span><span class="metric-val" id="prog-pct">--%</span></div>
+            </div>
+
+            <h2>🎯 Sniper Performance</h2>
+            <div class="sniper-box">
+                <div style="text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1rem;">ABSOLUTE MISSION: +10,000 JPY</div>
+                <div class="sniper-grid">
+                    <div>
+                        <span class="s-label">Mission Complete</span>
+                        <span class="s-val" id="s-rate">--%</span>
                     </div>
-                    <div class="diag-item">
-                        <div class="diag-label">💪 現在の実力 (スコアベース)</div>
-                        <div class="diag-val" id="diag-actual" style="color: #fff;">--</div>
+                    <div>
+                        <span class="s-label">Fastest Kill</span>
+                        <span class="s-val" id="s-fast">--</span>
+                    </div>
+                    <div>
+                        <span class="s-label">Lowest Margin (死線)</span>
+                        <span class="s-val" id="s-margin" style="color:#f85149">--%</span>
                     </div>
                 </div>
-                <div id="diag-status" class="status-badge">判定中...</div>
+                <div id="diag-status" style="text-align:center; margin-top:1.5rem; font-weight:bold; padding:0.5rem; background:#1f6feb; color:#fff; border-radius:4px;"> Analyzing... </div>
             </div>
 
-            <details open style="margin-top:2rem; margin-bottom: 2rem; background:#1c1e24; border-radius:0.5rem; border:1px solid #333;">
-                <summary style="padding:1rem; cursor:pointer; color:#aaa; font-weight:bold;">📋 直近の戦闘記録 (詳細)</summary>
-                <div style="padding:1rem; max-height: 300px; overflow-y: auto;">
-                    <table>
-                        <thead><tr><th>#</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
-                        <tbody id="log-table-body"></tbody>
-                    </table>
-                </div>
-            </details>
+            <div class="phase-box" id="phase-box">
+                <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
+                <div id="phase-desc">Loading...</div>
+            </div>
 
-            <h3>📈 行動内訳 (累積数値付き)</h3><div id="chart-bar" class="chart-wrapper"></div>
-            <h3>📉 スコア推移</h3><div id="chart-line" class="chart-wrapper"></div>
+            <h3>⚖️ Action Distribution (Bias Check)</h3>
+            <div class="action-row">
+                <div class="act-item act-buy">BUY: <span id="act-buy">--</span></div>
+                <div class="act-item act-sell">SELL: <span id="act-sell">--</span></div>
+                <div class="act-item act-hold">HOLD: <span id="act-hold">--</span></div>
+            </div>
+
+            <h3>📋 Recent Combat Log (Last 15)</h3>
+            <div style="background:var(--secondary-bg); border:1px solid var(--border); border-radius:6px; padding:1rem;">
+                <table>
+                    <thead><tr><th>#</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
+                    <tbody id="log-table-body"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
-        const REFRESH_RATE = 10000; 
+        const REFRESH_RATE = 5000; 
 
         async function fetchData() {
             try {
                 const res = await fetch('data.json?' + new Date().getTime());
-                if (!res.ok) throw new Error("Data fetch failed");
+                if (!res.ok) throw new Error("Fetch failed");
                 const data = await res.json();
-                renderDashboard(data);
-                document.getElementById('sync-status').innerText = "Online";
-                document.getElementById('sync-status').style.color = "#00FF00";
-                document.getElementById('last-update').innerText = "Update: " + new Date().toLocaleTimeString();
+                render(data);
+                document.getElementById('sync-status').innerText = "SYSTEM ONLINE";
+                document.getElementById('sync-status').className = "status-active";
+                document.getElementById('last-update').innerText = new Date().toLocaleTimeString();
             } catch (e) {
                 console.error(e);
-                document.getElementById('sync-status').innerText = "Offline";
-                document.getElementById('sync-status').style.color = "#FF4B4B";
+                document.getElementById('sync-status').innerText = "DISCONNECTED";
+                document.getElementById('sync-status').className = "status-offline";
             }
         }
 
-        function renderDashboard(data) {
-            // 基本ステータス
-            document.getElementById('ai-status').innerText = "AI Status: " + data.ai_status;
+        function render(data) {
+            // Basic Metrics
+            document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
-            document.getElementById('avg-score').innerText = data.avg_score.toFixed(1);
-            document.getElementById('avg-score').style.color = data.avg_score >= 0 ? '#00FF00' : '#FF4B4B';
-            document.getElementById('surv-rate').innerText = data.surv_rate.toFixed(1) + " %";
-            document.getElementById('bust-rate').innerText = data.bust_rate.toFixed(1) + " %";
-            document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
-            document.getElementById('prog-bar').style.width = data.prog_pct + "%";
+            document.getElementById('prog-pct').innerText = data.prog_pct + "%";
 
-            // ★復活: フェーズ情報
+            // Sniper Stats
+            if (data.diagnosis && data.diagnosis.sniper_stats) {
+                const s = data.diagnosis.sniper_stats;
+                document.getElementById('s-rate').innerText = s.mission_rate;
+                document.getElementById('s-fast').innerText = s.fastest_kill;
+                document.getElementById('s-margin').innerText = s.lowest_margin;
+                
+                // Status Badge
+                const badge = document.getElementById('diag-status');
+                badge.innerText = data.diagnosis.status_text;
+                badge.style.backgroundColor = data.diagnosis.status_color;
+                
+                // 明るい背景色の場合は文字を黒く
+                const brightColors = ["#00FF00", "#00FFFF", "#FFFF00", "#FFA500"];
+                if(brightColors.includes(data.diagnosis.status_color)) {
+                    badge.style.color = "#000";
+                } else {
+                    badge.style.color = "#fff";
+                }
+            }
+
+            // Phase Info
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
 
-            // ★復活: ロードマップ
-            if (data.config && data.config.phases) {
-                const roadmapHtml = data.config.phases.map(p => `
-                    <div class="phase-block">
-                        <span class="phase-title" style="color: ${p.color};">
-                            ${p.title} <span class="phase-score">Min Score: ${p.min_score}</span>
-                        </span>
-                        <strong>${p.desc}</strong>
-                    </div>
-                `).join('');
-                document.getElementById('roadmap-container').innerHTML = roadmapHtml;
+            // Action Stats
+            if (data.action_stats) {
+                document.getElementById('act-buy').innerText = data.action_stats.BUY;
+                document.getElementById('act-sell').innerText = data.action_stats.SELL;
+                document.getElementById('act-hold').innerText = data.action_stats.HOLD;
             }
 
-            // 診断データ
-            if (data.diagnosis) {
-                document.getElementById('diag-expect').innerText = data.diagnosis.expected_phase;
-                document.getElementById('diag-actual').innerText = data.diagnosis.actual_phase;
-                const badge = document.getElementById('diag-status');
-                badge.innerText = "判定: " + data.diagnosis.status_text;
-                badge.style.backgroundColor = data.diagnosis.status_color;
-                badge.style.color = "#000"; 
-            }
-
-            // グラフ
-            const opts = { actions: false, theme: 'dark', background: 'transparent' };
-            if (data.chart_json) {
-                vegaEmbed('#chart-bar', data.chart_json, opts);
-                vegaEmbed('#chart-line', data.line_json, opts);
-            }
-
-            // ログテーブル
+            // Logs
             let rows = "";
             data.logs.forEach(log => {
-                rows += `<tr><td>${log.t}</td><td style="color:${log.r >= 0 ? '#00FF00' : '#FF4B4B'}">${log.r}</td><td>${log.l}</td><td>${log.beh}</td></tr>`;
+                let cls = "";
+                if (log.beh.includes("MISSION")) cls = "res-win";
+                else if (log.beh.includes("BUSTED")) cls = "res-bust";
+                else if (log.beh.includes("FAILED") || log.beh.includes("LOSS")) cls = "res-fail";
+                
+                rows += `<tr>
+                    <td>${log.t}</td>
+                    <td style="color:${log.r > 0 ? '#3fb950' : '#f85149'}">${log.r}</td>
+                    <td>${log.l}</td>
+                    <td class="${cls}">${log.beh}</td>
+                </tr>`;
             });
             document.getElementById('log-table-body').innerHTML = rows;
         }
