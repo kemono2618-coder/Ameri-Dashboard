@@ -1,17 +1,17 @@
 {
     "status": "active",
-    "total_steps": 114688,
+    "total_steps": 120320,
     "target_steps": 2000000,
-    "prog_pct": 5.7,
-    "phase_title": "Phase 2: 損失恐怖・硬直",
-    "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
-    "phase_color": "#FFA500",
-    "phase_mastery": 11.1,
+    "prog_pct": 6.0,
+    "phase_title": "Phase 1: 無秩序・自滅",
+    "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
+    "phase_color": "#FF4B4B",
+    "phase_mastery": 99.7,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
-        "actual_phase": "Phase 2: 損失恐怖・硬直",
-        "status_text": "覚醒中",
-        "status_color": "#00FFFF",
+        "actual_phase": "Phase 1: 無秩序・自滅",
+        "status_text": "順調",
+        "status_color": "#00FF00",
         "sniper_stats": {
             "mission_rate": "1.0 %",
             "speed_range": "67 - 67",
@@ -20,12 +20,12 @@
     },
     "combat_stats": {
         "WIN": 50,
-        "FAIL": 377,
+        "FAIL": 396,
         "BUST": 4
     },
-    "ai_status": "Training (114,688)",
+    "ai_status": "Training (120,320)",
     "total_eps": 100,
-    "avg_score": -455.5,
+    "avg_score": -528.6,
     "config": {
         "phases": [
             {
@@ -79,19 +79,19 @@
         },
         {
             "t": 13,
-            "r": -528.8,
+            "r": -524.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 12,
-            "r": -529.1,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 11,
-            "r": -528.3,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -103,7 +103,7 @@
         },
         {
             "t": 9,
-            "r": -526.8,
+            "r": -526.1,
             "l": 288,
             "beh": "FAILED"
         },
@@ -151,7 +151,7 @@
         },
         {
             "t": 1,
-            "r": -528.8,
+            "r": -524.7,
             "l": 288,
             "beh": "FAILED"
         },
