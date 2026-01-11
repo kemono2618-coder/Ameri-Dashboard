@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1714177,
+    "total_steps": 1719361,
     "target_steps": 2000000,
-    "prog_pct": 85.7,
+    "prog_pct": 86.0,
     "phase_title": "Phase 4: 最終精度調整 (80-100%)",
     "phase_desc": "勝率とRR比の最適化。完成形へ。",
     "phase_color": "#00FF00",
@@ -20,11 +20,11 @@
     },
     "combat_stats": {
         "WIN": 53,
-        "FAIL": 5929,
+        "FAIL": 5947,
         "BUST": 4
     },
-    "ai_status": "Analyzed (Waiting for Next)",
-    "total_eps": 5986,
+    "ai_status": "Training (1,719,361)",
+    "total_eps": 6004,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -161,20 +161,5 @@
             "l": 288,
             "beh": "FAILED"
         }
-    ],
-    "analysis_report": {
-        "analyzed_eps": 5988,
-        "overall_win_rate": "0.89 %",
-        "overall_bust_rate": "0.07 %",
-        "speed_stats": {
-            "fastest": 4,
-            "slowest": 286,
-            "avg": 114.2
-        },
-        "margin_stats": {
-            "lowest": 294.4,
-            "highest": 999.0
-        },
-        "conclusion": "分析完了: 改善が必要(消極的)"
-    }
+    ]
 }
