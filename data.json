@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 245248,
+    "total_steps": 250368,
     "target_steps": 2000000,
-    "prog_pct": 12.3,
+    "prog_pct": 12.5,
     "phase_title": "Phase 2: 損失恐怖・硬直",
     "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
     "phase_color": "#FFA500",
@@ -12,19 +12,19 @@
         "status_text": "🚀 覚醒中",
         "status_color": "#00FFFF",
         "sniper_stats": {
-            "mission_rate": "27.0 %",
+            "mission_rate": "31.0 %",
             "fastest_kill": "29 steps",
-            "lowest_margin": "36.4 %"
+            "lowest_margin": "60.1 %"
         }
     },
     "action_stats": {
-        "BUY": "28958 (11.8%)",
-        "SELL": "184772 (75.3%)",
-        "HOLD": "31518 (12.9%)"
+        "BUY": "28959 (11.6%)",
+        "SELL": "189887 (75.8%)",
+        "HOLD": "31522 (12.6%)"
     },
-    "ai_status": "Training (245,248)",
+    "ai_status": "Training (250,368)",
     "total_eps": 100,
-    "avg_score": -243.6,
+    "avg_score": -225.1,
     "config": {
         "phases": [
             {
@@ -78,87 +78,87 @@
         },
         {
             "t": 13,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 12,
             "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
+            "t": 12,
+            "r": -2001.1,
+            "l": 12,
+            "beh": "💀 BUSTED"
+        },
+        {
             "t": 11,
-            "r": 3044.2,
-            "l": 85,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2003.2,
+            "l": 33,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 10,
-            "r": -2005.1,
-            "l": 52,
+            "r": -2014.9,
+            "l": 150,
             "beh": "💀 BUSTED"
         },
         {
             "t": 9,
-            "r": -551.5,
+            "r": 1986.9,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 8,
-            "r": -528.8,
+            "r": -2015.2,
+            "l": 153,
+            "beh": "💀 BUSTED"
+        },
+        {
+            "t": 7,
+            "r": -518.9,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
-            "t": 7,
+            "t": 6,
             "r": 1971.2,
             "l": 288,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
-            "t": 6,
-            "r": -2023.2,
-            "l": 233,
-            "beh": "💀 BUSTED"
-        },
-        {
             "t": 5,
-            "r": -532.5,
+            "r": 1971.2,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 4,
-            "r": 3191.9,
-            "l": 52,
+            "r": 3065.7,
+            "l": 80,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 3,
-            "r": -520.6,
+            "r": 1971.2,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 2,
-            "r": -2014.1,
-            "l": 142,
+            "r": -2003.6,
+            "l": 37,
             "beh": "💀 BUSTED"
         },
         {
             "t": 1,
-            "r": -528.8,
+            "r": 1971.2,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 0,
-            "r": 2811.9,
-            "l": 134,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2015.9,
+            "l": 160,
+            "beh": "💀 BUSTED"
         }
     ]
 }
