@@ -46,9 +46,7 @@
         }
 
         .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
-        .phase-progress { width: 100%; background: #30363d; height: 6px; border-radius: 3px; margin-bottom: 0.5rem; overflow: hidden; margin-top: 0.8rem; }
-        .phase-bar { height: 100%; background: #238636; width: 0%; transition: width 1s ease-in-out; }
-
+        
         .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
         .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
@@ -90,7 +88,7 @@
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
-            <h2>Sniper Performance</h2>
+            <h2>Sniper Performance (All Time)</h2>
             <div class="sniper-box">
                 <div class="sniper-header">ABSOLUTE MISSION: +10,000 JPY</div>
                 <div class="sniper-grid">
@@ -114,11 +112,7 @@
 
             <div class="phase-box" id="phase-box">
                 <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
-                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 1rem;">Loading...</div>
-                <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#8b949e; margin-bottom:0.2rem;">
-                    <span>Phase Mastery</span><span>100%</span>
-                </div>
-                <div class="phase-progress"><div class="phase-bar" id="phase-mastery"></div></div>
+                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 0.5rem;">Loading...</div>
             </div>
 
             <h3>Combat Record (Accumulative)</h3>
@@ -195,25 +189,19 @@
                 
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
+                badge.style.backgroundColor = data.diagnosis.status_color;
                 
-                let bgColor, textColor;
-                switch(data.diagnosis.status_color) {
-                    case "#00FF00": bgColor = "#238636"; textColor = "#fff"; break; 
-                    case "#00FFFF": bgColor = "#319795"; textColor = "#fff"; break; 
-                    case "#FFFF00": bgColor = "#979131"; textColor = "#fff"; break; 
-                    case "#FF4B4B": bgColor = "#973131"; textColor = "#fff"; break; 
-                    case "#FFA500": bgColor = "#976d31"; textColor = "#fff"; break; 
-                    default: bgColor = "#2c5282"; textColor = "#fff"; break; 
+                // 文字色は一律白か黒か調整
+                if(["#00FF00", "#00FFFF", "#FFFF00"].includes(data.diagnosis.status_color)) {
+                    badge.style.color = "#000";
+                } else {
+                    badge.style.color = "#fff";
                 }
-                badge.style.backgroundColor = bgColor;
-                badge.style.color = textColor;
             }
 
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
-            document.getElementById('phase-mastery').style.width = (data.phase_mastery || 0) + "%";
-            document.getElementById('phase-mastery').style.backgroundColor = data.phase_color;
 
             if (data.combat_stats) {
                 document.getElementById('c-win').innerText = data.combat_stats.WIN.toLocaleString();
