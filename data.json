@@ -23,7 +23,7 @@
         "FAIL": 5705,
         "BUST": 4
     },
-    "ai_status": "Training (1,649,888)",
+    "ai_status": "Analyzed (Waiting for Next)",
     "total_eps": 5762,
     "avg_score": 0,
     "config": {
@@ -161,5 +161,20 @@
             "l": 288,
             "beh": "FAILED"
         }
-    ]
+    ],
+    "analysis_report": {
+        "analyzed_eps": 5780,
+        "overall_win_rate": "0.92 %",
+        "overall_bust_rate": "0.07 %",
+        "speed_stats": {
+            "fastest": 4,
+            "slowest": 286,
+            "avg": 114.2
+        },
+        "margin_stats": {
+            "lowest": 294.4,
+            "highest": 999.0
+        },
+        "conclusion": "分析完了: 改善が必要(消極的)"
+    }
 }
