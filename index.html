@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ameri-Sniper Dashboard V6</title>
+    <title>Ameri-Sniper Dashboard</title>
     <style>
-        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --accent-green: #238636; --accent-red: #da3633; --border: #30363d; }
+        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --accent-green: #238636; --accent-red: #da3633; --border: #30363d; --highlight-blue: rgba(56, 139, 253, 0.15); }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: "Consolas", "Monaco", monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { display: flex; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
         @media (max-width: 768px) { .container { flex-direction: column; } }
@@ -15,46 +15,54 @@
         .status-active { color: #3fb950; font-weight: bold; }
         .status-offline { color: #f85149; font-weight: bold; }
 
-        /* Top Bar */
         .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; }
         .main-progress-bg { width: 100%; height: 8px; background: #30363d; border-radius: 4px; overflow: hidden; margin-bottom: 2rem; }
         .main-progress-fill { height: 100%; background: linear-gradient(90deg, #238636, #2ea043); width: 0%; transition: width 0.5s; }
 
-        /* Metrics */
         .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
         .metric-card { background: var(--secondary-bg); padding: 1rem; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
         .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
         .metric-label { font-size: 0.8rem; color: #8b949e; }
 
-        /* Sniper Report */
-        .sniper-box { background: rgba(56, 139, 253, 0.1); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
-        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; margin-top: 1rem; }
-        .s-val { font-size: 1.8rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(56, 139, 253, 0.5); }
-        .s-label { display: block; color: #8b949e; font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .s-sub { font-size: 0.9rem; color: #aaa; }
+        .sniper-box { background: var(--highlight-blue); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+        .sniper-header { text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1.5rem; letter-spacing: 1px; }
+        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+        .sniper-item { display: flex; flex-direction: column; align-items: center; }
+        .s-val { font-size: 2.2rem; font-weight: bold; color: #fff; text-shadow: 0 0 15px rgba(56, 139, 253, 0.6); line-height: 1.2; margin-top: 0.5rem; }
+        .s-label { display: block; color: #8b949e; font-size: 1rem; margin-bottom: 0; font-weight: bold; text-transform: uppercase; }
+        .s-sub { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; display: block; }
+        
+        #diag-status { 
+            text-align:center; 
+            margin: 1.5rem auto 0 auto; 
+            max-width: 600px; 
+            font-weight:bold; 
+            padding: 0.75rem; 
+            background: #2c5282; 
+            color:#fff; 
+            border-radius:4px; 
+            transition: background-color 0.5s, color 0.5s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-        /* Phase Info */
         .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
-        .phase-progress { width: 100%; background: #30363d; height: 4px; border-radius: 2px; margin-bottom: 0.5rem; overflow: hidden; margin-top: 0.5rem; }
-        .phase-bar { height: 100%; background: #238636; width: 0%; transition: width 1s; }
+        .phase-progress { width: 100%; background: #30363d; height: 6px; border-radius: 3px; margin-bottom: 0.5rem; overflow: hidden; margin-top: 0.8rem; }
+        .phase-bar { height: 100%; background: #238636; width: 0%; transition: width 1s ease-in-out; }
 
-        /* Combat Stats (Accumulative) */
-        .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
+        .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
-        .c-val { font-size: 1.5rem; font-weight: bold; display: block; }
+        .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
         .c-win { color: #3fb950; }
         .c-fail { color: #e1e4e8; }
         .c-bust { color: #f85149; }
 
-        /* Analysis Report (Footer) */
-        .analysis-box { background: #161b22; border: 1px solid #8b949e; padding: 1rem; border-radius: 6px; margin-top: 2rem; display: none; }
-        .analysis-active { display: block; border-color: #a371f7; box-shadow: 0 0 15px rgba(163, 113, 247, 0.2); }
+        .analysis-box { background: #161b22; border: 1px solid #a371f7; padding: 1.5rem; border-radius: 6px; margin-top: 2rem; display: none; box-shadow: 0 0 20px rgba(163, 113, 247, 0.15); }
+        .analysis-active { display: block; }
 
-        /* Logs Table */
-        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        th { text-align: left; border-bottom: 1px solid var(--border); padding: 0.5rem; color: #8b949e; }
-        td { border-bottom: 1px solid var(--border); padding: 0.5rem; }
-        .res-win { color: #3fb950; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
+        td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
+        .res-win { color: #3fb950; font-weight: bold; }
         .res-bust { color: #f85149; font-weight: bold; }
         .res-fail { color: #d2a8ff; }
     </style>
@@ -64,7 +72,7 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper V6</h1>
+                    <h1>Ameri-Sniper System</h1>
                     <span style="color:#8b949e;">Target: <span id="target-steps">2,000,000</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
@@ -82,39 +90,41 @@
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
-            <h2>🎯 Sniper Performance</h2>
+            <h2>Sniper Performance</h2>
             <div class="sniper-box">
-                <div style="text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1rem;">ABSOLUTE MISSION: +10,000 JPY</div>
+                <div class="sniper-header">ABSOLUTE MISSION: +10,000 JPY</div>
                 <div class="sniper-grid">
-                    <div>
+                    <div class="sniper-item">
                         <span class="s-label">Mission Complete</span>
                         <span class="s-val" id="s-rate">--%</span>
                     </div>
-                    <div>
+                    <div class="sniper-item">
                         <span class="s-label">Speed Range (Steps)</span>
                         <span class="s-val" id="s-speed">--</span>
                         <span class="s-sub">Fastest - Slowest</span>
                     </div>
-                    <div>
+                    <div class="sniper-item">
                         <span class="s-label">Margin Range (Survival)</span>
                         <span class="s-val" id="s-margin" style="color:#f85149">--</span>
                         <span class="s-sub">Lowest - Highest</span>
                     </div>
                 </div>
-                <div id="diag-status" style="text-align:center; margin-top:1.5rem; font-weight:bold; padding:0.5rem; background:#1f6feb; color:#fff; border-radius:4px;"> Analyzing... </div>
+                <div id="diag-status"> Analyzing... </div>
             </div>
 
             <div class="phase-box" id="phase-box">
                 <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
-                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8;">Loading...</div>
+                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 1rem;">Loading...</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#8b949e; margin-bottom:0.2rem;">
+                    <span>Phase Mastery</span><span>100%</span>
+                </div>
                 <div class="phase-progress"><div class="phase-bar" id="phase-mastery"></div></div>
-                <div style="text-align:right; font-size:0.8rem; color:#8b949e;">Phase Mastery</div>
             </div>
 
-            <h3>📊 Combat Record (Accumulative)</h3>
+            <h3>Combat Record (Accumulative)</h3>
             <div class="combat-row">
                 <div class="combat-item">
-                    <span class="metric-label">MISSION COMPLETE</span>
+                    <span class="metric-label" style="color:#3fb950;">MISSION COMPLETE</span>
                     <span class="c-val c-win" id="c-win">0</span>
                 </div>
                 <div class="combat-item">
@@ -122,12 +132,12 @@
                     <span class="c-val c-fail" id="c-fail">0</span>
                 </div>
                 <div class="combat-item">
-                    <span class="metric-label">BUSTED (Instant Death)</span>
+                    <span class="metric-label" style="color:#f85149;">BUSTED (Instant Death)</span>
                     <span class="c-val c-bust" id="c-bust">0</span>
                 </div>
             </div>
 
-            <h3>📋 Recent Combat Log (Last 15)</h3>
+            <h3>Recent Combat Log (Last 15)</h3>
             <div style="background:var(--secondary-bg); border:1px solid var(--border); border-radius:6px; padding:1rem;">
                 <table>
                     <thead><tr><th>#</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
@@ -136,15 +146,15 @@
             </div>
 
             <div id="analysis-section" class="analysis-box">
-                <h3 style="color:#a371f7;">🧠 Post-Mortem Analysis Report</h3>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <h3 style="color:#a371f7; margin-top:0;">Post-Mortem Analysis Report</h3>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
                     <div>
-                        <p><strong>Overall Win Rate:</strong> <span id="ana-win">--</span></p>
-                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust">--</span></p>
+                        <p><strong>Overall Win Rate:</strong> <span id="ana-win" style="font-size:1.2rem; font-weight:bold;">--</span></p>
+                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust" style="font-size:1.2rem; font-weight:bold; color:#f85149;">--</span></p>
                     </div>
                     <div>
-                        <p><strong>Avg Kill Speed:</strong> <span id="ana-avg">--</span> steps</p>
-                        <p><strong>Conclusion:</strong> <span id="ana-conc">--</span></p>
+                        <p><strong>Avg Kill Speed:</strong> <span id="ana-avg" style="font-size:1.2rem; font-weight:bold;">--</span> steps</p>
+                        <p><strong>Conclusion:</strong> <span id="ana-conc" style="font-weight:bold; padding:0.2rem 0.5rem; background:#30363d; border-radius:4px;">--</span></p>
                     </div>
                 </div>
             </div>
@@ -171,15 +181,12 @@
         }
 
         function render(data) {
-            // Main Progress
             document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
             document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
             document.getElementById('prog-pct').innerText = data.prog_pct + "%";
             document.getElementById('main-prog-bar').style.width = data.prog_pct + "%";
-            
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
 
-            // Sniper Stats (Min-Max)
             if (data.diagnosis && data.diagnosis.sniper_stats) {
                 const s = data.diagnosis.sniper_stats;
                 document.getElementById('s-rate').innerText = s.mission_rate;
@@ -188,26 +195,32 @@
                 
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
-                badge.style.backgroundColor = data.diagnosis.status_color;
-                badge.style.color = ["#00FF00", "#00FFFF", "#FFFF00", "#FFA500"].includes(data.diagnosis.status_color) ? "#000" : "#fff";
+                
+                let bgColor, textColor;
+                switch(data.diagnosis.status_color) {
+                    case "#00FF00": bgColor = "#238636"; textColor = "#fff"; break; 
+                    case "#00FFFF": bgColor = "#319795"; textColor = "#fff"; break; 
+                    case "#FFFF00": bgColor = "#979131"; textColor = "#fff"; break; 
+                    case "#FF4B4B": bgColor = "#973131"; textColor = "#fff"; break; 
+                    case "#FFA500": bgColor = "#976d31"; textColor = "#fff"; break; 
+                    default: bgColor = "#2c5282"; textColor = "#fff"; break; 
+                }
+                badge.style.backgroundColor = bgColor;
+                badge.style.color = textColor;
             }
 
-            // Phase Info
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
-            // Mastery Bar
             document.getElementById('phase-mastery').style.width = (data.phase_mastery || 0) + "%";
             document.getElementById('phase-mastery').style.backgroundColor = data.phase_color;
 
-            // Accumulative Stats
             if (data.combat_stats) {
-                document.getElementById('c-win').innerText = data.combat_stats.WIN;
-                document.getElementById('c-fail').innerText = data.combat_stats.FAIL;
-                document.getElementById('c-bust').innerText = data.combat_stats.BUST;
+                document.getElementById('c-win').innerText = data.combat_stats.WIN.toLocaleString();
+                document.getElementById('c-fail').innerText = data.combat_stats.FAIL.toLocaleString();
+                document.getElementById('c-bust').innerText = data.combat_stats.BUST.toLocaleString();
             }
 
-            // Analysis Report (Show if exists)
             if (data.analysis_report) {
                 const ana = data.analysis_report;
                 document.getElementById('analysis-section').className = "analysis-box analysis-active";
@@ -215,9 +228,14 @@
                 document.getElementById('ana-bust').innerText = ana.overall_bust_rate;
                 document.getElementById('ana-avg').innerText = ana.speed_stats.avg;
                 document.getElementById('ana-conc').innerText = ana.conclusion;
+                
+                if(ana.conclusion.includes("順調")) {
+                    document.getElementById('ana-conc').style.color = "#3fb950";
+                } else {
+                    document.getElementById('ana-conc').style.color = "#f85149";
+                }
             }
 
-            // Logs
             let rows = "";
             data.logs.forEach(log => {
                 let cls = "";
