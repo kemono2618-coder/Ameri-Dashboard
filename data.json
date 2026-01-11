@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1450369,
+    "total_steps": 1455553,
     "target_steps": 2000000,
-    "prog_pct": 72.5,
+    "prog_pct": 72.8,
     "phase_title": "Phase 3: 積極性回復課程 (50-80%)",
     "phase_desc": "リスクを取って攻める時期。ここでニートなのは異常(要改善)。",
     "phase_color": "#FFFF00",
@@ -20,11 +20,11 @@
     },
     "combat_stats": {
         "WIN": 53,
-        "FAIL": 5013,
+        "FAIL": 5031,
         "BUST": 4
     },
-    "ai_status": "Training (1,450,369)",
-    "total_eps": 5070,
+    "ai_status": "Training (1,455,553)",
+    "total_eps": 5088,
     "avg_score": 0,
     "config": {
         "phases": [
