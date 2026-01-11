@@ -1,30 +1,30 @@
 {
     "status": "active",
-    "total_steps": 1595521,
+    "total_steps": 1600396,
     "target_steps": 2000000,
-    "prog_pct": 79.8,
-    "phase_title": "Phase 3: 積極性回復課程 (50-80%)",
-    "phase_desc": "リスクを取って攻める時期。ここでニートなのは異常(要改善)。",
-    "phase_color": "#FFFF00",
+    "prog_pct": 80.0,
+    "phase_title": "Phase 4: 最終精度調整 (80-100%)",
+    "phase_desc": "勝率とRR比の最適化。完成形へ。",
+    "phase_color": "#00FF00",
     "phase_mastery": 0,
     "diagnosis": {
-        "expected_phase": "Phase 3: 積極性回復課程 (50-80%)",
-        "actual_phase": "Phase 3: 積極性回復課程 (50-80%)",
+        "expected_phase": "Phase 4: 最終精度調整 (80-100%)",
+        "actual_phase": "Phase 4: 最終精度調整 (80-100%)",
         "status_text": "劣等生: 消極的すぎます (More Risk)",
         "status_color": "#FF4B4B",
         "sniper_stats": {
-            "mission_rate": "1.0 %",
+            "mission_rate": "0.9 %",
             "speed_range": "4 - 286",
             "margin_range": "294.4 - 999.0 %"
         }
     },
     "combat_stats": {
         "WIN": 53,
-        "FAIL": 5517,
+        "FAIL": 5533,
         "BUST": 4
     },
-    "ai_status": "Training (1,595,521)",
-    "total_eps": 5574,
+    "ai_status": "Training (1,600,396)",
+    "total_eps": 5590,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -133,7 +133,7 @@
         },
         {
             "t": 4,
-            "r": -529.1,
+            "r": -529.2,
             "l": 288,
             "beh": "FAILED"
         },
