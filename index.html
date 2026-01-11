@@ -3,127 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ameri-Sniper SAW Dashboard</title>
+    <title>Ameri-Sniper Dashboard</title>
     <style>
-        :root { --bg-color: #000000; --secondary-bg: #111111; --text-color: #e0e0e0; --accent-green: #00ff00; --accent-red: #ff0000; --border: #333; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --accent-green: #238636; --accent-red: #da3633; --border: #30363d; --highlight-blue: rgba(56, 139, 253, 0.15); }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: "Consolas", "Monaco", monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { display: flex; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+        @media (max-width: 768px) { .container { flex-direction: column; } }
         .main { flex-grow: 1; padding: 2rem; }
-        h1, h2 { border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: #fff; }
-        .status-active { color: #00ff00; font-weight: bold; }
-        .status-offline { color: #555; font-weight: bold; }
         
-        .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
-        .metric-card { background: var(--secondary-bg); padding: 1rem; border: 1px solid var(--border); text-align: center; }
-        .metric-val { font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; display:block; }
-        
-        .sniper-box { border: 1px solid #ff0000; background: #1a0000; padding: 1.5rem; margin-bottom: 2rem; text-align: center; }
-        .sniper-header { color: #ff0000; font-weight: bold; letter-spacing: 2px; margin-bottom: 1rem; }
-        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .s-val { font-size: 2rem; font-weight: bold; display: block; }
-        .s-label { color: #888; font-size: 0.9rem; }
+        h1, h2, h3 { color: #f0f6fc; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .status-active { color: #3fb950; font-weight: bold; }
+        .status-offline { color: #f85149; font-weight: bold; }
 
-        .phase-box { background: var(--secondary-bg); border-left: 5px solid #555; padding: 1rem; margin-bottom: 2rem; }
-        
-        .combat-row { display: flex; gap: 1rem; background: var(--secondary-bg); padding: 1rem; margin-bottom: 2rem; }
-        .combat-item { flex: 1; text-align: center; }
-        .c-win { color: #00ff00; font-size: 1.5rem; font-weight: bold; display: block; }
-        .c-die { color: #ff0000; font-size: 1.5rem; font-weight: bold; display: block; }
+        .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; }
+        .main-progress-bg { width: 100%; height: 8px; background: #30363d; border-radius: 4px; overflow: hidden; margin-bottom: 2rem; }
+        .main-progress-fill { height: 100%; background: linear-gradient(90deg, #238636, #2ea043); width: 0%; transition: width 0.5s; }
 
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border-bottom: 1px solid var(--border); padding: 0.5rem; text-align: left; }
-        .res-win { color: #00ff00; }
-        .res-die { color: #ff0000; }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .metric-card { background: var(--secondary-bg); padding: 1rem; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+        .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
+        .metric-label { font-size: 0.8rem; color: #8b949e; }
+
+        .sniper-box { background: var(--highlight-blue); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+        .sniper-header { text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1.5rem; letter-spacing: 1px; }
+        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+        .sniper-item { display: flex; flex-direction: column; align-items: center; }
+        .s-val { font-size: 2.2rem; font-weight: bold; color: #fff; text-shadow: 0 0 15px rgba(56, 139, 253, 0.6); line-height: 1.2; margin-top: 0.5rem; }
+        .s-label { display: block; color: #8b949e; font-size: 1rem; margin-bottom: 0; font-weight: bold; text-transform: uppercase; }
+        .s-sub { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; display: block; }
         
-        #diag-status { background: #333; padding: 5px; margin-top: 10px; display: inline-block; font-weight: bold; }
+        #diag-status { 
+            text-align:center; 
+            margin: 1.5rem auto 0 auto; 
+            max-width: 600px; 
+            font-weight:bold; 
+            padding: 0.75rem; 
+            background: #2c5282; 
+            color:#fff; 
+            border-radius:4px; 
+            transition: background-color 0.5s, color 0.5s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
+        
+        .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
+        .combat-item { text-align: center; flex: 1; }
+        .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
+        .c-win { color: #3fb950; }
+        .c-fail { color: #e1e4e8; }
+        .c-bust { color: #f85149; }
+
+        .analysis-box { background: #161b22; border: 1px solid #a371f7; padding: 1.5rem; border-radius: 6px; margin-top: 2rem; display: none; box-shadow: 0 0 20px rgba(163, 113, 247, 0.15); }
+        .analysis-active { display: block; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
+        td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
+        .res-win { color: #3fb950; font-weight: bold; }
+        .res-bust { color: #f85149; font-weight: bold; }
+        .res-fail { color: #d2a8ff; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="main">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <h1>Ameri-Sniper: SAW Protocol</h1>
-                <div id="sync-status" class="status-offline">OFFLINE</div>
+            <div class="top-bar">
+                <div style="display:flex; align-items:baseline; gap:1rem;">
+                    <h1>Ameri-Sniper System</h1>
+                    <span style="color:#8b949e;">Target: <span id="target-steps">3,000,000</span> Steps</span>
+                </div>
+                <div style="text-align:right;">
+                    <div id="sync-status" class="status-offline">OFFLINE</div>
+                    <small id="last-update" style="color:#8b949e">--</small>
+                </div>
             </div>
+
+            <div class="main-progress-bg"><div class="main-progress-fill" id="main-prog-bar"></div></div>
 
             <div class="metric-grid">
-                <div class="metric-card"><span>Steps</span><span class="metric-val" id="total-steps">--</span></div>
-                <div class="metric-card"><span>Progress</span><span class="metric-val" id="prog-pct">--%</span></div>
-                <div class="metric-card"><span>Target</span><span class="metric-val">+2,000 JPY</span></div>
-                <div class="metric-card"><span>Episodes</span><span class="metric-val" id="total-eps">--</span></div>
+                <div class="metric-card"><span class="metric-label">Current Steps</span><span class="metric-val" id="total-steps">--</span></div>
+                <div class="metric-card"><span class="metric-label">Progress</span><span class="metric-val" id="prog-pct">--%</span></div>
+                <div class="metric-card"><span class="metric-label">Goal (+2k)</span><span class="metric-val">100% / Day</span></div>
+                <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
+            <h2>Sniper Performance (Precision Protocol)</h2>
             <div class="sniper-box">
-                <div class="sniper-header">WIN OR DIE</div>
+                <div class="sniper-header">ABSOLUTE MISSION: +2,000 JPY (20%)</div>
                 <div class="sniper-grid">
-                    <div><span class="s-label">Survival Rate</span><span class="s-val" id="s-rate" style="color:#fff">--%</span></div>
-                    <div><span class="s-label">Speed</span><span class="s-val" id="s-speed" style="color:#fff">--</span></div>
-                    <div><span class="s-label">Margin</span><span class="s-val" id="s-margin" style="color:#fff">--</span></div>
+                    <div class="sniper-item">
+                        <span class="s-label">Mission Complete</span>
+                        <span class="s-val" id="s-rate">--%</span>
+                    </div>
+                    <div class="sniper-item">
+                        <span class="s-label">Speed Range (Steps)</span>
+                        <span class="s-val" id="s-speed">--</span>
+                        <span class="s-sub">Fastest - Slowest</span>
+                    </div>
+                    <div class="sniper-item">
+                        <span class="s-label">Margin Range (Survival)</span>
+                        <span class="s-val" id="s-margin" style="color:#f85149">--</span>
+                        <span class="s-sub">Lowest - Highest</span>
+                    </div>
                 </div>
-                <div id="diag-status">Initializing...</div>
+                <div id="diag-status"> Analyzing... </div>
             </div>
 
             <div class="phase-box" id="phase-box">
-                <h3 style="margin:0" id="phase-title">Phase --</h3>
-                <div id="phase-desc">Loading...</div>
+                <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
+                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 0.5rem;">Loading...</div>
             </div>
 
+            <h3>Combat Record (Accumulative)</h3>
             <div class="combat-row">
-                <div class="combat-item"><span>SURVIVAL (WIN)</span><span class="c-win" id="c-win">0</span></div>
-                <div class="combat-item"><span>DEATH (LOSS/WAIT)</span><span class="c-die" id="c-fail">0</span></div>
+                <div class="combat-item">
+                    <span class="metric-label" style="color:#3fb950;">MISSION COMPLETE</span>
+                    <span class="c-val c-win" id="c-win">0</span>
+                </div>
+                <div class="combat-item">
+                    <span class="metric-label">FAILED (TimeUp/Loss)</span>
+                    <span class="c-val c-fail" id="c-fail">0</span>
+                </div>
+                <div class="combat-item">
+                    <span class="metric-label" style="color:#f85149;">BUSTED (Instant Death)</span>
+                    <span class="c-val c-bust" id="c-bust">0</span>
+                </div>
             </div>
 
-            <h3>Recent Logs</h3>
-            <table>
-                <tbody id="log-table-body"></tbody>
-            </table>
+            <h3>Recent Combat Log (Last 15)</h3>
+            <div style="background:var(--secondary-bg); border:1px solid var(--border); border-radius:6px; padding:1rem;">
+                <table>
+                    <thead><tr><th>#</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
+                    <tbody id="log-table-body"></tbody>
+                </table>
+            </div>
+
+            <div id="analysis-section" class="analysis-box">
+                <h3 style="color:#a371f7; margin-top:0;">Post-Mortem Analysis Report</h3>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
+                    <div>
+                        <p><strong>Overall Win Rate:</strong> <span id="ana-win" style="font-size:1.2rem; font-weight:bold;">--</span></p>
+                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust" style="font-size:1.2rem; font-weight:bold; color:#f85149;">--</span></p>
+                    </div>
+                    <div>
+                        <p><strong>Avg Kill Speed:</strong> <span id="ana-avg" style="font-size:1.2rem; font-weight:bold;">--</span> steps</p>
+                        <p><strong>Conclusion:</strong> <span id="ana-conc" style="font-weight:bold; padding:0.2rem 0.5rem; background:#30363d; border-radius:4px;">--</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        setInterval(async () => {
+        const REFRESH_RATE = 5000; 
+
+        async function fetchData() {
             try {
-                const res = await fetch('data.json?' + Date.now());
-                if (!res.ok) throw new Error();
+                const res = await fetch('data.json?' + new Date().getTime());
+                if (!res.ok) throw new Error("Fetch failed");
                 const data = await res.json();
-                
-                document.getElementById('sync-status').innerText = "ONLINE";
+                render(data);
+                document.getElementById('sync-status').innerText = "SYSTEM ONLINE";
                 document.getElementById('sync-status').className = "status-active";
-                document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
-                document.getElementById('prog-pct').innerText = data.prog_pct + "%";
-                document.getElementById('total-eps').innerText = data.total_eps;
-
-                if (data.diagnosis) {
-                    document.getElementById('diag-status').innerText = data.diagnosis.status_text;
-                    document.getElementById('diag-status').style.color = data.diagnosis.status_color;
-                    
-                    const s = data.diagnosis.sniper_stats;
-                    document.getElementById('s-rate').innerText = s.mission_rate;
-                    document.getElementById('s-speed').innerText = s.speed_range;
-                    document.getElementById('s-margin').innerText = s.margin_range;
-                }
-
-                document.getElementById('phase-title').innerText = data.phase_title;
-                document.getElementById('phase-desc').innerText = data.phase_desc;
-                document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
-
-                if (data.combat_stats) {
-                    document.getElementById('c-win').innerText = data.combat_stats.WIN;
-                    // In SAW protocol, BUST and FAIL are both DEATH
-                    document.getElementById('c-fail').innerText = (data.combat_stats.BUST + data.combat_stats.FAIL);
-                }
-
-                let rows = "";
-                data.logs.forEach(log => {
-                    let cls = log.beh.includes("WIN") ? "res-win" : "res-die";
-                    rows += `<tr><td>${log.t}</td><td style="color:${log.r>0?'#0f0':'#f00'}">${log.r}</td><td class="${cls}">${log.beh}</td></tr>`;
-                });
-                document.getElementById('log-table-body').innerHTML = rows;
+                document.getElementById('last-update').innerText = new Date().toLocaleTimeString();
             } catch (e) {
-                document.getElementById('sync-status').innerText = "OFFLINE";
+                console.error(e);
+                document.getElementById('sync-status').innerText = "DISCONNECTED";
                 document.getElementById('sync-status').className = "status-offline";
             }
-        }, 3000);
+        }
+
+        function render(data) {
+            document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
+            document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
+            document.getElementById('prog-pct').innerText = data.prog_pct + "%";
+            document.getElementById('main-prog-bar').style.width = data.prog_pct + "%";
+            document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
+
+            if (data.diagnosis && data.diagnosis.sniper_stats) {
+                const s = data.diagnosis.sniper_stats;
+                document.getElementById('s-rate').innerText = s.mission_rate;
+                document.getElementById('s-speed').innerText = s.speed_range;
+                document.getElementById('s-margin').innerText = s.margin_range;
+                
+                const badge = document.getElementById('diag-status');
+                badge.innerText = data.diagnosis.status_text;
+                
+                // 色処理 (黒文字か白文字か)
+                let bgColor = data.diagnosis.status_color;
+                let textColor = "#fff";
+                if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00"].includes(bgColor)) {
+                    textColor = "#000";
+                }
+                badge.style.backgroundColor = bgColor;
+                badge.style.color = textColor;
+            }
+
+            document.getElementById('phase-title').innerText = data.phase_title;
+            document.getElementById('phase-desc').innerText = data.phase_desc;
+            document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
+
+            if (data.combat_stats) {
+                document.getElementById('c-win').innerText = data.combat_stats.WIN.toLocaleString();
+                document.getElementById('c-fail').innerText = data.combat_stats.FAIL.toLocaleString();
+                document.getElementById('c-bust').innerText = data.combat_stats.BUST.toLocaleString();
+            }
+
+            if (data.analysis_report) {
+                const ana = data.analysis_report;
+                document.getElementById('analysis-section').className = "analysis-box analysis-active";
+                document.getElementById('ana-win').innerText = ana.overall_win_rate;
+                document.getElementById('ana-bust').innerText = ana.overall_bust_rate;
+                document.getElementById('ana-avg').innerText = ana.speed_stats.avg;
+                document.getElementById('ana-conc').innerText = ana.conclusion;
+                
+                if(ana.conclusion.includes("順調") || ana.conclusion.includes("生存")) {
+                    document.getElementById('ana-conc').style.color = "#3fb950";
+                } else {
+                    document.getElementById('ana-conc').style.color = "#f85149";
+                }
+            }
+
+            let rows = "";
+            data.logs.forEach(log => {
+                let cls = "";
+                // SAWプロトコル対応: WIN含むなら緑、DEATH/BUSTなら赤
+                if (log.beh.includes("WIN") || log.beh.includes("SURVIVAL")) cls = "res-win";
+                else if (log.beh.includes("BUST") || log.beh.includes("DEATH") || log.beh.includes("LOSS")) cls = "res-bust";
+                else cls = "res-fail"; // その他
+                
+                rows += `<tr>
+                    <td>${log.t}</td>
+                    <td style="color:${log.r > 0 ? '#3fb950' : '#f85149'}">${log.r}</td>
+                    <td>${log.l}</td>
+                    <td class="${cls}">${log.beh}</td>
+                </tr>`;
+            });
+            document.getElementById('log-table-body').innerHTML = rows;
+        }
+
+        fetchData();
+        setInterval(fetchData, REFRESH_RATE);
     </script>
 </body>
 </html>
