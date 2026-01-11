@@ -1,31 +1,31 @@
 {
     "status": "active",
-    "total_steps": 36352,
+    "total_steps": 41984,
     "target_steps": 2000000,
-    "prog_pct": 1.8,
-    "phase_title": "Phase 3: 損益拮抗・模索",
-    "phase_desc": "勝ち負けが半々。生き残れるが、まだ必勝パターンを探している段階。",
-    "phase_color": "#FFFF00",
-    "phase_mastery": 18.1,
+    "prog_pct": 2.1,
+    "phase_title": "Phase 2: 損失恐怖・硬直",
+    "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
+    "phase_color": "#FFA500",
+    "phase_mastery": 41.5,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
-        "actual_phase": "Phase 3: 損益拮抗・模索",
+        "actual_phase": "Phase 2: 損失恐怖・硬直",
         "status_text": "覚醒中",
         "status_color": "#00FFFF",
         "sniper_stats": {
-            "mission_rate": "28.0 %",
-            "speed_range": "4 - 286",
+            "mission_rate": "19.0 %",
+            "speed_range": "9 - 255",
             "margin_range": "360.3 - 999.0 %"
         }
     },
     "combat_stats": {
         "WIN": 47,
-        "FAIL": 106,
+        "FAIL": 126,
         "BUST": 4
     },
-    "ai_status": "Training (36,352)",
+    "ai_status": "Training (41,984)",
     "total_eps": 100,
-    "avg_score": -63.9,
+    "avg_score": -334.0,
     "config": {
         "phases": [
             {
@@ -73,91 +73,91 @@
     "logs": [
         {
             "t": 14,
-            "r": -528.3,
+            "r": -530.4,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 13,
-            "r": -515.8,
+            "r": -529.5,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 12,
-            "r": -532.5,
+            "r": -528.4,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 11,
-            "r": -535.9,
+            "r": -540.3,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 10,
-            "r": -529.8,
+            "r": -532.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 9,
-            "r": -538.0,
+            "r": -519.3,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 8,
-            "r": -532.2,
+            "r": -529.2,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 7,
-            "r": -514.8,
+            "r": -521.3,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 6,
-            "r": -504.5,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 5,
-            "r": -512.7,
+            "r": -516.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 4,
-            "r": -533.3,
+            "r": -529.2,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 3,
-            "r": -528.7,
+            "r": -516.2,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 2,
-            "r": -533.2,
+            "r": -530.0,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 1,
-            "r": -526.8,
+            "r": -535.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 0,
-            "r": -535.9,
+            "r": -526.9,
             "l": 288,
             "beh": "FAILED"
         }
