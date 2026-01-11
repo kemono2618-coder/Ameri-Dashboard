@@ -1,31 +1,31 @@
 {
     "status": "active",
-    "total_steps": 157184,
+    "total_steps": 162304,
     "target_steps": 2000000,
-    "prog_pct": 7.9,
-    "phase_title": "Phase 1: 無秩序・自滅",
-    "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
-    "phase_color": "#FF4B4B",
-    "phase_mastery": 99.7,
+    "prog_pct": 8.1,
+    "phase_title": "Phase 2: 損失恐怖・硬直",
+    "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
+    "phase_color": "#FFA500",
+    "phase_mastery": 9.7,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
-        "actual_phase": "Phase 1: 無秩序・自滅",
-        "status_text": "順調",
-        "status_color": "#00FF00",
+        "actual_phase": "Phase 2: 損失恐怖・硬直",
+        "status_text": "覚醒中",
+        "status_color": "#00FFFF",
         "sniper_stats": {
             "mission_rate": "1.0 %",
-            "speed_range": "176 - 176",
-            "margin_range": "999.0 - 999.0 %"
+            "speed_range": "117 - 117",
+            "margin_range": "893.7 - 893.7 %"
         }
     },
     "combat_stats": {
-        "WIN": 51,
-        "FAIL": 524,
+        "WIN": 52,
+        "FAIL": 541,
         "BUST": 4
     },
-    "ai_status": "Training (157,184)",
+    "ai_status": "Training (162,304)",
     "total_eps": 100,
-    "avg_score": -528.8,
+    "avg_score": -461.2,
     "config": {
         "phases": [
             {
@@ -73,13 +73,13 @@
     "logs": [
         {
             "t": 14,
-            "r": -528.4,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 13,
-            "r": -533.9,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -103,7 +103,7 @@
         },
         {
             "t": 9,
-            "r": -527.6,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -121,13 +121,13 @@
         },
         {
             "t": 6,
-            "r": -528.8,
-            "l": 288,
-            "beh": "FAILED"
+            "r": 2856.5,
+            "l": 117,
+            "beh": "MISSION COMPLETE"
         },
         {
             "t": 5,
-            "r": -537.1,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -145,7 +145,7 @@
         },
         {
             "t": 2,
-            "r": -529.4,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -157,7 +157,7 @@
         },
         {
             "t": 0,
-            "r": -528.8,
+            "r": -529.1,
             "l": 288,
             "beh": "FAILED"
         }
