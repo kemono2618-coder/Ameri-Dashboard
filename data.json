@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 176833,
+    "total_steps": 180865,
     "target_steps": 3000000,
-    "prog_pct": 5.9,
+    "prog_pct": 6.0,
     "phase_title": "Phase 1: 生存への渇望",
     "phase_desc": "死(待機/敗北)を避け、唯一の生(勝利)を探す。",
     "phase_color": "#FF4B4B",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 3375,
+        "WIN": 3435,
         "FAIL": 2,
-        "BUST": 1871
+        "BUST": 1905
     },
-    "ai_status": "Training (176,833)",
-    "total_eps": 5248,
+    "ai_status": "Training (180,865)",
+    "total_eps": 5342,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,92 +70,92 @@
     "logs": [
         {
             "t": 14,
-            "r": 10025.5,
-            "l": 10,
+            "r": 10026.6,
+            "l": 69,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 13,
-            "r": 10038.7,
-            "l": 80,
+            "r": 10022.4,
+            "l": 27,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 12,
-            "r": 10028.2,
-            "l": 11,
+            "r": 10031.6,
+            "l": 60,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 11,
-            "r": 10020.3,
-            "l": 13,
+            "r": 10031.1,
+            "l": 11,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 10,
-            "r": -10073.8,
-            "l": 37,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 9,
-            "r": 10030.5,
-            "l": 26,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 8,
-            "r": 10047.6,
-            "l": 12,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 7,
-            "r": 10028.1,
-            "l": 29,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 6,
-            "r": 10025.4,
-            "l": 5,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 5,
-            "r": 10024.3,
-            "l": 53,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 4,
-            "r": -10188.9,
-            "l": 33,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 3,
-            "r": -10064.8,
-            "l": 10,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 2,
-            "r": 10033.9,
-            "l": 9,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 1,
-            "r": 10026.9,
+            "r": 10030.3,
             "l": 4,
             "beh": "SURVIVAL (WIN)"
         },
         {
+            "t": 9,
+            "r": -10057.3,
+            "l": 79,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 8,
+            "r": 10024.1,
+            "l": 8,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 7,
+            "r": -10179.4,
+            "l": 35,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 6,
+            "r": 10031.1,
+            "l": 143,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 5,
+            "r": 10055.7,
+            "l": 12,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 4,
+            "r": -10078.7,
+            "l": 53,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 3,
+            "r": 10029.3,
+            "l": 39,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 2,
+            "r": -10077.3,
+            "l": 39,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 1,
+            "r": -10185.2,
+            "l": 158,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
             "t": 0,
-            "r": 10026.5,
-            "l": 6,
+            "r": 10024.5,
+            "l": 12,
             "beh": "SURVIVAL (WIN)"
         }
     ]
