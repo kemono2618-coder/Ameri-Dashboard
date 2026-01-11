@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 77824,
+    "total_steps": 83456,
     "target_steps": 2000000,
-    "prog_pct": 3.9,
+    "prog_pct": 4.2,
     "phase_title": "Phase 1: 無秩序・自滅",
     "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
     "phase_color": "#FF4B4B",
@@ -13,19 +13,19 @@
         "status_text": "順調",
         "status_color": "#00FF00",
         "sniper_stats": {
-            "mission_rate": "2.0 %",
-            "speed_range": "134 - 137",
-            "margin_range": "533.3 - 641.8 %"
+            "mission_rate": "1.0 %",
+            "speed_range": "137 - 137",
+            "margin_range": "641.8 - 641.8 %"
         }
     },
     "combat_stats": {
         "WIN": 49,
-        "FAIL": 249,
+        "FAIL": 269,
         "BUST": 4
     },
-    "ai_status": "Training (77,824)",
+    "ai_status": "Training (83,456)",
     "total_eps": 100,
-    "avg_score": -527.1,
+    "avg_score": -527.8,
     "config": {
         "phases": [
             {
@@ -73,91 +73,91 @@
     "logs": [
         {
             "t": 14,
-            "r": -530.6,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 13,
-            "r": -530.9,
+            "r": -528.9,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 12,
-            "r": -529.2,
+            "r": -530.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 11,
-            "r": -528.8,
+            "r": -529.5,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 10,
-            "r": -522.6,
+            "r": -528.4,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 9,
-            "r": -524.0,
+            "r": -528.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 8,
-            "r": -541.4,
+            "r": -526.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 7,
-            "r": -528.8,
+            "r": -526.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 6,
-            "r": -540.3,
+            "r": -527.2,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 5,
-            "r": -533.5,
+            "r": -523.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 4,
-            "r": -524.6,
+            "r": -522.6,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 3,
-            "r": -527.1,
+            "r": -516.5,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 2,
-            "r": -529.3,
+            "r": -528.6,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 1,
-            "r": -519.6,
+            "r": -525.1,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 0,
-            "r": -524.9,
+            "r": -529.8,
             "l": 288,
             "beh": "FAILED"
         }
