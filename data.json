@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 134144,
+    "total_steps": 139264,
     "target_steps": 2000000,
-    "prog_pct": 6.7,
+    "prog_pct": 7.0,
     "phase_title": "Phase 2: 血塗れの学習",
     "phase_desc": "生存時間の延長・逃げ腰",
     "phase_color": "#FFA500",
@@ -22,9 +22,9 @@
         "SELL": "0",
         "HOLD": "0"
     },
-    "ai_status": "Training (134,144)",
+    "ai_status": "Training (139,264)",
     "total_eps": 100,
-    "avg_score": -213.1,
+    "avg_score": -242.4,
     "config": {
         "phases": [
             {
@@ -84,45 +84,45 @@
         },
         {
             "t": 12,
-            "r": -528.8,
-            "l": 288,
-            "beh": "❌ FAILED"
+            "r": -2004.4,
+            "l": 45,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 11,
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 10,
             "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
-            "t": 10,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
             "t": 9,
-            "r": 1971.2,
+            "r": -528.8,
             "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "beh": "❌ FAILED"
         },
         {
             "t": 8,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2018.1,
+            "l": 182,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 7,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2008.1,
+            "l": 82,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 6,
-            "r": 1971.2,
-            "l": 288,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2025.8,
+            "l": 259,
+            "beh": "💀 BUSTED"
         },
         {
             "t": 5,
@@ -132,15 +132,15 @@
         },
         {
             "t": 4,
-            "r": -2007.7,
-            "l": 78,
-            "beh": "💀 BUSTED"
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 3,
-            "r": -528.8,
+            "r": 1971.2,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 2,
@@ -156,8 +156,8 @@
         },
         {
             "t": 0,
-            "r": -2003.2,
-            "l": 33,
+            "r": -2026.0,
+            "l": 261,
             "beh": "💀 BUSTED"
         }
     ]
