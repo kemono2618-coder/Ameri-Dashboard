@@ -1,14 +1,14 @@
 {
     "status": "active",
-    "total_steps": 908929,
+    "total_steps": 913537,
     "target_steps": 3000000,
-    "prog_pct": 30.3,
+    "prog_pct": 30.5,
     "phase_title": "Phase 2: 勝ち筋の固定",
     "phase_desc": "まぐれ勝ちを捨て、再現性のある勝利のみを繰り返す。",
     "phase_color": "#FFA500",
     "diagnosis": {
-        "status_text": "生存ルート確立 (緑)",
-        "status_color": "#00FF00",
+        "status_text": "生存の兆しあり (黄)",
+        "status_color": "#FFFF00",
         "sniper_stats": {
             "mission_rate": "64.5 %",
             "speed_range": "2 - 276",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 21054,
+        "WIN": 21177,
         "FAIL": 4,
-        "BUST": 11574
+        "BUST": 11644
     },
-    "ai_status": "Training (908,929)",
-    "total_eps": 32632,
+    "ai_status": "Training (913,537)",
+    "total_eps": 32825,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,93 +70,93 @@
     "logs": [
         {
             "t": 14,
-            "r": 10051.4,
-            "l": 47,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10086.7,
+            "l": 65,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 13,
-            "r": -10073.0,
-            "l": 107,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10033.6,
+            "l": 6,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 12,
-            "r": 10036.3,
-            "l": 11,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 11,
-            "r": -10080.1,
-            "l": 57,
+            "r": -10078.8,
+            "l": 6,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
-            "t": 10,
-            "r": 10022.3,
-            "l": 14,
+            "t": 11,
+            "r": 10025.6,
+            "l": 23,
             "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 10,
+            "r": -10191.7,
+            "l": 30,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 9,
-            "r": 10032.8,
-            "l": 16,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10190.2,
+            "l": 22,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 8,
-            "r": -10075.3,
-            "l": 24,
+            "r": -10071.5,
+            "l": 14,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 7,
-            "r": 10022.3,
-            "l": 42,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10087.9,
+            "l": 48,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 6,
-            "r": 10026.9,
-            "l": 29,
+            "r": 10023.2,
+            "l": 51,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 5,
-            "r": -10083.6,
-            "l": 18,
+            "r": -10056.5,
+            "l": 13,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 4,
-            "r": 10032.7,
-            "l": 16,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10085.9,
+            "l": 53,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 3,
-            "r": 10027.4,
-            "l": 5,
+            "r": 10021.9,
+            "l": 11,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 2,
-            "r": -10055.3,
-            "l": 12,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10025.9,
+            "l": 4,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 1,
-            "r": 10046.8,
-            "l": 35,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10081.6,
+            "l": 47,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 0,
-            "r": 10024.7,
-            "l": 5,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10038.2,
+            "l": 32,
+            "beh": "DEATH (LOSS/WAIT)"
         }
     ]
 }
