@@ -1,31 +1,31 @@
 {
     "status": "active",
-    "total_steps": 635392,
+    "total_steps": 641024,
     "target_steps": 2000000,
-    "prog_pct": 31.8,
-    "phase_title": "Phase 1: 無秩序・自滅",
-    "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
-    "phase_color": "#FF4B4B",
-    "phase_mastery": 99.7,
+    "prog_pct": 32.1,
+    "phase_title": "Phase 2: 損失恐怖・硬直",
+    "phase_desc": "罰を恐れてエントリーが激減。稼ぐことより死なないことを優先中。",
+    "phase_color": "#FFA500",
+    "phase_mastery": 10.4,
     "diagnosis": {
         "expected_phase": "Phase 2: 損失恐怖・硬直",
-        "actual_phase": "Phase 1: 無秩序・自滅",
+        "actual_phase": "Phase 2: 損失恐怖・硬直",
         "status_text": "順調",
         "status_color": "#00FF00",
         "sniper_stats": {
-            "mission_rate": "0.0 %",
-            "speed_range": "--",
-            "margin_range": "--"
+            "mission_rate": "1.0 %",
+            "speed_range": "88 - 88",
+            "margin_range": "999.0 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 52,
-        "FAIL": 2184,
+        "WIN": 53,
+        "FAIL": 2203,
         "BUST": 4
     },
-    "ai_status": "Training (635,392)",
+    "ai_status": "Training (641,024)",
     "total_eps": 100,
-    "avg_score": -528.7,
+    "avg_score": -458.3,
     "config": {
         "phases": [
             {
@@ -97,7 +97,7 @@
         },
         {
             "t": 10,
-            "r": -528.8,
+            "r": -533.9,
             "l": 288,
             "beh": "FAILED"
         },
@@ -127,7 +127,7 @@
         },
         {
             "t": 5,
-            "r": -530.0,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
