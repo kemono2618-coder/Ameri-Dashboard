@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 215552,
+    "total_steps": 220672,
     "target_steps": 2000000,
-    "prog_pct": 10.8,
+    "prog_pct": 11.0,
     "phase_title": "Phase 1: 無秩序・自滅",
     "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
     "phase_color": "#FF4B4B",
@@ -20,12 +20,12 @@
     },
     "combat_stats": {
         "WIN": 52,
-        "FAIL": 726,
+        "FAIL": 744,
         "BUST": 4
     },
-    "ai_status": "Training (215,552)",
+    "ai_status": "Training (220,672)",
     "total_eps": 100,
-    "avg_score": -527.9,
+    "avg_score": -527.7,
     "config": {
         "phases": [
             {
@@ -73,19 +73,19 @@
     "logs": [
         {
             "t": 14,
-            "r": -533.8,
-            "l": 288,
-            "beh": "FAILED"
-        },
-        {
-            "t": 13,
             "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
+            "t": 13,
+            "r": -519.5,
+            "l": 288,
+            "beh": "FAILED"
+        },
+        {
             "t": 12,
-            "r": -529.6,
+            "r": -528.9,
             "l": 288,
             "beh": "FAILED"
         },
@@ -97,25 +97,25 @@
         },
         {
             "t": 10,
-            "r": -528.8,
+            "r": -529.7,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 9,
-            "r": -529.2,
+            "r": -526.0,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 8,
-            "r": -528.8,
+            "r": -523.9,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 7,
-            "r": -531.5,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
@@ -127,19 +127,19 @@
         },
         {
             "t": 5,
-            "r": -511.5,
+            "r": -528.8,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 4,
-            "r": -527.8,
+            "r": -526.3,
             "l": 288,
             "beh": "FAILED"
         },
         {
             "t": 3,
-            "r": -524.9,
+            "r": -528.2,
             "l": 288,
             "beh": "FAILED"
         },
