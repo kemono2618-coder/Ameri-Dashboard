@@ -1,31 +1,31 @@
 {
     "status": "active",
-    "total_steps": 330402,
+    "total_steps": 335522,
     "target_steps": 2000000,
-    "prog_pct": 16.5,
+    "prog_pct": 16.8,
     "phase_title": "Phase 1: 無秩序・自滅",
     "phase_desc": "資金管理無視。ハイレバ特攻で即死を繰り返している状態。",
     "phase_color": "#FF4B4B",
-    "phase_mastery": 98.5,
+    "phase_mastery": 99.5,
     "diagnosis": {
         "expected_phase": "Phase 1: 無秩序・自滅",
         "actual_phase": "Phase 1: 無秩序・自滅",
         "status_text": "順調",
         "status_color": "#00FF00",
         "sniper_stats": {
-            "mission_rate": "27.0 %",
+            "mission_rate": "26.0 %",
             "speed_range": "6 - 288",
-            "margin_range": "109.3 - 999.0 %"
+            "margin_range": "126.0 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 41,
-        "FAIL": 53,
-        "BUST": 81
+        "WIN": 47,
+        "FAIL": 60,
+        "BUST": 91
     },
-    "ai_status": "Training (330,402)",
+    "ai_status": "Training (335,522)",
     "total_eps": 100,
-    "avg_score": -643.5,
+    "avg_score": -543.1,
     "config": {
         "phases": [
             {
@@ -73,93 +73,93 @@
     "logs": [
         {
             "t": 14,
-            "r": -2022.0,
-            "l": 221,
+            "r": -2025.0,
+            "l": 251,
             "beh": "💀 BUSTED"
         },
         {
             "t": 13,
-            "r": -528.8,
+            "r": 1971.2,
             "l": 288,
-            "beh": "❌ FAILED"
+            "beh": "🎯 MISSION COMPLETE"
         },
         {
             "t": 12,
-            "r": -540.7,
+            "r": -517.7,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
             "t": 11,
-            "r": -2013.8,
-            "l": 139,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 10,
-            "r": -2008.2,
-            "l": 83,
-            "beh": "💀 BUSTED"
-        },
-        {
-            "t": 9,
-            "r": 3424.5,
-            "l": 6,
+            "r": 1971.2,
+            "l": 288,
             "beh": "🎯 MISSION COMPLETE"
         },
         {
-            "t": 8,
+            "t": 10,
             "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
+            "t": 9,
+            "r": -561.1,
+            "l": 288,
+            "beh": "❌ FAILED"
+        },
+        {
+            "t": 8,
+            "r": -2019.7,
+            "l": 198,
+            "beh": "💀 BUSTED"
+        },
+        {
             "t": 7,
-            "r": -2010.2,
-            "l": 103,
+            "r": -2024.0,
+            "l": 241,
             "beh": "💀 BUSTED"
         },
         {
             "t": 6,
-            "r": -2025.6,
-            "l": 257,
-            "beh": "💀 BUSTED"
+            "r": -511.9,
+            "l": 288,
+            "beh": "❌ FAILED"
         },
         {
             "t": 5,
+            "r": -2003.1,
+            "l": 32,
+            "beh": "💀 BUSTED"
+        },
+        {
+            "t": 4,
+            "r": 1971.2,
+            "l": 288,
+            "beh": "🎯 MISSION COMPLETE"
+        },
+        {
+            "t": 3,
             "r": -528.8,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
-            "t": 4,
-            "r": 2363.4,
-            "l": 218,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
-            "t": 3,
-            "r": -2001.4,
-            "l": 15,
+            "t": 2,
+            "r": -2014.6,
+            "l": 178,
             "beh": "💀 BUSTED"
         },
         {
-            "t": 2,
-            "r": 2288.5,
-            "l": 233,
-            "beh": "🎯 MISSION COMPLETE"
-        },
-        {
             "t": 1,
-            "r": -517.4,
+            "r": -531.0,
             "l": 288,
             "beh": "❌ FAILED"
         },
         {
             "t": 0,
-            "r": 2976.5,
-            "l": 93,
-            "beh": "🎯 MISSION COMPLETE"
+            "r": -2026.1,
+            "l": 262,
+            "beh": "💀 BUSTED"
         }
     ]
 }
