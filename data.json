@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 2566081,
+    "total_steps": 2570113,
     "target_steps": 3000000,
-    "prog_pct": 85.5,
+    "prog_pct": 85.7,
     "phase_title": "Phase 3: 精密機械化",
     "phase_desc": "感情を捨て、機械的に2000円を抜き取る。",
     "phase_color": "#FFFF00",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 69435,
+        "WIN": 69542,
         "FAIL": 5,
-        "BUST": 38211
+        "BUST": 38277
     },
-    "ai_status": "Training (2,566,081)",
-    "total_eps": 107651,
+    "ai_status": "Training (2,570,113)",
+    "total_eps": 107824,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,92 +70,92 @@
     "logs": [
         {
             "t": 14,
-            "r": -10088.4,
-            "l": 8,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10026.4,
+            "l": 10,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 13,
-            "r": 10021.9,
-            "l": 32,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 12,
-            "r": -10069.4,
-            "l": 9,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 11,
-            "r": -10189.4,
-            "l": 66,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 10,
-            "r": -10088.9,
-            "l": 83,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 9,
-            "r": 10025.4,
-            "l": 14,
-            "beh": "SURVIVAL (WIN)"
-        },
-        {
-            "t": 8,
-            "r": -10084.9,
-            "l": 71,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 7,
-            "r": 10024.3,
+            "r": 10041.8,
             "l": 12,
             "beh": "SURVIVAL (WIN)"
         },
         {
-            "t": 6,
-            "r": -10076.1,
-            "l": 9,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 5,
-            "r": 10025.1,
+            "t": 12,
+            "r": 10022.4,
             "l": 23,
             "beh": "SURVIVAL (WIN)"
         },
         {
+            "t": 11,
+            "r": 10022.9,
+            "l": 5,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 10,
+            "r": -10083.9,
+            "l": 76,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 9,
+            "r": -10089.9,
+            "l": 16,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
+            "t": 8,
+            "r": 10035.0,
+            "l": 10,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 7,
+            "r": 10022.6,
+            "l": 5,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 6,
+            "r": 10021.1,
+            "l": 21,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
+            "t": 5,
+            "r": 10021.3,
+            "l": 4,
+            "beh": "SURVIVAL (WIN)"
+        },
+        {
             "t": 4,
-            "r": -10085.4,
-            "l": 11,
+            "r": -10073.7,
+            "l": 12,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 3,
-            "r": -10091.9,
-            "l": 31,
-            "beh": "DEATH (LOSS/WAIT)"
-        },
-        {
-            "t": 2,
-            "r": 10031.0,
-            "l": 25,
+            "r": 10023.6,
+            "l": 6,
             "beh": "SURVIVAL (WIN)"
         },
         {
+            "t": 2,
+            "r": -10092.7,
+            "l": 19,
+            "beh": "DEATH (LOSS/WAIT)"
+        },
+        {
             "t": 1,
-            "r": -10089.2,
-            "l": 15,
+            "r": -10089.9,
+            "l": 23,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 0,
-            "r": -10074.3,
-            "l": 7,
+            "r": -10089.8,
+            "l": 59,
             "beh": "DEATH (LOSS/WAIT)"
         }
     ]
