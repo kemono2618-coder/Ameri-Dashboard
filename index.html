@@ -28,68 +28,34 @@
         .s-val { font-size: 1.8rem; font-weight: bold; color: #fff; line-height: 1.2; margin-top: 0.5rem; }
         .s-label { display: block; color: #8b949e; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
         
-        .dist-container { display: flex; align-items: flex-end; justify-content: space-between; height: 40px; width: 100%; margin-top: 10px; gap: 2px; }
-        .dist-bar { background: #388bfd; opacity: 0.7; border-radius: 2px 2px 0 0; flex: 1; min-width: 5px; position: relative; }
-        .dist-bar:hover { opacity: 1.0; }
-        .dist-bar:hover::after { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #000; color: #fff; font-size: 0.7rem; padding: 2px 4px; border-radius: 2px; white-space: nowrap; z-index: 10; }
-
-        /* ■■ 高さ揃えの修正箇所 ■■ */
-        .diag-split { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 1rem; 
-            margin-top: 1rem; 
-            /* アイテムをストレッチして高さを揃える */
-            align-items: stretch; 
-        }
+        /* New Chart Section */
+        .chart-section { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .chart-box { background: var(--secondary-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 6px; }
+        .chart-title { font-size: 1rem; color: #8b949e; margin-bottom: 1rem; font-weight: bold; text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 0.5rem; }
         
-        .maturity-box { 
-            background: rgba(13, 17, 23, 0.5); 
-            border: 2px solid var(--border); 
-            padding: 1rem; 
-            border-radius: 4px; 
+        .bar-chart-container { 
             display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            /* 親グリッドに合わせて高さを100%にする */
-            height: 100%; 
-            box-sizing: border-box; 
+            align-items: flex-end; 
+            justify-content: space-between; 
+            height: 150px; 
+            width: 100%; 
+            gap: 10px; 
+            padding-top: 20px;
         }
+        .bar-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .bar-fill { width: 100%; background: #388bfd; opacity: 0.8; border-radius: 3px 3px 0 0; transition: height 0.5s; min-height: 2px; }
+        .bar-value { position: absolute; bottom: 100%; color: #fff; font-size: 0.8rem; font-weight: bold; margin-bottom: 3px; }
+        .bar-label { margin-top: 8px; font-size: 0.75rem; color: #8b949e; text-align: center; line-height: 1.1; }
+
+        /* Double Meter Split */
+        .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; align-items: stretch; }
+        
+        .maturity-box { background: rgba(13, 17, 23, 0.5); border: 2px solid var(--border); padding: 1rem; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 120px; box-sizing: border-box; }
         .mat-val { font-size: 2rem; font-weight: bold; }
         
-        .status-box-frame { 
-            background: rgba(48, 54, 61, 0.5); 
-            border: 2px dashed #484f58; 
-            padding: 0; 
-            border-radius: 4px; 
-            display: flex; 
-            flex-direction: column; 
-            /* 親グリッドに合わせて高さを100%にする */
-            height: 100%; 
-            box-sizing: border-box; 
-            overflow: hidden;
-        }
-        #diag-status { 
-            width: 100%; 
-            padding: 1rem 0; 
-            text-align:center; 
-            font-weight:bold; 
-            background: #30363d; 
-            color:#fff; 
-            flex: 0 0 auto; 
-        }
-        #diag-detail { 
-            padding: 0.8rem; 
-            color: #c9d1d9; 
-            font-size: 0.9rem; 
-            text-align: center; 
-            font-family: monospace; 
-            flex: 1 1 auto; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .status-box-frame { background: rgba(48, 54, 61, 0.5); border: 2px dashed #484f58; padding: 0; border-radius: 4px; display: flex; flex-direction: column; height: 100%; min-height: 120px; box-sizing: border-box; overflow: hidden; }
+        #diag-status { width: 100%; padding: 1rem 0; text-align:center; font-weight:bold; background: #30363d; color:#fff; flex: 0 0 auto; }
+        #diag-detail { padding: 0.8rem; color: #c9d1d9; font-size: 0.9rem; text-align: center; font-family: monospace; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; }
 
         .pressure-box { background: var(--secondary-bg); border: 1px solid var(--border); padding: 1rem; margin-top: 0; border-radius: 4px; }
         .pressure-bar-bg { width: 100%; height: 20px; background: #30363d; border-radius: 10px; overflow: hidden; position: relative; }
@@ -98,31 +64,18 @@
 
         details.zone-details { margin-bottom: 2rem; background: #161b22; border: 1px solid var(--border); border-radius: 4px; margin-top: 1rem; }
         details.zone-details summary { padding: 0.8rem; cursor: pointer; color: #8b949e; font-weight: bold; list-style: none; }
-        details.zone-details summary:hover { color: #58a6ff; background: #21262d; }
-        details.zone-details summary::-webkit-details-marker { display: none; }
-        details.zone-details summary::after { content: "▼"; float: right; font-size: 0.8rem; }
-        details.zone-details[open] summary::after { content: "▲"; }
         .zone-list { padding: 1rem; border-top: 1px solid var(--border); }
         .z-item { display: flex; margin-bottom: 0.8rem; align-items: baseline; }
         .z-range { width: 100px; font-family: monospace; color: #8b949e; font-weight: bold; }
         .z-name { font-weight: bold; margin-right: 1rem; }
         .z-desc { color: #8b949e; font-size: 0.9rem; }
 
-        .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
-        .combat-item { text-align: center; flex: 1; }
-        .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
-        
         table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
         th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
         td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
         
-        @keyframes rainbow-bg-anim { 
-            0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
-        }
-        .rainbow-bg {
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) !important;
-            background-size: 400%; animation: rainbow-bg-anim 10s linear infinite; color: #fff !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); border: none !important;
-        }
+        @keyframes rainbow-bg-anim { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .rainbow-bg { background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) !important; background-size: 400%; animation: rainbow-bg-anim 10s linear infinite; color: #fff !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); border: none !important; }
         .rainbow-border { animation: rainbow-border-anim 2s linear infinite; }
         @keyframes rainbow-border-anim { 0% { border-color: #ff0000; } 50% { border-color: #00ffd5; } 100% { border-color: #ff0000; } }
     </style>
@@ -132,7 +85,7 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper Ver 9.7</h1>
+                    <h1>Ameri-Sniper Ver 9.9</h1>
                     <span style="color:#8b949e;">Target: <span id="target-steps">--</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
@@ -160,24 +113,33 @@
                     <div class="sniper-item">
                         <span class="s-label">Speed (Min / Max / Avg)</span>
                         <span class="s-val" id="s-speed" style="font-size:1.2rem">-- / -- / --</span>
-                        <div class="dist-container" id="dist-speed"></div>
                     </div>
                     <div class="sniper-item">
                         <span class="s-label">Margin (Min / Max / Avg)</span>
                         <span class="s-val" id="s-margin" style="font-size:1.2rem; color:#da3633">-- / -- / --</span>
-                        <div class="dist-container" id="dist-margin"></div>
                     </div>
                 </div>
 
                 <div class="diag-split">
                     <div class="maturity-box" id="mat-box">
-                        <span class="metric-label" style="text-transform:uppercase">Maturity Level (Skill)</span>
+                        <span class="metric-label" style="text-transform:uppercase">Maturity Level (Wins Accumulation)</span>
                         <div class="mat-val" id="mat-val">--</div>
                     </div>
                     <div class="status-box-frame">
                         <div id="diag-status"> Analyzing... </div>
                         <div id="diag-detail">--</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-box">
+                    <div class="chart-title">Winning Speed Distribution (Minutes)</div>
+                    <div class="bar-chart-container" id="chart-speed"></div>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-title">Survival Margin Distribution (%)</div>
+                    <div class="bar-chart-container" id="chart-margin"></div>
                 </div>
             </div>
 
@@ -223,19 +185,40 @@
             }
         }
 
-        function renderDist(containerId, distData) {
+        function renderChart(containerId, distData, barColor) {
             const el = document.getElementById(containerId);
             el.innerHTML = "";
-            if (!distData) return;
+            if (!distData) {
+                el.innerHTML = "<div style='width:100%; text-align:center; color:#8b949e; padding-top:50px;'>No Data</div>";
+                return;
+            }
+            
             const values = Object.values(distData);
             const maxVal = Math.max(...values, 1);
+            
             for (const [label, val] of Object.entries(distData)) {
-                const bar = document.createElement("div");
-                bar.className = "dist-bar";
-                const h = (val / maxVal) * 100;
-                bar.style.height = h + "%";
-                bar.setAttribute("data-label", `${label}: ${val}`);
-                el.appendChild(bar);
+                const wrapper = document.createElement("div");
+                wrapper.className = "bar-wrapper";
+                
+                const heightPct = (val / maxVal) * 100;
+                
+                const valDiv = document.createElement("div");
+                valDiv.className = "bar-value";
+                valDiv.innerText = val > 0 ? val : "";
+                
+                const barDiv = document.createElement("div");
+                barDiv.className = "bar-fill";
+                barDiv.style.height = heightPct + "%";
+                if(barColor) barDiv.style.backgroundColor = barColor;
+                
+                const labelDiv = document.createElement("div");
+                labelDiv.className = "bar-label";
+                labelDiv.innerText = label;
+                
+                wrapper.appendChild(valDiv);
+                wrapper.appendChild(barDiv);
+                wrapper.appendChild(labelDiv);
+                el.appendChild(wrapper);
             }
         }
 
@@ -271,14 +254,13 @@
                 document.getElementById('press-val').innerText = p.val + "%";
             }
 
-            // Stats
+            // Stats & Charts
             if (data.analysis_report) {
                 const r = data.analysis_report;
                 document.getElementById('ana-win').innerText = r.overall_win_rate;
                 document.getElementById('ana-bust').innerText = r.overall_bust_rate;
                 document.getElementById('s-rate').innerText = r.overall_win_rate;
                 
-                // ■■ AVG undefined 対策: データが無い場合は -- を表示 ■■
                 const speedAvg = (r.speed_stats && r.speed_stats.avg !== undefined) ? r.speed_stats.avg : "--";
                 const marginAvg = (r.margin_stats && r.margin_stats.avg !== undefined) ? r.margin_stats.avg : "--";
                 
@@ -286,8 +268,8 @@
                 document.getElementById('s-margin').innerText = `${r.margin_stats.lowest} / ${r.margin_stats.highest} / ${marginAvg}`;
                 
                 if (r.distributions) {
-                    renderDist("dist-speed", r.distributions.speed);
-                    renderDist("dist-margin", r.distributions.margin);
+                    renderChart("chart-speed", r.distributions.speed, "#388bfd");
+                    renderChart("chart-margin", r.distributions.margin, "#da3633");
                 }
             }
 
