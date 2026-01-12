@@ -1,10 +1,10 @@
 {
     "status": "active",
-    "total_steps": 884209,
+    "total_steps": 889781,
     "target_steps": 3000000,
     "meters": {
         "pressure": {
-            "val": 29.5,
+            "val": 29.7,
             "color": "#da3633"
         },
         "maturity": {
@@ -15,15 +15,15 @@
     "diagnosis": {
         "status_text": "生存の兆しあり (黄)",
         "status_color": "#d29922",
-        "status_detail": "直近100戦: 48勝 (48%)"
+        "status_detail": "直近100戦: 47勝 (47%)"
     },
     "combat_stats": {
-        "WIN": 9638,
-        "FAIL": 297,
-        "BUST": 5914
+        "WIN": 9649,
+        "FAIL": 306,
+        "BUST": 5919
     },
-    "ai_status": "Training (884,209)",
-    "total_eps": 15849,
+    "ai_status": "Training (889,781)",
+    "total_eps": 15874,
     "config": {
         "zones": [
             {
@@ -53,25 +53,25 @@
         ]
     },
     "analysis_report": {
-        "overall_win_rate": "60.81 %",
-        "overall_bust_rate": "37.31 %",
+        "overall_win_rate": "60.78 %",
+        "overall_bust_rate": "37.29 %",
         "speed_stats": {
             "fastest": 2,
             "slowest": 288,
-            "avg": 52.5
+            "avg": 52.7
         },
         "margin_stats": {
             "lowest": 50.0,
             "highest": 999.0,
-            "avg": 642.9
+            "avg": 642.8
         },
         "distributions": {
             "speed": {
                 "0-5m": 402,
                 "5-30m": 5077,
-                "30-60m": 1971,
+                "30-60m": 1972,
                 "60-120m": 1109,
-                "120m+": 1079
+                "120m+": 1089
             },
             "margin": {
                 "50-60%": 23,
@@ -79,47 +79,47 @@
                 "70-80%": 28,
                 "80-90%": 28,
                 "90-100%": 34,
-                "100%+": 9500
+                "100%+": 9511
             }
         },
-        "total_wins": 9638
+        "total_wins": 9649
     },
     "logs": [
         {
             "t": 14,
-            "r": -10052.9,
-            "l": 288,
-            "beh": "DEATH"
+            "r": -9651.4,
+            "l": 26,
+            "beh": "FAIL"
         },
         {
             "t": 13,
-            "r": 9947.1,
+            "r": -10052.9,
             "l": 288,
-            "beh": "WIN"
+            "beh": "DEATH"
         },
         {
             "t": 12,
-            "r": -10052.9,
-            "l": 288,
-            "beh": "DEATH"
-        },
-        {
-            "t": 11,
             "r": 9947.1,
             "l": 288,
             "beh": "WIN"
         },
         {
+            "t": 11,
+            "r": -9645.7,
+            "l": 36,
+            "beh": "FAIL"
+        },
+        {
             "t": 10,
-            "r": -10052.9,
+            "r": 9947.1,
             "l": 288,
-            "beh": "DEATH"
+            "beh": "WIN"
         },
         {
             "t": 9,
-            "r": -9582.1,
-            "l": 30,
-            "beh": "FAIL"
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
         },
         {
             "t": 8,
@@ -135,14 +135,14 @@
         },
         {
             "t": 6,
-            "r": 9947.1,
-            "l": 288,
+            "r": 9982.0,
+            "l": 58,
             "beh": "WIN"
         },
         {
             "t": 5,
-            "r": -19096.6,
-            "l": 61,
+            "r": -10052.9,
+            "l": 288,
             "beh": "DEATH"
         },
         {
@@ -153,27 +153,27 @@
         },
         {
             "t": 3,
-            "r": 9976.2,
-            "l": 264,
-            "beh": "WIN"
+            "r": -9627.9,
+            "l": 11,
+            "beh": "FAIL"
         },
         {
             "t": 2,
-            "r": -9569.7,
-            "l": 247,
-            "beh": "FAIL"
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
         },
         {
             "t": 1,
-            "r": -9564.9,
-            "l": 8,
-            "beh": "FAIL"
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
         },
         {
             "t": 0,
-            "r": -9566.2,
-            "l": 152,
-            "beh": "FAIL"
+            "r": -10052.9,
+            "l": 288,
+            "beh": "DEATH"
         }
     ]
 }
