@@ -26,27 +26,74 @@
 
         .sniper-box { background: var(--highlight-blue); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
         .sniper-header { text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1.5rem; letter-spacing: 1px; }
-        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; margin-bottom: 1.5rem; }
         .sniper-item { display: flex; flex-direction: column; align-items: center; }
         .s-val { font-size: 2.2rem; font-weight: bold; color: #fff; text-shadow: 0 0 15px rgba(56, 139, 253, 0.6); line-height: 1.2; margin-top: 0.5rem; }
         .s-label { display: block; color: #8b949e; font-size: 1rem; margin-bottom: 0; font-weight: bold; text-transform: uppercase; }
         .s-sub { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; display: block; }
         
+        /* 診断エリアの分割レイアウト */
+        .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        
+        /* 左：成熟度プレート (固定長方形) */
+        .maturity-box { 
+            background: rgba(13, 17, 23, 0.5); 
+            border: 1px solid var(--border); 
+            padding: 1rem; 
+            border-radius: 4px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .mat-label { color: #8b949e; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; text-transform: uppercase; }
+        .mat-val { font-size: 1.4rem; font-weight: bold; color: #58a6ff; margin-top: 0.2rem; }
+        .mat-sub { font-size: 0.9rem; color: #8b949e; }
+
+        /* 右：状態診断プレート (固定長方形) */
+        .status-box-frame { 
+            background: rgba(48, 54, 61, 0.5); 
+            border: 2px dashed #484f58; 
+            padding: 0; 
+            border-radius: 4px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%;
+            box-sizing: border-box;
+            overflow: hidden; /* レインボー背景用 */
+        }
         #diag-status { 
+            width: 100%;
+            height: 100%;
             text-align:center; 
-            margin: 1.5rem auto 0 auto; 
-            max-width: 600px; 
             font-weight:bold; 
-            padding: 0.75rem; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: #2c5282; 
             color:#fff; 
-            border-radius:4px; 
             transition: background-color 0.5s, color 0.5s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; transition: border-color 0.5s; }
+        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 0.5rem; border-radius: 4px; transition: border-color 0.5s; }
+        .phase-step-range { background: #30363d; color: #c9d1d9; font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle; }
         
+        details.phase-details { margin-bottom: 2rem; background: #161b22; border: 1px solid var(--border); border-radius: 4px; }
+        details.phase-details summary { padding: 0.8rem; cursor: pointer; color: #8b949e; font-weight: bold; list-style: none; }
+        details.phase-details summary:hover { color: #58a6ff; background: #21262d; }
+        details.phase-details summary::-webkit-details-marker { display: none; }
+        details.phase-details summary::after { content: "▼"; float: right; font-size: 0.8rem; }
+        details.phase-details[open] summary::after { content: "▲"; }
+        .phase-list { padding: 1rem; border-top: 1px solid var(--border); }
+        .p-item { display: flex; margin-bottom: 0.8rem; align-items: baseline; }
+        .p-pct { width: 80px; font-family: monospace; color: #8b949e; }
+        .p-name { font-weight: bold; margin-right: 1rem; }
+        .p-desc { color: #8b949e; font-size: 0.9rem; }
+
         .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
         .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
@@ -63,6 +110,35 @@
         .res-win { color: #3fb950; font-weight: bold; }
         .res-bust { color: #f85149; font-weight: bold; }
         .res-fail { color: #d2a8ff; }
+
+        /* ■ FANTASTIC BEAST MODE (Rainbow Styles) */
+        @keyframes rainbow-bg-anim { 
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .rainbow-bg {
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) !important;
+            background-size: 400%;
+            animation: rainbow-bg-anim 10s linear infinite;
+            color: #fff !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            border: none !important;
+        }
+
+        @keyframes rainbow-border-anim { 
+            0% { border-left-color: #ff0000; }
+            15% { border-left-color: #ff7300; }
+            30% { border-left-color: #fffb00; }
+            45% { border-left-color: #48ff00; }
+            60% { border-left-color: #00ffd5; }
+            75% { border-left-color: #002bff; }
+            90% { border-left-color: #ff00c8; }
+            100% { border-left-color: #ff0000; }
+        }
+        .rainbow-border {
+            animation: rainbow-border-anim 2s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -88,9 +164,10 @@
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
-            <h2>Sniper Performance (Ver 9.2 WildFang)</h2>
+            <h2>Sniper Performance (Ver 9.3 WildFang)</h2>
             <div class="sniper-box">
                 <div class="sniper-header">DRAGON EYE PROTOCOL: +2,000 JPY</div>
+                
                 <div class="sniper-grid">
                     <div class="sniper-item">
                         <span class="s-label">Mission Complete</span>
@@ -107,13 +184,32 @@
                         <span class="s-sub">Lowest - Highest</span>
                     </div>
                 </div>
-                <div id="diag-status"> Analyzing... </div>
+
+                <div class="diag-split">
+                    <div class="maturity-box" id="mat-box">
+                        <span class="mat-label">Maturity Level</span>
+                        <div class="mat-val" id="mat-val">--%</div>
+                        <div class="mat-sub" id="mat-phase-name">--</div>
+                    </div>
+                    
+                    <div class="status-box-frame">
+                        <div id="diag-status"> Analyzing... </div>
+                    </div>
+                </div>
             </div>
 
             <div class="phase-box" id="phase-box">
-                <h3 style="margin:0 0 0.5rem 0;" id="phase-title">Phase --</h3>
+                <h3 style="margin:0 0 0.5rem 0;">
+                    <span id="phase-title">Phase --</span>
+                    <span class="phase-step-range" id="phase-range">-- ~ -- Steps</span>
+                </h3>
                 <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 0.5rem;">Loading...</div>
             </div>
+
+            <details class="phase-details">
+                <summary>Curriculum Details (Show All Phases)</summary>
+                <div class="phase-list" id="phase-list-container"></div>
+            </details>
 
             <h3>Combat Record (Accumulative)</h3>
             <div class="combat-row">
@@ -181,16 +277,36 @@
             document.getElementById('main-prog-bar').style.width = data.prog_pct + "%";
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
 
+            let currentPhaseConfig = null;
+            if(data.config && data.config.phases) {
+                data.config.phases.forEach(p => {
+                    if (data.prog_pct >= p.min_pct && data.prog_pct < p.max_pct) {
+                        currentPhaseConfig = p;
+                    }
+                });
+                if(!currentPhaseConfig && data.prog_pct >= 100) {
+                     currentPhaseConfig = data.config.phases[data.config.phases.length - 1];
+                }
+            }
+
+            // Maturity Plate Update
+            if (currentPhaseConfig) {
+                document.getElementById('mat-phase-name').innerText = currentPhaseConfig.title;
+            }
+            document.getElementById('mat-val').innerText = data.prog_pct + "%";
+
+            // Status Plate Update
+            const badge = document.getElementById('diag-status');
             if (data.diagnosis && data.diagnosis.sniper_stats) {
                 const s = data.diagnosis.sniper_stats;
                 document.getElementById('s-rate').innerText = s.mission_rate;
                 document.getElementById('s-speed').innerText = s.speed_range;
                 document.getElementById('s-margin').innerText = s.margin_range;
                 
-                const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
-                
                 let bgColor = data.diagnosis.status_color;
+                
+                // 通常時の色適用
                 let textColor = "#fff";
                 if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700"].includes(bgColor)) {
                     textColor = "#000";
@@ -199,16 +315,64 @@
                 badge.style.color = textColor;
             }
 
+            // Phase Info
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
 
+            // ■ FANTASTIC BEAST 判定 (Phase 4 到達時)
+            // 対象: 左プレート(mat-box), 右プレート(diag-status), フェーズ左枠(phase-box)
+            if (currentPhaseConfig && currentPhaseConfig.id === 4) {
+                // 3箇所をレインボー化
+                document.getElementById('mat-box').className = "maturity-box rainbow-bg";
+                document.getElementById('diag-status').className = "rainbow-bg";
+                document.getElementById('phase-box').className = "phase-box rainbow-border";
+                
+                // テキスト調整
+                document.getElementById('mat-val').style.color = "#fff";
+            } else {
+                // 通常リセット
+                document.getElementById('mat-box').className = "maturity-box";
+                document.getElementById('diag-status').className = ""; // 色は上で個別指定
+                document.getElementById('phase-box').className = "phase-box";
+                document.getElementById('mat-val').style.color = "#58a6ff";
+            }
+
+            // Step Range
+            if (currentPhaseConfig) {
+                const targetTotal = data.target_steps;
+                const minStep = Math.floor(targetTotal * (currentPhaseConfig.min_pct / 100));
+                let maxStep = Math.floor(targetTotal * (currentPhaseConfig.max_pct / 100));
+                if (maxStep > targetTotal * 2) maxStep = "∞"; 
+                document.getElementById('phase-range').innerText = 
+                    `${minStep.toLocaleString()} ~ ${maxStep} Steps`;
+            }
+
+            // Curriculum List
+            if (data.config && data.config.phases) {
+                let listHtml = "";
+                data.config.phases.forEach(p => {
+                    let colorStyle = `color:${p.color}`;
+                    if (p.id === 4) colorStyle = "color:#FFD700"; // Gold text for list
+                    let activeMarker = (p.title === data.phase_title) ? "◀ CURRENT" : "";
+                    
+                    listHtml += `
+                    <div class="p-item">
+                        <span class="p-pct">${p.min_pct}%-</span>
+                        <span class="p-name" style="${colorStyle}">${p.title} ${activeMarker}</span>
+                    </div>
+                    <div style="margin-bottom:0.8rem; padding-left:80px;" class="p-desc">${p.goal}</div>
+                    `;
+                });
+                document.getElementById('phase-list-container').innerHTML = listHtml;
+            }
+
+            // Stats & Logs
             if (data.combat_stats) {
                 document.getElementById('c-win').innerText = data.combat_stats.WIN.toLocaleString();
                 document.getElementById('c-fail').innerText = data.combat_stats.FAIL.toLocaleString();
                 document.getElementById('c-bust').innerText = data.combat_stats.BUST.toLocaleString();
             }
-
             if (data.analysis_report) {
                 const ana = data.analysis_report;
                 document.getElementById('analysis-section').className = "analysis-box analysis-active";
@@ -216,21 +380,18 @@
                 document.getElementById('ana-bust').innerText = ana.overall_bust_rate;
                 document.getElementById('ana-avg').innerText = ana.speed_stats.avg;
                 document.getElementById('ana-conc').innerText = ana.conclusion;
-                
                 if(ana.conclusion.includes("順調") || ana.conclusion.includes("生存")) {
                     document.getElementById('ana-conc').style.color = "#3fb950";
                 } else {
                     document.getElementById('ana-conc').style.color = "#f85149";
                 }
             }
-
             let rows = "";
             data.logs.forEach(log => {
                 let cls = "";
                 if (log.beh.includes("WIN")) cls = "res-win";
                 else if (log.beh.includes("DEATH") || log.beh.includes("BUST")) cls = "res-bust";
                 else cls = "res-fail";
-                
                 rows += `<tr>
                     <td>${log.t}</td>
                     <td style="color:${log.r > 0 ? '#3fb950' : '#f85149'}">${log.r}</td>
