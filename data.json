@@ -1,27 +1,27 @@
 {
     "status": "active",
-    "total_steps": 215905,
+    "total_steps": 220609,
     "target_steps": 3000000,
-    "prog_pct": 7.2,
+    "prog_pct": 7.4,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
     "phase_color": "#FF4B4B",
     "diagnosis": {
-        "status_text": "デスゲーム中 (赤)",
-        "status_color": "#FF0000",
+        "status_text": "全滅 (グレー)",
+        "status_color": "#808080",
         "sniper_stats": {
-            "mission_rate": "58.9 %",
+            "mission_rate": "58.7 %",
             "speed_range": "2 - 288",
             "margin_range": "53.1 - 999.0 %"
         }
     },
     "combat_stats": {
         "WIN": 3189,
-        "FAIL": 378,
-        "BUST": 1847
+        "FAIL": 394,
+        "BUST": 1848
     },
-    "ai_status": "Training (215,905)",
-    "total_eps": 5414,
+    "ai_status": "Training (220,609)",
+    "total_eps": 5431,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -74,8 +74,8 @@
         },
         {
             "t": 12,
-            "r": -10002.9,
-            "l": 288,
+            "r": -16959.9,
+            "l": 149,
             "beh": "DEATH/BUST"
         },
         {
@@ -86,15 +86,15 @@
         },
         {
             "t": 10,
-            "r": -17904.1,
-            "l": 12,
+            "r": -10002.9,
+            "l": 288,
             "beh": "DEATH/BUST"
         },
         {
             "t": 9,
-            "r": -9273.9,
-            "l": 70,
-            "beh": "FAIL/DEEP"
+            "r": -10002.9,
+            "l": 288,
+            "beh": "DEATH/BUST"
         },
         {
             "t": 8,
