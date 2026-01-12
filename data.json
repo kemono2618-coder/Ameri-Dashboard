@@ -1,14 +1,14 @@
 {
     "status": "active",
-    "total_steps": 159263,
+    "total_steps": 163009,
     "target_steps": 3000000,
-    "prog_pct": 5.3,
+    "prog_pct": 5.4,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
     "phase_color": "#FF4B4B",
     "diagnosis": {
-        "status_text": "生存の兆しあり (黄)",
-        "status_color": "#FFFF00",
+        "status_text": "デスゲーム中 (赤)",
+        "status_color": "#FF0000",
         "sniper_stats": {
             "mission_rate": "63.5 %",
             "speed_range": "2 - 288",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 2415,
-        "FAIL": 21,
-        "BUST": 1365
+        "WIN": 2460,
+        "FAIL": 22,
+        "BUST": 1394
     },
-    "ai_status": "Training (159,263)",
-    "total_eps": 3801,
+    "ai_status": "Training (163,009)",
+    "total_eps": 3876,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -54,93 +54,93 @@
     "logs": [
         {
             "t": 14,
-            "r": 8129.6,
-            "l": 66,
-            "beh": "WIN"
-        },
-        {
-            "t": 13,
-            "r": 10068.8,
-            "l": 8,
-            "beh": "WIN"
-        },
-        {
-            "t": 12,
-            "r": 9989.9,
-            "l": 32,
-            "beh": "WIN"
-        },
-        {
-            "t": 11,
-            "r": -8931.8,
-            "l": 52,
+            "r": -7776.3,
+            "l": 14,
             "beh": "FAIL/DEEP"
         },
         {
+            "t": 13,
+            "r": -1979.8,
+            "l": 195,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 12,
+            "r": -9444.3,
+            "l": 40,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 11,
+            "r": 5408.1,
+            "l": 194,
+            "beh": "WIN"
+        },
+        {
             "t": 10,
-            "r": -2587.8,
-            "l": 10,
+            "r": -7763.6,
+            "l": 40,
             "beh": "FAIL/DEEP"
         },
         {
             "t": 9,
-            "r": 9160.2,
-            "l": 90,
-            "beh": "WIN"
-        },
-        {
-            "t": 8,
-            "r": 9991.1,
-            "l": 11,
-            "beh": "WIN"
-        },
-        {
-            "t": 7,
-            "r": -11631.2,
-            "l": 48,
+            "r": -15473.2,
+            "l": 77,
             "beh": "DEATH/BUST"
         },
         {
+            "t": 8,
+            "r": -10330.0,
+            "l": 47,
+            "beh": "DEATH/BUST"
+        },
+        {
+            "t": 7,
+            "r": 7416.3,
+            "l": 27,
+            "beh": "WIN"
+        },
+        {
             "t": 6,
-            "r": 9983.1,
-            "l": 30,
+            "r": 9925.4,
+            "l": 20,
             "beh": "WIN"
         },
         {
             "t": 5,
-            "r": -12729.5,
-            "l": 23,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 4,
-            "r": 9973.1,
-            "l": 56,
+            "r": 10003.6,
+            "l": 57,
             "beh": "WIN"
         },
         {
-            "t": 3,
-            "r": -5120.3,
-            "l": 15,
+            "t": 4,
+            "r": -5961.7,
+            "l": 64,
             "beh": "FAIL/DEEP"
         },
         {
+            "t": 3,
+            "r": 10001.9,
+            "l": 80,
+            "beh": "WIN"
+        },
+        {
             "t": 2,
-            "r": 9987.2,
-            "l": 33,
+            "r": 8118.9,
+            "l": 46,
             "beh": "WIN"
         },
         {
             "t": 1,
-            "r": 9981.9,
-            "l": 8,
-            "beh": "WIN"
+            "r": -15449.4,
+            "l": 63,
+            "beh": "DEATH/BUST"
         },
         {
             "t": 0,
-            "r": 9975.6,
-            "l": 15,
-            "beh": "WIN"
+            "r": -10343.2,
+            "l": 50,
+            "beh": "DEATH/BUST"
         }
     ]
 }
