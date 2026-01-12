@@ -21,38 +21,43 @@
         .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
         .metric-label { font-size: 0.8rem; color: #8b949e; }
 
-        /* Sniper Box Layout */
         .sniper-box { background: rgba(56, 139, 253, 0.1); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
         .sniper-header { text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1.5rem; letter-spacing: 1px; }
         .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 1.5rem; }
         .sniper-item { display: flex; flex-direction: column; align-items: center; }
         .s-val { font-size: 1.8rem; font-weight: bold; color: #fff; line-height: 1.2; margin-top: 0.5rem; }
         .s-label { display: block; color: #8b949e; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
-        .s-sub { font-size: 0.8rem; color: #aaa; margin-top: 0.2rem; display: block; }
         
-        /* Dist Bars */
         .dist-container { display: flex; align-items: flex-end; justify-content: space-between; height: 40px; width: 100%; margin-top: 10px; gap: 2px; }
         .dist-bar { background: #388bfd; opacity: 0.7; border-radius: 2px 2px 0 0; flex: 1; min-width: 5px; position: relative; }
         .dist-bar:hover { opacity: 1.0; }
         .dist-bar:hover::after { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #000; color: #fff; font-size: 0.7rem; padding: 2px 4px; border-radius: 2px; white-space: nowrap; z-index: 10; }
 
-        /* Double Meter Layout */
         .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        
-        /* Maturity Meter (Left) */
         .maturity-box { background: rgba(13, 17, 23, 0.5); border: 2px solid var(--border); padding: 1rem; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
         .mat-val { font-size: 2rem; font-weight: bold; }
         
-        /* Diagnosis (Right) */
         .status-box-frame { background: rgba(48, 54, 61, 0.5); border: 2px dashed #484f58; padding: 0; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; overflow:hidden;}
         #diag-status { width: 100%; padding: 0.75rem; text-align:center; font-weight:bold; background: #30363d; color:#fff; }
         #diag-detail { padding: 0.8rem; color: #c9d1d9; font-size: 0.9rem; text-align: center; font-family: monospace; }
 
-        /* Pressure Meter (Bottom) */
         .pressure-box { background: var(--secondary-bg); border: 1px solid var(--border); padding: 1rem; margin-top: 0; border-radius: 4px; }
         .pressure-bar-bg { width: 100%; height: 20px; background: #30363d; border-radius: 10px; overflow: hidden; position: relative; }
         .pressure-bar-fill { height: 100%; width: 0%; transition: width 0.5s; }
         .pressure-text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; text-align: center; line-height: 20px; font-size: 0.8rem; font-weight: bold; color: #fff; text-shadow: 0 0 2px #000; }
+
+        /* Zone Guide Accordion */
+        details.zone-details { margin-bottom: 2rem; background: #161b22; border: 1px solid var(--border); border-radius: 4px; margin-top: 1rem; }
+        details.zone-details summary { padding: 0.8rem; cursor: pointer; color: #8b949e; font-weight: bold; list-style: none; }
+        details.zone-details summary:hover { color: #58a6ff; background: #21262d; }
+        details.zone-details summary::-webkit-details-marker { display: none; }
+        details.zone-details summary::after { content: "▼"; float: right; font-size: 0.8rem; }
+        details.zone-details[open] summary::after { content: "▲"; }
+        .zone-list { padding: 1rem; border-top: 1px solid var(--border); }
+        .z-item { display: flex; margin-bottom: 0.8rem; align-items: baseline; }
+        .z-range { width: 100px; font-family: monospace; color: #8b949e; font-weight: bold; }
+        .z-name { font-weight: bold; margin-right: 1rem; }
+        .z-desc { color: #8b949e; font-size: 0.9rem; }
 
         .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
@@ -62,7 +67,6 @@
         th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
         td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
         
-        /* Rainbow */
         @keyframes rainbow-bg-anim { 
             0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
         }
@@ -79,7 +83,7 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper Ver 9.5</h1>
+                    <h1>Ameri-Sniper Ver 9.6</h1>
                     <span style="color:#8b949e;">Target: <span id="target-steps">--</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
@@ -121,7 +125,6 @@
                         <span class="metric-label" style="text-transform:uppercase">Maturity Level (Skill)</span>
                         <div class="mat-val" id="mat-val">--</div>
                     </div>
-                    
                     <div class="status-box-frame">
                         <div id="diag-status"> Analyzing... </div>
                         <div id="diag-detail">--</div>
@@ -136,6 +139,11 @@
                     <div class="pressure-text" id="press-val">0%</div>
                 </div>
             </div>
+
+            <details class="zone-details">
+                <summary>Curriculum Zones (Guide)</summary>
+                <div class="zone-list" id="zone-list-container"></div>
+            </details>
 
             <h3>Recent Combat Log (Last 15)</h3>
             <div style="background:var(--secondary-bg); border:1px solid var(--border); border-radius:6px; padding:1rem;">
@@ -187,15 +195,13 @@
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
             document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
 
-            // ■ Double Meters
-            // 1. Maturity (Left)
+            // Double Meters
             if (data.meters && data.meters.maturity) {
                 const m = data.meters.maturity;
                 document.getElementById('mat-val').innerText = m.val;
                 document.getElementById('mat-val').style.color = m.color;
                 document.getElementById('mat-box').style.borderColor = m.color;
 
-                // Rainbow Trigger (Level 100)
                 if (m.val === 100) {
                     document.getElementById('mat-box').className = "maturity-box rainbow-bg";
                     document.getElementById('mat-box').style.borderColor = "transparent";
@@ -209,7 +215,6 @@
                 }
             }
 
-            // 2. Pressure (Bottom)
             if (data.meters && data.meters.pressure) {
                 const p = data.meters.pressure;
                 document.getElementById('press-bar').style.width = p.val + "%";
@@ -217,35 +222,46 @@
                 document.getElementById('press-val').innerText = p.val + "%";
             }
 
-            // ■ Stats & Analysis
+            // Stats
             if (data.analysis_report) {
                 const r = data.analysis_report;
                 document.getElementById('ana-win').innerText = r.overall_win_rate;
                 document.getElementById('ana-bust').innerText = r.overall_bust_rate;
-                
-                // Sniper Stats
                 document.getElementById('s-rate').innerText = r.overall_win_rate;
                 document.getElementById('s-speed').innerText = `${r.speed_stats.fastest} / ${r.speed_stats.slowest} / ${r.speed_stats.avg}`;
                 document.getElementById('s-margin').innerText = `${r.margin_stats.lowest} / ${r.margin_stats.highest} / ${r.margin_stats.avg}`;
                 
-                // Distributions
                 if (r.distributions) {
                     renderDist("dist-speed", r.distributions.speed);
                     renderDist("dist-margin", r.distributions.margin);
                 }
             }
 
-            // ■ Diagnosis (Right)
+            // Diagnosis
             if (data.diagnosis) {
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
                 document.getElementById('diag-detail').innerText = data.diagnosis.status_detail;
-                
-                // Background Color
                 if (!data.meters || data.meters.maturity.val !== 100) {
                      badge.style.backgroundColor = data.diagnosis.status_color;
                      badge.style.color = "#fff";
                 }
+            }
+
+            // Curriculum Zone List (復活したアコーディオン)
+            if (data.config && data.config.zones) {
+                let listHtml = "";
+                data.config.zones.forEach(z => {
+                    let colorStyle = `color:${z.color}`;
+                    listHtml += `
+                    <div class="z-item">
+                        <span class="z-range">${z.range}</span>
+                        <span class="z-name" style="${colorStyle}">${z.title}</span>
+                    </div>
+                    <div style="margin-bottom:0.8rem; padding-left:100px;" class="z-desc">${z.desc}</div>
+                    `;
+                });
+                document.getElementById('zone-list-container').innerHTML = listHtml;
             }
 
             // Logs
