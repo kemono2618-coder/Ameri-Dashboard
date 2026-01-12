@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 2775169,
+    "total_steps": 2779777,
     "target_steps": 3000000,
-    "prog_pct": 92.5,
+    "prog_pct": 92.7,
     "phase_title": "Phase 4: Executioner",
     "phase_desc": "完全なる執行者。",
     "phase_color": "#00FF00",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 75769,
+        "WIN": 75910,
         "FAIL": 5,
-        "BUST": 41663
+        "BUST": 41738
     },
-    "ai_status": "Training (2,775,169)",
-    "total_eps": 117437,
+    "ai_status": "Training (2,779,777)",
+    "total_eps": 117653,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -70,93 +70,93 @@
     "logs": [
         {
             "t": 14,
-            "r": -10190.8,
-            "l": 26,
+            "r": -10082.4,
+            "l": 16,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 13,
-            "r": -10075.2,
-            "l": 28,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10027.8,
+            "l": 4,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 12,
-            "r": 10029.8,
-            "l": 26,
+            "r": 10029.7,
+            "l": 10,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 11,
-            "r": 10037.2,
-            "l": 7,
+            "r": 10028.6,
+            "l": 8,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 10,
-            "r": -10090.6,
-            "l": 75,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10024.9,
+            "l": 4,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 9,
-            "r": 10036.2,
-            "l": 12,
+            "r": 10023.2,
+            "l": 11,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 8,
-            "r": 10026.0,
-            "l": 43,
+            "r": 10025.7,
+            "l": 6,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 7,
-            "r": -10290.9,
-            "l": 41,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10024.7,
+            "l": 2,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 6,
-            "r": -10070.5,
-            "l": 9,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10022.3,
+            "l": 37,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 5,
-            "r": -10189.3,
-            "l": 22,
+            "r": -10085.3,
+            "l": 42,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 4,
-            "r": -10083.2,
-            "l": 29,
+            "r": -10079.5,
+            "l": 57,
             "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 3,
-            "r": 10027.5,
-            "l": 3,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10083.3,
+            "l": 6,
+            "beh": "DEATH (LOSS/WAIT)"
         },
         {
             "t": 2,
-            "r": -10077.6,
-            "l": 92,
-            "beh": "DEATH (LOSS/WAIT)"
+            "r": 10032.2,
+            "l": 6,
+            "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 1,
             "r": 10024.2,
-            "l": 18,
+            "l": 44,
             "beh": "SURVIVAL (WIN)"
         },
         {
             "t": 0,
-            "r": 10028.1,
-            "l": 2,
-            "beh": "SURVIVAL (WIN)"
+            "r": -10085.3,
+            "l": 21,
+            "beh": "DEATH (LOSS/WAIT)"
         }
     ]
 }
