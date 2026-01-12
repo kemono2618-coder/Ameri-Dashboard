@@ -45,7 +45,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; }
+        /* フェーズ表示のスタイル */
+        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; transition: border-color 0.5s; }
         
         .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
@@ -88,9 +89,9 @@
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
-            <h2>Sniper Performance (Precision Protocol)</h2>
+            <h2>Sniper Performance (Ver 9.0)</h2>
             <div class="sniper-box">
-                <div class="sniper-header">ABSOLUTE MISSION: +2,000 JPY (20%)</div>
+                <div class="sniper-header">DAILY EXECUTIONER: +2,000 JPY</div>
                 <div class="sniper-grid">
                     <div class="sniper-item">
                         <span class="s-label">Mission Complete</span>
@@ -122,11 +123,11 @@
                     <span class="c-val c-win" id="c-win">0</span>
                 </div>
                 <div class="combat-item">
-                    <span class="metric-label">FAILED (Loss/TimeUp)</span>
+                    <span class="metric-label">FAILED (TimeUp)</span>
                     <span class="c-val c-fail" id="c-fail">0</span>
                 </div>
                 <div class="combat-item">
-                    <span class="metric-label" style="color:#f85149;">BUSTED (Instant Death)</span>
+                    <span class="metric-label" style="color:#f85149;">BUSTED (Death)</span>
                     <span class="c-val c-bust" id="c-bust">0</span>
                 </div>
             </div>
@@ -190,11 +191,9 @@
                 const badge = document.getElementById('diag-status');
                 badge.innerText = data.diagnosis.status_text;
                 
-                // 背景色に応じた文字色調整
                 let bgColor = data.diagnosis.status_color;
                 let textColor = "#fff";
-                // 明るい色（緑、黄、金）の場合は黒文字
-                if(["#00FF00", "#FFFF00", "#FFD700"].includes(bgColor)) {
+                if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700"].includes(bgColor)) {
                     textColor = "#000";
                 }
                 badge.style.backgroundColor = bgColor;
@@ -229,9 +228,8 @@
             let rows = "";
             data.logs.forEach(log => {
                 let cls = "";
-                // SAW判定
-                if (log.beh.includes("WIN") || log.beh.includes("SURVIVAL")) cls = "res-win";
-                else if (log.beh.includes("BUST") || log.beh.includes("DEATH") || log.beh.includes("LOSS")) cls = "res-bust";
+                if (log.beh.includes("WIN")) cls = "res-win";
+                else if (log.beh.includes("DEATH") || log.beh.includes("BUST")) cls = "res-bust";
                 else cls = "res-fail";
                 
                 rows += `<tr>
