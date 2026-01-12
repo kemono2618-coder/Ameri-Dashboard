@@ -1,27 +1,27 @@
 {
     "status": "active",
-    "total_steps": 1618561,
+    "total_steps": 4609,
     "target_steps": 3000000,
-    "prog_pct": 54.0,
-    "phase_title": "Phase 2: Hunting (狩りの学習)",
-    "phase_desc": "罰則増加。無駄な飛びつきをやめ、獲物が通る『時間』と『勢い』を見極める。",
-    "phase_color": "#FFA500",
+    "prog_pct": 0.2,
+    "phase_title": "Phase 1: Awakening (野性の目覚め)",
+    "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
+    "phase_color": "#FF4B4B",
     "diagnosis": {
         "status_text": "デスゲーム中 (赤)",
         "status_color": "#FF0000",
         "sniper_stats": {
-            "mission_rate": "53.9 %",
-            "speed_range": "2 - 288",
-            "margin_range": "50.7 - 999.0 %"
+            "mission_rate": "69.2 %",
+            "speed_range": "2 - 140",
+            "margin_range": "78.1 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 6380,
-        "FAIL": 1028,
-        "BUST": 4436
+        "WIN": 108,
+        "FAIL": 0,
+        "BUST": 48
     },
-    "ai_status": "Analyzed",
-    "total_eps": 11844,
+    "ai_status": "Training (4,609)",
+    "total_eps": 156,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -44,118 +44,111 @@
             {
                 "id": 3,
                 "min_pct": 66,
-                "max_pct": 101,
+                "max_pct": 100,
                 "color": "#00FF00",
                 "title": "Phase 3: Apex Predator (頂点捕食者)",
                 "goal": "罰則＝死。Dragon Eye(大局観)を駆使し、一撃で仕留める完成形。"
+            },
+            {
+                "id": 4,
+                "min_pct": 100,
+                "max_pct": 9999,
+                "color": "#FFD700",
+                "title": "Phase 4: FANTASTIC BEAST",
+                "goal": "神の領域。全てを超越した存在。レインボーモード解放。"
             }
         ]
     },
     "logs": [
         {
             "t": 14,
-            "r": -16696.3,
-            "l": 30,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 13,
-            "r": -16697.4,
-            "l": 171,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 12,
-            "r": -10052.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 11,
-            "r": -16693.0,
-            "l": 173,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 10,
-            "r": -16691.0,
-            "l": 137,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 9,
-            "r": -16688.4,
-            "l": 14,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 8,
-            "r": -16688.6,
-            "l": 48,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 7,
-            "r": 9947.1,
-            "l": 288,
+            "r": 9923.5,
+            "l": 5,
             "beh": "WIN"
         },
         {
+            "t": 13,
+            "r": 9975.9,
+            "l": 7,
+            "beh": "WIN"
+        },
+        {
+            "t": 12,
+            "r": 9971.8,
+            "l": 8,
+            "beh": "WIN"
+        },
+        {
+            "t": 11,
+            "r": -2422.8,
+            "l": 42,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 10,
+            "r": 6982.0,
+            "l": 16,
+            "beh": "WIN"
+        },
+        {
+            "t": 9,
+            "r": 8849.1,
+            "l": 12,
+            "beh": "WIN"
+        },
+        {
+            "t": 8,
+            "r": 1832.3,
+            "l": 20,
+            "beh": "CUT/WAIT"
+        },
+        {
+            "t": 7,
+            "r": -151.6,
+            "l": 40,
+            "beh": "CUT/WAIT"
+        },
+        {
             "t": 6,
-            "r": -16685.7,
-            "l": 75,
-            "beh": "DEATH/BUST"
+            "r": 9921.9,
+            "l": 3,
+            "beh": "WIN"
         },
         {
             "t": 5,
-            "r": -10052.9,
-            "l": 288,
+            "r": -32241.6,
+            "l": 120,
             "beh": "DEATH/BUST"
         },
         {
             "t": 4,
-            "r": 9947.1,
-            "l": 288,
+            "r": 8315.4,
+            "l": 13,
             "beh": "WIN"
         },
         {
             "t": 3,
-            "r": -33308.3,
-            "l": 217,
-            "beh": "DEATH/BUST"
+            "r": 5357.7,
+            "l": 24,
+            "beh": "WIN"
         },
         {
             "t": 2,
-            "r": 9947.1,
-            "l": 288,
-            "beh": "WIN"
+            "r": 4735.6,
+            "l": 23,
+            "beh": "CUT/WAIT"
         },
         {
             "t": 1,
-            "r": -16674.1,
-            "l": 40,
-            "beh": "DEATH/BUST"
+            "r": -4599.4,
+            "l": 41,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 0,
-            "r": 9999.1,
-            "l": 276,
+            "r": 9921.5,
+            "l": 6,
             "beh": "WIN"
         }
-    ],
-    "analysis_report": {
-        "analyzed_eps": 11856,
-        "overall_win_rate": "53.85 %",
-        "overall_bust_rate": "37.47 %",
-        "speed_stats": {
-            "fastest": 2,
-            "slowest": 288,
-            "avg": 146.9
-        },
-        "margin_stats": {
-            "lowest": 50.7,
-            "highest": 999.0
-        },
-        "conclusion": "生存圏 確立"
-    }
+    ]
 }
