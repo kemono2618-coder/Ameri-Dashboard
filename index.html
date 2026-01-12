@@ -5,143 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ameri-Sniper Dashboard</title>
     <style>
-        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --accent-green: #238636; --accent-red: #da3633; --border: #30363d; --highlight-blue: rgba(56, 139, 253, 0.15); }
+        :root { --bg-color: #0d1117; --secondary-bg: #161b22; --text-color: #c9d1d9; --border: #30363d; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: "Consolas", "Monaco", monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         .container { display: flex; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
         @media (max-width: 768px) { .container { flex-direction: column; } }
         .main { flex-grow: 1; padding: 2rem; }
         
         h1, h2, h3 { color: #f0f6fc; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-        .status-active { color: #3fb950; font-weight: bold; }
-        .status-offline { color: #f85149; font-weight: bold; }
-
+        .status-active { color: #238636; font-weight: bold; }
+        .status-offline { color: #da3633; font-weight: bold; }
         .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; }
-        .main-progress-bg { width: 100%; height: 8px; background: #30363d; border-radius: 4px; overflow: hidden; margin-bottom: 2rem; }
-        .main-progress-fill { height: 100%; background: linear-gradient(90deg, #238636, #2ea043); width: 0%; transition: width 0.5s; }
 
         .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
         .metric-card { background: var(--secondary-bg); padding: 1rem; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
         .metric-val { font-size: 1.5rem; font-weight: bold; display: block; margin-top: 0.5rem; color: #f0f6fc; }
         .metric-label { font-size: 0.8rem; color: #8b949e; }
 
-        .sniper-box { background: var(--highlight-blue); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+        /* Sniper Box Layout */
+        .sniper-box { background: rgba(56, 139, 253, 0.1); border: 1px solid #388bfd; padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
         .sniper-header { text-align:center; color:#58a6ff; font-weight:bold; margin-bottom:1.5rem; letter-spacing: 1px; }
-        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; margin-bottom: 1.5rem; }
+        .sniper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 1.5rem; }
         .sniper-item { display: flex; flex-direction: column; align-items: center; }
-        .s-val { font-size: 2.2rem; font-weight: bold; color: #fff; text-shadow: 0 0 15px rgba(56, 139, 253, 0.6); line-height: 1.2; margin-top: 0.5rem; }
-        .s-label { display: block; color: #8b949e; font-size: 1rem; margin-bottom: 0; font-weight: bold; text-transform: uppercase; }
-        .s-sub { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; display: block; }
+        .s-val { font-size: 1.8rem; font-weight: bold; color: #fff; line-height: 1.2; margin-top: 0.5rem; }
+        .s-label { display: block; color: #8b949e; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
+        .s-sub { font-size: 0.8rem; color: #aaa; margin-top: 0.2rem; display: block; }
         
+        /* Dist Bars */
+        .dist-container { display: flex; align-items: flex-end; justify-content: space-between; height: 40px; width: 100%; margin-top: 10px; gap: 2px; }
+        .dist-bar { background: #388bfd; opacity: 0.7; border-radius: 2px 2px 0 0; flex: 1; min-width: 5px; position: relative; }
+        .dist-bar:hover { opacity: 1.0; }
+        .dist-bar:hover::after { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #000; color: #fff; font-size: 0.7rem; padding: 2px 4px; border-radius: 2px; white-space: nowrap; z-index: 10; }
+
+        /* Double Meter Layout */
         .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
         
-        /* 左プレート：成熟度 (Estimated Maturity) */
-        .maturity-box { 
-            background: rgba(13, 17, 23, 0.5); 
-            border: 2px solid var(--border); 
-            padding: 1rem; 
-            border-radius: 4px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.5s;
-        }
-        .mat-label { color: #8b949e; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; text-transform: uppercase; }
-        .mat-val { font-size: 1.2rem; font-weight: bold; margin-top: 0.2rem; transition: color 0.5s; }
+        /* Maturity Meter (Left) */
+        .maturity-box { background: rgba(13, 17, 23, 0.5); border: 2px solid var(--border); padding: 1rem; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+        .mat-val { font-size: 2rem; font-weight: bold; }
         
-        /* 右プレート：状態診断 (Status) */
-        .status-box-frame { 
-            background: rgba(48, 54, 61, 0.5); 
-            border: 2px dashed #484f58; 
-            padding: 0; 
-            border-radius: 4px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: flex-start; 
-            height: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-        #diag-status { 
-            width: 100%;
-            padding: 0.75rem; 
-            text-align:center; 
-            font-weight:bold; 
-            background: #30363d; 
-            color:#fff; 
-            transition: background-color 0.5s, color 0.5s;
-        }
-        #diag-detail {
-            padding: 0.8rem;
-            color: #c9d1d9;
-            font-size: 0.9rem;
-            text-align: center;
-            font-family: monospace;
-        }
+        /* Diagnosis (Right) */
+        .status-box-frame { background: rgba(48, 54, 61, 0.5); border: 2px dashed #484f58; padding: 0; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; overflow:hidden;}
+        #diag-status { width: 100%; padding: 0.75rem; text-align:center; font-weight:bold; background: #30363d; color:#fff; }
+        #diag-detail { padding: 0.8rem; color: #c9d1d9; font-size: 0.9rem; text-align: center; font-family: monospace; }
 
-        .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 0.5rem; border-radius: 4px; transition: border-color 0.5s; }
-        .phase-step-range { background: #30363d; color: #c9d1d9; font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle; }
-        
-        details.phase-details { margin-bottom: 2rem; background: #161b22; border: 1px solid var(--border); border-radius: 4px; }
-        details.phase-details summary { padding: 0.8rem; cursor: pointer; color: #8b949e; font-weight: bold; list-style: none; }
-        details.phase-details summary:hover { color: #58a6ff; background: #21262d; }
-        details.phase-details summary::-webkit-details-marker { display: none; }
-        details.phase-details summary::after { content: "▼"; float: right; font-size: 0.8rem; }
-        details.phase-details[open] summary::after { content: "▲"; }
-        .phase-list { padding: 1rem; border-top: 1px solid var(--border); }
-        .p-item { display: flex; margin-bottom: 0.8rem; align-items: baseline; }
-        .p-pct { width: 80px; font-family: monospace; color: #8b949e; }
-        .p-name { font-weight: bold; margin-right: 1rem; }
-        .p-desc { color: #8b949e; font-size: 0.9rem; }
+        /* Pressure Meter (Bottom) */
+        .pressure-box { background: var(--secondary-bg); border: 1px solid var(--border); padding: 1rem; margin-top: 0; border-radius: 4px; }
+        .pressure-bar-bg { width: 100%; height: 20px; background: #30363d; border-radius: 10px; overflow: hidden; position: relative; }
+        .pressure-bar-fill { height: 100%; width: 0%; transition: width 0.5s; }
+        .pressure-text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; text-align: center; line-height: 20px; font-size: 0.8rem; font-weight: bold; color: #fff; text-shadow: 0 0 2px #000; }
 
         .combat-row { display: flex; gap: 1rem; justify-content: center; background: var(--secondary-bg); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; border: 1px solid var(--border); }
         .combat-item { text-align: center; flex: 1; }
         .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
-        .c-win { color: #3fb950; }
-        .c-fail { color: #e1e4e8; }
-        .c-bust { color: #da3633; }
-
-        .analysis-box { background: #161b22; border: 1px solid #a371f7; padding: 1.5rem; border-radius: 6px; margin-top: 2rem; display: none; box-shadow: 0 0 20px rgba(163, 113, 247, 0.15); }
-        .analysis-active { display: block; }
-
+        
         table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
         th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
         td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
-        .res-win { color: #3fb950; font-weight: bold; }
-        .res-bust { color: #da3633; font-weight: bold; }
-        .res-fail { color: #d2a8ff; }
-
-        /* ■ FANTASTIC BEAST MODE (Rainbow Styles) */
+        
+        /* Rainbow */
         @keyframes rainbow-bg-anim { 
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
         }
         .rainbow-bg {
             background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000) !important;
-            background-size: 400%;
-            animation: rainbow-bg-anim 10s linear infinite;
-            color: #fff !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-            border: none !important;
+            background-size: 400%; animation: rainbow-bg-anim 10s linear infinite; color: #fff !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); border: none !important;
         }
-
-        @keyframes rainbow-border-anim { 
-            0% { border-left-color: #ff0000; }
-            15% { border-left-color: #ff7300; }
-            30% { border-left-color: #fffb00; }
-            45% { border-left-color: #48ff00; }
-            60% { border-left-color: #00ffd5; }
-            75% { border-left-color: #002bff; }
-            90% { border-left-color: #ff00c8; }
-            100% { border-left-color: #ff0000; }
-        }
-        .rainbow-border {
-            animation: rainbow-border-anim 2s linear infinite;
-        }
+        .rainbow-border { animation: rainbow-border-anim 2s linear infinite; }
+        @keyframes rainbow-border-anim { 0% { border-color: #ff0000; } 50% { border-color: #00ffd5; } 100% { border-color: #ff0000; } }
     </style>
 </head>
 <body>
@@ -149,8 +79,8 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper System</h1>
-                    <span style="color:#8b949e;">Target: <span id="target-steps">3,000,000</span> Steps</span>
+                    <h1>Ameri-Sniper Ver 9.5</h1>
+                    <span style="color:#8b949e;">Target: <span id="target-steps">--</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
                     <div id="sync-status" class="status-offline">OFFLINE</div>
@@ -158,16 +88,14 @@
                 </div>
             </div>
 
-            <div class="main-progress-bg"><div class="main-progress-fill" id="main-prog-bar"></div></div>
-
             <div class="metric-grid">
-                <div class="metric-card"><span class="metric-label">Current Steps</span><span class="metric-val" id="total-steps">--</span></div>
-                <div class="metric-card"><span class="metric-label">Progress</span><span class="metric-val" id="prog-pct">--%</span></div>
-                <div class="metric-card"><span class="metric-label">Goal (+2k)</span><span class="metric-val">100% / Day</span></div>
+                <div class="metric-card"><span class="metric-label">Total Steps</span><span class="metric-val" id="total-steps">--</span></div>
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
+                <div class="metric-card"><span class="metric-label">Overall Win Rate</span><span class="metric-val" id="ana-win">--</span></div>
+                <div class="metric-card"><span class="metric-label">Overall Bust Rate</span><span class="metric-val" id="ana-bust" style="color:#da3633">--</span></div>
             </div>
 
-            <h2>Sniper Performance (Ver 9.4 WildFang)</h2>
+            <h2>Sniper Performance (Double Meter System)</h2>
             <div class="sniper-box">
                 <div class="sniper-header">DRAGON EYE PROTOCOL: +2,000 JPY</div>
                 
@@ -177,20 +105,20 @@
                         <span class="s-val" id="s-rate">--%</span>
                     </div>
                     <div class="sniper-item">
-                        <span class="s-label">Speed Range (Steps)</span>
-                        <span class="s-val" id="s-speed">--</span>
-                        <span class="s-sub">Fastest - Slowest</span>
+                        <span class="s-label">Speed (Min / Max / Avg)</span>
+                        <span class="s-val" id="s-speed" style="font-size:1.2rem">-- / -- / --</span>
+                        <div class="dist-container" id="dist-speed"></div>
                     </div>
                     <div class="sniper-item">
-                        <span class="s-label">Margin Range (Survival)</span>
-                        <span class="s-val" id="s-margin" style="color:#da3633">--</span>
-                        <span class="s-sub">Lowest - Highest</span>
+                        <span class="s-label">Margin (Min / Max / Avg)</span>
+                        <span class="s-val" id="s-margin" style="font-size:1.2rem; color:#da3633">-- / -- / --</span>
+                        <div class="dist-container" id="dist-margin"></div>
                     </div>
                 </div>
 
                 <div class="diag-split">
                     <div class="maturity-box" id="mat-box">
-                        <span class="mat-label">Estimated Maturity</span>
+                        <span class="metric-label" style="text-transform:uppercase">Maturity Level (Skill)</span>
                         <div class="mat-val" id="mat-val">--</div>
                     </div>
                     
@@ -201,32 +129,11 @@
                 </div>
             </div>
 
-            <div class="phase-box" id="phase-box">
-                <h3 style="margin:0 0 0.5rem 0;">
-                    <span id="phase-title">Phase --</span>
-                    <span class="phase-step-range" id="phase-range">-- ~ -- Steps</span>
-                </h3>
-                <div id="phase-desc" style="color:#c9d1d9; opacity: 0.8; margin-bottom: 0.5rem;">Loading...</div>
-            </div>
-
-            <details class="phase-details">
-                <summary>Curriculum Details (Show All Phases)</summary>
-                <div class="phase-list" id="phase-list-container"></div>
-            </details>
-
-            <h3>Combat Record (Accumulative)</h3>
-            <div class="combat-row">
-                <div class="combat-item">
-                    <span class="metric-label" style="color:#3fb950;">MISSION COMPLETE</span>
-                    <span class="c-val c-win" id="c-win">0</span>
-                </div>
-                <div class="combat-item">
-                    <span class="metric-label">FAILED (TimeUp)</span>
-                    <span class="c-val c-fail" id="c-fail">0</span>
-                </div>
-                <div class="combat-item">
-                    <span class="metric-label" style="color:#da3633;">BUSTED (Death)</span>
-                    <span class="c-val c-bust" id="c-bust">0</span>
+            <div class="pressure-box">
+                <span class="metric-label" style="display:block; margin-bottom:5px;">Schedule Pressure (Steps Progress)</span>
+                <div class="pressure-bar-bg" id="press-box">
+                    <div class="pressure-bar-fill" id="press-bar"></div>
+                    <div class="pressure-text" id="press-val">0%</div>
                 </div>
             </div>
 
@@ -236,20 +143,6 @@
                     <thead><tr><th>#</th><th>Score</th><th>Len</th><th>Result</th></tr></thead>
                     <tbody id="log-table-body"></tbody>
                 </table>
-            </div>
-
-            <div id="analysis-section" class="analysis-box">
-                <h3 style="color:#a371f7; margin-top:0;">Post-Mortem Analysis Report</h3>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
-                    <div>
-                        <p><strong>Overall Win Rate:</strong> <span id="ana-win" style="font-size:1.2rem; font-weight:bold;">--</span></p>
-                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust" style="font-size:1.2rem; font-weight:bold; color:#da3633;">--</span></p>
-                    </div>
-                    <div>
-                        <p><strong>Avg Kill Speed:</strong> <span id="ana-avg" style="font-size:1.2rem; font-weight:bold;">--</span> steps</p>
-                        <p><strong>Conclusion:</strong> <span id="ana-conc" style="font-weight:bold; padding:0.2rem 0.5rem; background:#30363d; border-radius:4px;">--</span></p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -273,144 +166,93 @@
             }
         }
 
+        function renderDist(containerId, distData) {
+            const el = document.getElementById(containerId);
+            el.innerHTML = "";
+            if (!distData) return;
+            const values = Object.values(distData);
+            const maxVal = Math.max(...values, 1);
+            for (const [label, val] of Object.entries(distData)) {
+                const bar = document.createElement("div");
+                bar.className = "dist-bar";
+                const h = (val / maxVal) * 100;
+                bar.style.height = h + "%";
+                bar.setAttribute("data-label", `${label}: ${val}`);
+                el.appendChild(bar);
+            }
+        }
+
         function render(data) {
             document.getElementById('total-steps').innerText = data.total_steps.toLocaleString();
-            document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
-            document.getElementById('prog-pct').innerText = data.prog_pct + "%";
-            document.getElementById('main-prog-bar').style.width = data.prog_pct + "%";
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
+            document.getElementById('target-steps').innerText = data.target_steps.toLocaleString();
 
-            // ■ 左プレート（成熟度）：実力ベースの判定結果を表示
-            // data.maturity = { title: "Phase 1...", color: "#...", id: 1 }
-            if (data.maturity) {
-                document.getElementById('mat-val').innerText = data.maturity.title;
-                const matColor = data.maturity.color;
-                
-                // フェーズカラーを適用 (枠線と文字)
-                document.getElementById('mat-box').style.borderColor = matColor;
-                document.getElementById('mat-val').style.color = matColor;
+            // ■ Double Meters
+            // 1. Maturity (Left)
+            if (data.meters && data.meters.maturity) {
+                const m = data.meters.maturity;
+                document.getElementById('mat-val').innerText = m.val;
+                document.getElementById('mat-val').style.color = m.color;
+                document.getElementById('mat-box').style.borderColor = m.color;
 
-                // レインボー発動判定 (Maturity ID = 4)
-                if (data.maturity.id === 4) {
-                    // 1. 左プレート背景
+                // Rainbow Trigger (Level 100)
+                if (m.val === 100) {
                     document.getElementById('mat-box').className = "maturity-box rainbow-bg";
                     document.getElementById('mat-box').style.borderColor = "transparent";
                     document.getElementById('mat-val').style.color = "#fff";
-                    
-                    // 2. 右プレート背景
                     document.getElementById('diag-status').className = "rainbow-bg";
-                    
-                    // 3. フェーズ左枠
-                    document.getElementById('phase-box').className = "phase-box rainbow-border";
+                    document.getElementById('press-box').className = "pressure-bar-bg rainbow-border";
                 } else {
-                    // 通常リセット
                     document.getElementById('mat-box').className = "maturity-box";
                     document.getElementById('diag-status').className = "";
-                    document.getElementById('phase-box').className = "phase-box";
+                    document.getElementById('press-box').className = "pressure-bar-bg";
                 }
             }
 
-            // ■ 右プレート（診断）：Status + Detail
-            const badge = document.getElementById('diag-status');
-            const detail = document.getElementById('diag-detail');
-            
-            if (data.diagnosis) {
-                if(data.diagnosis.sniper_stats) {
-                    const s = data.diagnosis.sniper_stats;
-                    document.getElementById('s-rate').innerText = s.mission_rate;
-                    document.getElementById('s-speed').innerText = s.speed_range;
-                    document.getElementById('s-margin').innerText = s.margin_range;
-                }
-                
-                badge.innerText = data.diagnosis.status_text;
-                detail.innerText = data.diagnosis.status_detail || "--";
-
-                // 背景色適用 (Rainbowでない場合のみ)
-                if (!data.maturity || data.maturity.id !== 4) {
-                    let bgColor = data.diagnosis.status_color;
-                    let textColor = "#fff";
-                    // 金・黄・緑なら文字黒 (視認性確保)
-                    if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700", "#dbab09", "#d29922", "#238636"].includes(bgColor)) {
-                        textColor = "#fff"; // DarkToneなので白文字の方が見やすい場合が多いが、金は黒
-                        if (bgColor === "#dbab09" || bgColor === "#d29922") textColor = "#000";
-                    }
-                    badge.style.backgroundColor = bgColor;
-                    badge.style.color = textColor;
-                }
+            // 2. Pressure (Bottom)
+            if (data.meters && data.meters.pressure) {
+                const p = data.meters.pressure;
+                document.getElementById('press-bar').style.width = p.val + "%";
+                document.getElementById('press-bar').style.backgroundColor = p.color;
+                document.getElementById('press-val').innerText = p.val + "%";
             }
 
-            // Phase Schedule Info (Calendar)
-            document.getElementById('phase-title').innerText = data.phase_title;
-            document.getElementById('phase-desc').innerText = data.phase_desc;
-            document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
-            
-            // Phase Step Range
-            // 現在のフェーズIDを特定
-            let currentPhaseId = 1;
-            if(data.config && data.config.phases) {
-               const p = data.config.phases.find(p => p.title === data.phase_title);
-               if(p) {
-                   const targetTotal = data.target_steps;
-                   const minStep = Math.floor(targetTotal * (p.min_pct / 100));
-                   let maxStep = Math.floor(targetTotal * (p.max_pct / 100));
-                   if (maxStep > targetTotal * 2) maxStep = "∞"; 
-                   document.getElementById('phase-range').innerText = `${minStep.toLocaleString()} ~ ${maxStep} Steps`;
-                   currentPhaseId = p.id;
-               }
-            }
-
-            // Curriculum List
-            if (data.config && data.config.phases) {
-                let listHtml = "";
-                data.config.phases.forEach(p => {
-                    let colorStyle = `color:${p.color}`;
-                    let activeMarker = (p.id === currentPhaseId) ? "◀ CURRENT" : "";
-                    listHtml += `
-                    <div class="p-item">
-                        <span class="p-pct">${p.min_pct}%-</span>
-                        <span class="p-name" style="${colorStyle}">${p.title} ${activeMarker}</span>
-                    </div>
-                    <div style="margin-bottom:0.8rem; padding-left:80px;" class="p-desc">${p.goal}</div>
-                    `;
-                });
-                document.getElementById('phase-list-container').innerHTML = listHtml;
-            }
-
-            // Stats & Logs
-            if (data.combat_stats) {
-                document.getElementById('c-win').innerText = data.combat_stats.WIN.toLocaleString();
-                document.getElementById('c-fail').innerText = data.combat_stats.FAIL.toLocaleString();
-                document.getElementById('c-bust').innerText = data.combat_stats.BUST.toLocaleString();
-            }
+            // ■ Stats & Analysis
             if (data.analysis_report) {
-                const ana = data.analysis_report;
-                document.getElementById('analysis-section').className = "analysis-box analysis-active";
-                document.getElementById('ana-win').innerText = ana.overall_win_rate;
-                document.getElementById('ana-bust').innerText = ana.overall_bust_rate;
-                document.getElementById('ana-avg').innerText = ana.speed_stats.avg;
-                document.getElementById('ana-conc').innerText = ana.conclusion;
-                if(ana.conclusion.includes("順調") || ana.conclusion.includes("生存")) {
-                    document.getElementById('ana-conc').style.color = "#238636";
-                } else {
-                    document.getElementById('ana-conc').style.color = "#da3633";
+                const r = data.analysis_report;
+                document.getElementById('ana-win').innerText = r.overall_win_rate;
+                document.getElementById('ana-bust').innerText = r.overall_bust_rate;
+                
+                // Sniper Stats
+                document.getElementById('s-rate').innerText = r.overall_win_rate;
+                document.getElementById('s-speed').innerText = `${r.speed_stats.fastest} / ${r.speed_stats.slowest} / ${r.speed_stats.avg}`;
+                document.getElementById('s-margin').innerText = `${r.margin_stats.lowest} / ${r.margin_stats.highest} / ${r.margin_stats.avg}`;
+                
+                // Distributions
+                if (r.distributions) {
+                    renderDist("dist-speed", r.distributions.speed);
+                    renderDist("dist-margin", r.distributions.margin);
                 }
             }
+
+            // ■ Diagnosis (Right)
+            if (data.diagnosis) {
+                const badge = document.getElementById('diag-status');
+                badge.innerText = data.diagnosis.status_text;
+                document.getElementById('diag-detail').innerText = data.diagnosis.status_detail;
+                
+                // Background Color
+                if (!data.meters || data.meters.maturity.val !== 100) {
+                     badge.style.backgroundColor = data.diagnosis.status_color;
+                     badge.style.color = "#fff";
+                }
+            }
+
+            // Logs
             let rows = "";
             data.logs.forEach(log => {
-                let cls = "";
-                if (log.beh.includes("WIN")) cls = "res-win";
-                else if (log.beh.includes("DEATH") || log.beh.includes("BUST")) cls = "res-bust";
-                else cls = "res-fail";
-                
-                // ログのスコア色もダークトーンに
-                let scoreColor = log.r > 0 ? '#238636' : '#da3633';
-                
-                rows += `<tr>
-                    <td>${log.t}</td>
-                    <td style="color:${scoreColor}">${log.r}</td>
-                    <td>${log.l}</td>
-                    <td class="${cls}">${log.beh}</td>
-                </tr>`;
+                let color = log.r > 0 ? '#238636' : '#da3633';
+                rows += `<tr><td>${log.t}</td><td style="color:${color}">${log.r}</td><td>${log.l}</td><td>${log.beh}</td></tr>`;
             });
             document.getElementById('log-table-body').innerHTML = rows;
         }
