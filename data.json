@@ -22,7 +22,7 @@
         "FAIL": 14,
         "BUST": 1115
     },
-    "ai_status": "Training (110,593)",
+    "ai_status": "Analyzed",
     "total_eps": 3166,
     "config": {
         "zones": [
@@ -143,5 +143,38 @@
             "l": 55,
             "beh": "WIN"
         }
-    ]
+    ],
+    "analysis_report": {
+        "analyzed_eps": 3214,
+        "overall_win_rate": "64.16 %",
+        "overall_bust_rate": "35.41 %",
+        "speed_stats": {
+            "fastest": 2,
+            "slowest": 288,
+            "avg": 32.2
+        },
+        "margin_stats": {
+            "lowest": 51.3,
+            "highest": 999.0,
+            "avg": 640.8
+        },
+        "distributions": {
+            "speed": {
+                "0-5m": 158,
+                "5-30m": 1347,
+                "30-60m": 316,
+                "60-120m": 124,
+                "120m+": 117
+            },
+            "margin": {
+                "50-60%": 4,
+                "60-70%": 2,
+                "70-80%": 5,
+                "80-90%": 4,
+                "90-100%": 5,
+                "100%+": 2042
+            }
+        },
+        "conclusion": "生存圏 確立"
+    }
 }
