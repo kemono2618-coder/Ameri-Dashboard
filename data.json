@@ -1,27 +1,27 @@
 {
     "status": "active",
-    "total_steps": 13249,
+    "total_steps": 17857,
     "target_steps": 3000000,
-    "prog_pct": 0.4,
+    "prog_pct": 0.6,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
     "phase_color": "#FF4B4B",
     "diagnosis": {
-        "status_text": "生存の兆しあり (黄)",
-        "status_color": "#FFFF00",
+        "status_text": "デスゲーム中 (赤)",
+        "status_color": "#FF0000",
         "sniper_stats": {
-            "mission_rate": "66.0 %",
+            "mission_rate": "66.8 %",
             "speed_range": "2 - 155",
             "margin_range": "54.3 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 353,
+        "WIN": 510,
         "FAIL": 0,
-        "BUST": 182
+        "BUST": 253
     },
-    "ai_status": "Training (13,249)",
-    "total_eps": 535,
+    "ai_status": "Training (17,857)",
+    "total_eps": 763,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -62,93 +62,93 @@
     "logs": [
         {
             "t": 14,
-            "r": 9927.5,
-            "l": 6,
-            "beh": "WIN"
+            "r": -3649.3,
+            "l": 26,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 13,
-            "r": 5744.1,
-            "l": 15,
+            "r": 7494.8,
+            "l": 10,
             "beh": "WIN"
         },
         {
             "t": 12,
-            "r": 9974.3,
-            "l": 7,
-            "beh": "WIN"
-        },
-        {
-            "t": 11,
-            "r": 1061.0,
-            "l": 46,
-            "beh": "CUT/WAIT"
-        },
-        {
-            "t": 10,
-            "r": -27095.0,
-            "l": 61,
+            "r": -16457.3,
+            "l": 18,
             "beh": "DEATH/BUST"
         },
         {
-            "t": 9,
-            "r": 9685.8,
-            "l": 13,
+            "t": 11,
+            "r": -12053.9,
+            "l": 23,
+            "beh": "DEATH/BUST"
+        },
+        {
+            "t": 10,
+            "r": 6889.8,
+            "l": 14,
             "beh": "WIN"
         },
         {
+            "t": 9,
+            "r": -22638.7,
+            "l": 36,
+            "beh": "DEATH/BUST"
+        },
+        {
             "t": 8,
-            "r": -7131.7,
-            "l": 8,
+            "r": -4390.6,
+            "l": 6,
             "beh": "FAIL/DEEP"
         },
         {
             "t": 7,
-            "r": -20745.7,
-            "l": 42,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 6,
-            "r": 9348.3,
+            "r": 9936.1,
             "l": 7,
             "beh": "WIN"
         },
         {
-            "t": 5,
-            "r": 9019.1,
-            "l": 15,
+            "t": 6,
+            "r": 9983.7,
+            "l": 3,
             "beh": "WIN"
         },
         {
+            "t": 5,
+            "r": -16060.6,
+            "l": 23,
+            "beh": "DEATH/BUST"
+        },
+        {
             "t": 4,
-            "r": -1127.8,
-            "l": 29,
-            "beh": "FAIL/DEEP"
+            "r": 9922.9,
+            "l": 5,
+            "beh": "WIN"
         },
         {
             "t": 3,
-            "r": 9994.9,
-            "l": 4,
+            "r": 9156.7,
+            "l": 7,
             "beh": "WIN"
         },
         {
             "t": 2,
-            "r": -20680.4,
-            "l": 45,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 1,
-            "r": 7008.3,
-            "l": 15,
+            "r": 9727.4,
+            "l": 6,
             "beh": "WIN"
         },
         {
+            "t": 1,
+            "r": 872.8,
+            "l": 32,
+            "beh": "CUT/WAIT"
+        },
+        {
             "t": 0,
-            "r": -11084.6,
-            "l": 60,
-            "beh": "DEATH/BUST"
+            "r": -3502.2,
+            "l": 42,
+            "beh": "FAIL/DEEP"
         }
     ]
 }
