@@ -33,17 +33,16 @@
         .dist-bar:hover { opacity: 1.0; }
         .dist-bar:hover::after { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #000; color: #fff; font-size: 0.7rem; padding: 2px 4px; border-radius: 2px; white-space: nowrap; z-index: 10; }
 
-        /* ■ Double Meter Layout (高さ揃え対応) */
+        /* ■■ 高さ揃えの修正箇所 ■■ */
         .diag-split { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
             gap: 1rem; 
             margin-top: 1rem; 
-            /* 左右の高さを強制的に揃える */
-            grid-auto-rows: 1fr; 
+            /* アイテムをストレッチして高さを揃える */
+            align-items: stretch; 
         }
         
-        /* Left: Maturity Meter */
         .maturity-box { 
             background: rgba(13, 17, 23, 0.5); 
             border: 2px solid var(--border); 
@@ -53,13 +52,12 @@
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
+            /* 親グリッドに合わせて高さを100%にする */
             height: 100%; 
-            min-height: 120px; /* 最低高さを確保 */
             box-sizing: border-box; 
         }
         .mat-val { font-size: 2rem; font-weight: bold; }
         
-        /* Right: Diagnosis */
         .status-box-frame { 
             background: rgba(48, 54, 61, 0.5); 
             border: 2px dashed #484f58; 
@@ -67,8 +65,8 @@
             border-radius: 4px; 
             display: flex; 
             flex-direction: column; 
+            /* 親グリッドに合わせて高さを100%にする */
             height: 100%; 
-            min-height: 120px; /* 左と合わせる */
             box-sizing: border-box; 
             overflow: hidden;
         }
@@ -134,7 +132,7 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper System</h1>
+                    <h1>Ameri-Sniper Ver 9.7</h1>
                     <span style="color:#8b949e;">Target: <span id="target-steps">--</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
@@ -280,7 +278,7 @@
                 document.getElementById('ana-bust').innerText = r.overall_bust_rate;
                 document.getElementById('s-rate').innerText = r.overall_win_rate;
                 
-                // AVG undefined対策
+                // ■■ AVG undefined 対策: データが無い場合は -- を表示 ■■
                 const speedAvg = (r.speed_stats && r.speed_stats.avg !== undefined) ? r.speed_stats.avg : "--";
                 const marginAvg = (r.margin_stats && r.margin_stats.avg !== undefined) ? r.margin_stats.avg : "--";
                 
