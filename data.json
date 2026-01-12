@@ -1,20 +1,20 @@
 {
     "status": "active",
-    "total_steps": 169921,
+    "total_steps": 173953,
     "target_steps": 3000000,
-    "prog_pct": 5.7,
+    "prog_pct": 5.8,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "初期段階。まずは相場の脈動を感じ取る時期。",
     "phase_color": "#da3633",
     "maturity": {
-        "title": "Phase 3: Apex Predator (頂点捕食者)",
-        "color": "#238636",
-        "id": 3
+        "title": "Phase 2: Hunting (狩りの学習)",
+        "color": "#d29922",
+        "id": 2
     },
     "diagnosis": {
-        "status_text": "生存ルート確立 (緑)",
-        "status_color": "#238636",
-        "status_detail": "直近100戦: 62勝 / 勝率 62%",
+        "status_text": "生存の兆しあり (黄)",
+        "status_color": "#d29922",
+        "status_detail": "直近100戦: 59勝 / 勝率 59%",
         "sniper_stats": {
             "mission_rate": "64.9 %",
             "speed_range": "2 - 288",
@@ -22,12 +22,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 2062,
-        "FAIL": 19,
-        "BUST": 1096
+        "WIN": 2080,
+        "FAIL": 22,
+        "BUST": 1104
     },
-    "ai_status": "Training (169,921)",
-    "total_eps": 3177,
+    "ai_status": "Training (173,953)",
+    "total_eps": 3206,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -68,92 +68,92 @@
     "logs": [
         {
             "t": 14,
-            "r": 9970.7,
-            "l": 20,
-            "beh": "WIN"
-        },
-        {
-            "t": 13,
-            "r": -14647.3,
-            "l": 288,
+            "r": -10770.6,
+            "l": 98,
             "beh": "DEATH/BUST"
         },
         {
+            "t": 13,
+            "r": 7382.1,
+            "l": 176,
+            "beh": "WIN"
+        },
+        {
             "t": 12,
-            "r": -10597.4,
-            "l": 133,
+            "r": -12724.9,
+            "l": 288,
             "beh": "DEATH/BUST"
         },
         {
             "t": 11,
-            "r": -5316.6,
-            "l": 112,
-            "beh": "FAIL/DEEP"
+            "r": 10065.7,
+            "l": 96,
+            "beh": "WIN"
         },
         {
             "t": 10,
-            "r": -5323.6,
-            "l": 84,
-            "beh": "FAIL/DEEP"
+            "r": 10025.1,
+            "l": 131,
+            "beh": "WIN"
         },
         {
             "t": 9,
-            "r": 5318.7,
-            "l": 110,
+            "r": 10034.1,
+            "l": 169,
             "beh": "WIN"
         },
         {
             "t": 8,
-            "r": -7930.3,
-            "l": 117,
-            "beh": "FAIL/DEEP"
+            "r": 10124.5,
+            "l": 144,
+            "beh": "WIN"
         },
         {
             "t": 7,
-            "r": -7950.7,
-            "l": 59,
+            "r": -2721.1,
+            "l": 153,
             "beh": "FAIL/DEEP"
         },
         {
             "t": 6,
-            "r": 2162.0,
-            "l": 125,
-            "beh": "CUT/WAIT"
+            "r": -2704.2,
+            "l": 115,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 5,
-            "r": 9953.7,
-            "l": 288,
-            "beh": "WIN"
-        },
-        {
-            "t": 4,
-            "r": -2679.2,
+            "r": -2717.2,
             "l": 23,
             "beh": "FAIL/DEEP"
         },
         {
+            "t": 4,
+            "r": 9970.2,
+            "l": 149,
+            "beh": "WIN"
+        },
+        {
             "t": 3,
-            "r": 9983.9,
-            "l": 23,
+            "r": 10054.0,
+            "l": 148,
             "beh": "WIN"
         },
         {
             "t": 2,
-            "r": 9998.4,
-            "l": 103,
+            "r": 10052.6,
+            "l": 54,
             "beh": "WIN"
         },
         {
             "t": 1,
-            "r": 9990.1,
-            "l": 61,
+            "r": 10011.9,
+            "l": 169,
             "beh": "WIN"
         },
         {
             "t": 0,
-            "r": 10047.9,
-            "l": 137,
+            "r": 10098.1,
+            "l": 214,
             "beh": "WIN"
         }
     ]
