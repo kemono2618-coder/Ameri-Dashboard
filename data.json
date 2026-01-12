@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 766657,
+    "total_steps": 771841,
     "target_steps": 3000000,
-    "prog_pct": 25.6,
+    "prog_pct": 25.7,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
     "phase_color": "#FF4B4B",
@@ -16,12 +16,12 @@
         }
     },
     "combat_stats": {
-        "WIN": 4419,
-        "FAIL": 387,
-        "BUST": 2754
+        "WIN": 4435,
+        "FAIL": 391,
+        "BUST": 2759
     },
-    "ai_status": "Training (766,657)",
-    "total_eps": 7560,
+    "ai_status": "Training (771,841)",
+    "total_eps": 7585,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -54,21 +54,21 @@
     "logs": [
         {
             "t": 14,
-            "r": -8462.3,
-            "l": 251,
+            "r": -6853.6,
+            "l": 58,
             "beh": "FAIL/DEEP"
         },
         {
             "t": 13,
-            "r": -10052.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": -8511.4,
+            "l": 193,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 12,
-            "r": -10052.9,
+            "r": 9947.1,
             "l": 288,
-            "beh": "DEATH/BUST"
+            "beh": "WIN"
         },
         {
             "t": 11,
@@ -78,32 +78,32 @@
         },
         {
             "t": 10,
-            "r": 9947.1,
+            "r": -10052.9,
             "l": 288,
-            "beh": "WIN"
+            "beh": "DEATH/BUST"
         },
         {
             "t": 9,
+            "r": -8499.7,
+            "l": 48,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 8,
             "r": 9947.1,
             "l": 288,
             "beh": "WIN"
         },
         {
-            "t": 8,
-            "r": -8444.9,
-            "l": 144,
-            "beh": "FAIL/DEEP"
-        },
-        {
             "t": 7,
-            "r": -16836.0,
-            "l": 250,
+            "r": -10052.9,
+            "l": 288,
             "beh": "DEATH/BUST"
         },
         {
             "t": 6,
-            "r": 10076.0,
-            "l": 109,
+            "r": 10002.3,
+            "l": 153,
             "beh": "WIN"
         },
         {
@@ -114,20 +114,20 @@
         },
         {
             "t": 4,
+            "r": -8489.7,
+            "l": 74,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 3,
             "r": 9947.1,
             "l": 288,
             "beh": "WIN"
         },
         {
-            "t": 3,
-            "r": -8433.3,
-            "l": 33,
-            "beh": "FAIL/DEEP"
-        },
-        {
             "t": 2,
-            "r": 9969.7,
-            "l": 46,
+            "r": 10010.4,
+            "l": 66,
             "beh": "WIN"
         },
         {
