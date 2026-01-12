@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 1067329,
+    "total_steps": 1072205,
     "target_steps": 3000000,
-    "prog_pct": 35.6,
+    "prog_pct": 35.7,
     "phase_title": "Phase 2: Hunting (狩りの学習)",
     "phase_desc": "罰則増加。無駄な飛びつきをやめ、獲物が通る『時間』と『勢い』を見極める。",
     "phase_color": "#FFA500",
@@ -12,16 +12,16 @@
         "sniper_stats": {
             "mission_rate": "56.4 %",
             "speed_range": "2 - 288",
-            "margin_range": "51.1 - 999.0 %"
+            "margin_range": "51.0 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 5120,
-        "FAIL": 614,
-        "BUST": 3346
+        "WIN": 5133,
+        "FAIL": 617,
+        "BUST": 3353
     },
-    "ai_status": "Training (1,067,329)",
-    "total_eps": 9080,
+    "ai_status": "Training (1,072,205)",
+    "total_eps": 9103,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -54,20 +54,20 @@
     "logs": [
         {
             "t": 14,
-            "r": -11369.7,
-            "l": 228,
-            "beh": "DEATH/BUST"
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
         },
         {
             "t": 13,
-            "r": -10052.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": 9981.6,
+            "l": 175,
+            "beh": "WIN"
         },
         {
             "t": 12,
-            "r": 10002.9,
-            "l": 77,
+            "r": 9947.1,
+            "l": 288,
             "beh": "WIN"
         },
         {
@@ -78,15 +78,15 @@
         },
         {
             "t": 10,
-            "r": 10111.7,
-            "l": 234,
-            "beh": "WIN"
+            "r": -11404.5,
+            "l": 128,
+            "beh": "DEATH/BUST"
         },
         {
             "t": 9,
-            "r": 9972.4,
-            "l": 208,
-            "beh": "WIN"
+            "r": -11402.6,
+            "l": 67,
+            "beh": "DEATH/BUST"
         },
         {
             "t": 8,
@@ -96,51 +96,51 @@
         },
         {
             "t": 7,
-            "r": -10772.9,
+            "r": -11186.9,
             "l": 288,
             "beh": "DEATH/BUST"
         },
         {
             "t": 6,
-            "r": 9947.1,
+            "r": -1383.0,
             "l": 288,
-            "beh": "WIN"
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 5,
-            "r": 9947.1,
+            "r": 9948.2,
             "l": 288,
             "beh": "WIN"
         },
         {
             "t": 4,
-            "r": -22637.4,
-            "l": 114,
-            "beh": "DEATH/BUST"
+            "r": 10079.9,
+            "l": 41,
+            "beh": "WIN"
         },
         {
             "t": 3,
-            "r": -11343.7,
-            "l": 128,
+            "r": -11390.0,
+            "l": 25,
             "beh": "DEATH/BUST"
         },
         {
             "t": 2,
-            "r": -11341.3,
-            "l": 9,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 1,
-            "r": 9988.2,
-            "l": 103,
-            "beh": "WIN"
-        },
-        {
-            "t": 0,
             "r": 9947.1,
             "l": 288,
             "beh": "WIN"
+        },
+        {
+            "t": 1,
+            "r": -11388.6,
+            "l": 187,
+            "beh": "DEATH/BUST"
+        },
+        {
+            "t": 0,
+            "r": -11386.0,
+            "l": 100,
+            "beh": "DEATH/BUST"
         }
     ]
 }
