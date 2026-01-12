@@ -1,29 +1,29 @@
 {
     "status": "active",
-    "total_steps": 75457,
+    "total_steps": 80641,
     "target_steps": 3000000,
     "meters": {
         "pressure": {
-            "val": 2.5,
+            "val": 2.7,
             "color": "#da3633"
         },
         "maturity": {
-            "val": 14,
+            "val": 15,
             "color": "#da3633"
         }
     },
     "diagnosis": {
-        "status_text": "生存の兆しあり (黄)",
-        "status_color": "#d29922",
-        "status_detail": "直近100戦: 54勝 (54%)"
+        "status_text": "生存ルート確立 (緑)",
+        "status_color": "#238636",
+        "status_detail": "直近100戦: 68勝 (68%)"
     },
     "combat_stats": {
-        "WIN": 2209,
+        "WIN": 2350,
         "FAIL": 0,
-        "BUST": 1300
+        "BUST": 1365
     },
-    "ai_status": "Training (75,457)",
-    "total_eps": 3509,
+    "ai_status": "Training (80,641)",
+    "total_eps": 3715,
     "config": {
         "zones": [
             {
@@ -53,126 +53,126 @@
         ]
     },
     "analysis_report": {
-        "overall_win_rate": "62.95 %",
-        "overall_bust_rate": "37.05 %",
+        "overall_win_rate": "63.26 %",
+        "overall_bust_rate": "36.74 %",
         "speed_stats": {
             "fastest": 2,
             "slowest": 222,
-            "avg": 19.0
+            "avg": 19.3
         },
         "margin_stats": {
             "lowest": 56.5,
             "highest": 999.0,
-            "avg": 659.8
+            "avg": 660.7
         },
         "distributions": {
             "speed": {
-                "0-5m": 206,
-                "5-30m": 1600,
-                "30-60m": 320,
-                "60-120m": 77,
+                "0-5m": 211,
+                "5-30m": 1701,
+                "30-60m": 345,
+                "60-120m": 87,
                 "120m+": 6
             },
             "margin": {
                 "50-60%": 2,
                 "60-70%": 6,
                 "70-80%": 8,
-                "80-90%": 8,
+                "80-90%": 9,
                 "90-100%": 3,
-                "100%+": 2182
+                "100%+": 2322
             }
         },
-        "total_wins": 2209
+        "total_wins": 2350
     },
     "logs": [
         {
             "t": 14,
-            "r": -14923.2,
-            "l": 36,
-            "beh": "DEATH"
+            "r": 9977.7,
+            "l": 11,
+            "beh": "WIN"
         },
         {
             "t": 13,
-            "r": -6964.7,
-            "l": 11,
-            "beh": "FAIL"
+            "r": 9984.0,
+            "l": 25,
+            "beh": "WIN"
         },
         {
             "t": 12,
-            "r": -5224.8,
-            "l": 92,
-            "beh": "FAIL"
+            "r": 9979.8,
+            "l": 10,
+            "beh": "WIN"
         },
         {
             "t": 11,
-            "r": -6944.2,
-            "l": 26,
-            "beh": "FAIL"
+            "r": 8783.2,
+            "l": 22,
+            "beh": "WIN"
         },
         {
             "t": 10,
-            "r": -8418.8,
-            "l": 11,
-            "beh": "FAIL"
+            "r": 9979.1,
+            "l": 12,
+            "beh": "WIN"
         },
         {
             "t": 9,
-            "r": -6788.4,
+            "r": -7148.1,
             "l": 18,
             "beh": "FAIL"
         },
         {
             "t": 8,
-            "r": -14325.0,
-            "l": 91,
-            "beh": "DEATH"
+            "r": 9993.0,
+            "l": 37,
+            "beh": "WIN"
         },
         {
             "t": 7,
-            "r": -10044.7,
-            "l": 35,
-            "beh": "DEATH"
+            "r": -7479.5,
+            "l": 17,
+            "beh": "FAIL"
         },
         {
             "t": 6,
-            "r": 9977.4,
-            "l": 15,
+            "r": 9974.6,
+            "l": 17,
             "beh": "WIN"
         },
         {
             "t": 5,
-            "r": 9512.3,
-            "l": 25,
+            "r": 9996.9,
+            "l": 15,
             "beh": "WIN"
         },
         {
             "t": 4,
-            "r": -8044.6,
-            "l": 21,
-            "beh": "FAIL"
+            "r": 8230.9,
+            "l": 15,
+            "beh": "WIN"
         },
         {
             "t": 3,
-            "r": -5226.1,
-            "l": 8,
-            "beh": "FAIL"
+            "r": 6737.8,
+            "l": 36,
+            "beh": "WIN"
         },
         {
             "t": 2,
-            "r": -8676.3,
-            "l": 10,
-            "beh": "FAIL"
+            "r": -24474.6,
+            "l": 102,
+            "beh": "DEATH"
         },
         {
             "t": 1,
-            "r": -6950.8,
-            "l": 20,
-            "beh": "FAIL"
+            "r": 9988.2,
+            "l": 9,
+            "beh": "WIN"
         },
         {
             "t": 0,
-            "r": 7111.9,
-            "l": 19,
+            "r": 9994.5,
+            "l": 7,
             "beh": "WIN"
         }
     ]
