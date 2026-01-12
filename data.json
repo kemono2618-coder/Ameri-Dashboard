@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 189505,
+    "total_steps": 194113,
     "target_steps": 3000000,
-    "prog_pct": 6.3,
+    "prog_pct": 6.5,
     "phase_title": "Phase 1: Aggression (暴れん坊)",
     "phase_desc": "罰則軽微。インジケーターの反応を試し、攻撃的に利益を狙う時期。",
     "phase_color": "#FF4B4B",
@@ -10,18 +10,18 @@
         "status_text": "デスゲーム中 (赤)",
         "status_color": "#FF0000",
         "sniper_stats": {
-            "mission_rate": "47.7 %",
+            "mission_rate": "47.4 %",
             "speed_range": "2 - 288",
             "margin_range": "55.4 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 1021,
-        "FAIL": 125,
-        "BUST": 995
+        "WIN": 1026,
+        "FAIL": 132,
+        "BUST": 1006
     },
-    "ai_status": "Training (189,505)",
-    "total_eps": 2141,
+    "ai_status": "Training (194,113)",
+    "total_eps": 2164,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -54,21 +54,21 @@
     "logs": [
         {
             "t": 14,
-            "r": 9935.6,
+            "r": -10064.4,
             "l": 288,
-            "beh": "WIN"
+            "beh": "DEATH/BUST"
         },
         {
             "t": 13,
-            "r": 9935.6,
-            "l": 288,
-            "beh": "WIN"
+            "r": -2932.1,
+            "l": 205,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 12,
-            "r": 9935.6,
+            "r": -10064.4,
             "l": 288,
-            "beh": "WIN"
+            "beh": "DEATH/BUST"
         },
         {
             "t": 11,
@@ -78,68 +78,68 @@
         },
         {
             "t": 10,
-            "r": 9935.6,
-            "l": 288,
-            "beh": "WIN"
+            "r": -2916.8,
+            "l": 51,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 9,
-            "r": -2875.9,
-            "l": 167,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 8,
-            "r": -2866.6,
-            "l": 13,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 7,
-            "r": -2876.5,
-            "l": 213,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 6,
-            "r": -2866.1,
-            "l": 48,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 5,
-            "r": -2869.2,
-            "l": 118,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 4,
-            "r": -2864.3,
-            "l": 43,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 3,
             "r": -10064.4,
             "l": 288,
             "beh": "DEATH/BUST"
         },
         {
-            "t": 2,
+            "t": 8,
+            "r": -10064.4,
+            "l": 288,
+            "beh": "DEATH/BUST"
+        },
+        {
+            "t": 7,
             "r": 9935.6,
             "l": 288,
             "beh": "WIN"
+        },
+        {
+            "t": 6,
+            "r": -10064.4,
+            "l": 288,
+            "beh": "DEATH/BUST"
+        },
+        {
+            "t": 5,
+            "r": -2906.4,
+            "l": 75,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 4,
+            "r": 9935.6,
+            "l": 288,
+            "beh": "WIN"
+        },
+        {
+            "t": 3,
+            "r": -2902.7,
+            "l": 72,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 2,
+            "r": -2900.9,
+            "l": 49,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 1,
-            "r": 9935.6,
-            "l": 288,
-            "beh": "WIN"
+            "r": -2900.9,
+            "l": 58,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 0,
-            "r": -2858.5,
-            "l": 102,
+            "r": -2899.9,
+            "l": 50,
             "beh": "FAIL/DEEP"
         }
     ]
