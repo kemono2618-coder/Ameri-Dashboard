@@ -32,13 +32,12 @@
         .s-label { display: block; color: #8b949e; font-size: 1rem; margin-bottom: 0; font-weight: bold; text-transform: uppercase; }
         .s-sub { font-size: 0.85rem; color: #aaa; margin-top: 0.5rem; display: block; }
         
-        /* 診断エリアの分割レイアウト */
         .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
         
-        /* 左：成熟度プレート (固定長方形) */
+        /* 左プレート：成熟度 (Estimated Maturity) */
         .maturity-box { 
             background: rgba(13, 17, 23, 0.5); 
-            border: 1px solid var(--border); 
+            border: 2px solid var(--border); 
             padding: 1rem; 
             border-radius: 4px; 
             display: flex; 
@@ -47,12 +46,12 @@
             align-items: center; 
             height: 100%;
             box-sizing: border-box;
+            transition: border-color 0.5s;
         }
         .mat-label { color: #8b949e; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; text-transform: uppercase; }
-        .mat-val { font-size: 1.4rem; font-weight: bold; color: #58a6ff; margin-top: 0.2rem; }
-        .mat-sub { font-size: 0.9rem; color: #8b949e; }
-
-        /* 右：状態診断プレート (固定長方形) */
+        .mat-val { font-size: 1.2rem; font-weight: bold; margin-top: 0.2rem; transition: color 0.5s; }
+        
+        /* 右プレート：状態診断 (Status) */
         .status-box-frame { 
             background: rgba(48, 54, 61, 0.5); 
             border: 2px dashed #484f58; 
@@ -61,22 +60,26 @@
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            justify-content: center; 
+            justify-content: flex-start; 
             height: 100%;
             box-sizing: border-box;
-            overflow: hidden; /* レインボー背景用 */
+            overflow: hidden;
         }
         #diag-status { 
             width: 100%;
-            height: 100%;
+            padding: 0.75rem; 
             text-align:center; 
             font-weight:bold; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #2c5282; 
+            background: #30363d; 
             color:#fff; 
             transition: background-color 0.5s, color 0.5s;
+        }
+        #diag-detail {
+            padding: 0.8rem;
+            color: #c9d1d9;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: monospace;
         }
 
         .phase-box { background: var(--secondary-bg); border-left: 5px solid #8b949e; padding: 1rem; margin-bottom: 0.5rem; border-radius: 4px; transition: border-color 0.5s; }
@@ -99,7 +102,7 @@
         .c-val { font-size: 2rem; font-weight: bold; display: block; margin-top: 0.5rem; }
         .c-win { color: #3fb950; }
         .c-fail { color: #e1e4e8; }
-        .c-bust { color: #f85149; }
+        .c-bust { color: #da3633; }
 
         .analysis-box { background: #161b22; border: 1px solid #a371f7; padding: 1.5rem; border-radius: 6px; margin-top: 2rem; display: none; box-shadow: 0 0 20px rgba(163, 113, 247, 0.15); }
         .analysis-active { display: block; }
@@ -108,7 +111,7 @@
         th { text-align: left; border-bottom: 2px solid var(--border); padding: 0.75rem; color: #8b949e; }
         td { border-bottom: 1px solid var(--border); padding: 0.75rem; }
         .res-win { color: #3fb950; font-weight: bold; }
-        .res-bust { color: #f85149; font-weight: bold; }
+        .res-bust { color: #da3633; font-weight: bold; }
         .res-fail { color: #d2a8ff; }
 
         /* ■ FANTASTIC BEAST MODE (Rainbow Styles) */
@@ -164,7 +167,7 @@
                 <div class="metric-card"><span class="metric-label">Episodes</span><span class="metric-val" id="total-eps">--</span></div>
             </div>
 
-            <h2>Sniper Performance (Ver 9.3 WildFang)</h2>
+            <h2>Sniper Performance (Ver 9.4 WildFang)</h2>
             <div class="sniper-box">
                 <div class="sniper-header">DRAGON EYE PROTOCOL: +2,000 JPY</div>
                 
@@ -180,20 +183,20 @@
                     </div>
                     <div class="sniper-item">
                         <span class="s-label">Margin Range (Survival)</span>
-                        <span class="s-val" id="s-margin" style="color:#f85149">--</span>
+                        <span class="s-val" id="s-margin" style="color:#da3633">--</span>
                         <span class="s-sub">Lowest - Highest</span>
                     </div>
                 </div>
 
                 <div class="diag-split">
                     <div class="maturity-box" id="mat-box">
-                        <span class="mat-label">Maturity Level</span>
-                        <div class="mat-val" id="mat-val">--%</div>
-                        <div class="mat-sub" id="mat-phase-name">--</div>
+                        <span class="mat-label">Estimated Maturity</span>
+                        <div class="mat-val" id="mat-val">--</div>
                     </div>
                     
                     <div class="status-box-frame">
                         <div id="diag-status"> Analyzing... </div>
+                        <div id="diag-detail">--</div>
                     </div>
                 </div>
             </div>
@@ -222,7 +225,7 @@
                     <span class="c-val c-fail" id="c-fail">0</span>
                 </div>
                 <div class="combat-item">
-                    <span class="metric-label" style="color:#f85149;">BUSTED (Death)</span>
+                    <span class="metric-label" style="color:#da3633;">BUSTED (Death)</span>
                     <span class="c-val c-bust" id="c-bust">0</span>
                 </div>
             </div>
@@ -240,7 +243,7 @@
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
                     <div>
                         <p><strong>Overall Win Rate:</strong> <span id="ana-win" style="font-size:1.2rem; font-weight:bold;">--</span></p>
-                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust" style="font-size:1.2rem; font-weight:bold; color:#f85149;">--</span></p>
+                        <p><strong>Overall Bust Rate:</strong> <span id="ana-bust" style="font-size:1.2rem; font-weight:bold; color:#da3633;">--</span></p>
                     </div>
                     <div>
                         <p><strong>Avg Kill Speed:</strong> <span id="ana-avg" style="font-size:1.2rem; font-weight:bold;">--</span> steps</p>
@@ -277,75 +280,83 @@
             document.getElementById('main-prog-bar').style.width = data.prog_pct + "%";
             document.getElementById('total-eps').innerText = data.total_eps.toLocaleString();
 
-            let currentPhaseConfig = null;
-            if(data.config && data.config.phases) {
-                data.config.phases.forEach(p => {
-                    if (data.prog_pct >= p.min_pct && data.prog_pct < p.max_pct) {
-                        currentPhaseConfig = p;
-                    }
-                });
-                if(!currentPhaseConfig && data.prog_pct >= 100) {
-                     currentPhaseConfig = data.config.phases[data.config.phases.length - 1];
+            // ■ 左プレート（成熟度）：実力ベースの判定結果を表示
+            // data.maturity = { title: "Phase 1...", color: "#...", id: 1 }
+            if (data.maturity) {
+                document.getElementById('mat-val').innerText = data.maturity.title;
+                const matColor = data.maturity.color;
+                
+                // フェーズカラーを適用 (枠線と文字)
+                document.getElementById('mat-box').style.borderColor = matColor;
+                document.getElementById('mat-val').style.color = matColor;
+
+                // レインボー発動判定 (Maturity ID = 4)
+                if (data.maturity.id === 4) {
+                    // 1. 左プレート背景
+                    document.getElementById('mat-box').className = "maturity-box rainbow-bg";
+                    document.getElementById('mat-box').style.borderColor = "transparent";
+                    document.getElementById('mat-val').style.color = "#fff";
+                    
+                    // 2. 右プレート背景
+                    document.getElementById('diag-status').className = "rainbow-bg";
+                    
+                    // 3. フェーズ左枠
+                    document.getElementById('phase-box').className = "phase-box rainbow-border";
+                } else {
+                    // 通常リセット
+                    document.getElementById('mat-box').className = "maturity-box";
+                    document.getElementById('diag-status').className = "";
+                    document.getElementById('phase-box').className = "phase-box";
                 }
             }
 
-            // Maturity Plate Update
-            if (currentPhaseConfig) {
-                document.getElementById('mat-phase-name').innerText = currentPhaseConfig.title;
-            }
-            document.getElementById('mat-val').innerText = data.prog_pct + "%";
-
-            // Status Plate Update
+            // ■ 右プレート（診断）：Status + Detail
             const badge = document.getElementById('diag-status');
-            if (data.diagnosis && data.diagnosis.sniper_stats) {
-                const s = data.diagnosis.sniper_stats;
-                document.getElementById('s-rate').innerText = s.mission_rate;
-                document.getElementById('s-speed').innerText = s.speed_range;
-                document.getElementById('s-margin').innerText = s.margin_range;
+            const detail = document.getElementById('diag-detail');
+            
+            if (data.diagnosis) {
+                if(data.diagnosis.sniper_stats) {
+                    const s = data.diagnosis.sniper_stats;
+                    document.getElementById('s-rate').innerText = s.mission_rate;
+                    document.getElementById('s-speed').innerText = s.speed_range;
+                    document.getElementById('s-margin').innerText = s.margin_range;
+                }
                 
                 badge.innerText = data.diagnosis.status_text;
-                let bgColor = data.diagnosis.status_color;
-                
-                // 通常時の色適用
-                let textColor = "#fff";
-                if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700"].includes(bgColor)) {
-                    textColor = "#000";
+                detail.innerText = data.diagnosis.status_detail || "--";
+
+                // 背景色適用 (Rainbowでない場合のみ)
+                if (!data.maturity || data.maturity.id !== 4) {
+                    let bgColor = data.diagnosis.status_color;
+                    let textColor = "#fff";
+                    // 金・黄・緑なら文字黒 (視認性確保)
+                    if(["#00FF00", "#00FFFF", "#FFFF00", "#00ff00", "#FFD700", "#dbab09", "#d29922", "#238636"].includes(bgColor)) {
+                        textColor = "#fff"; // DarkToneなので白文字の方が見やすい場合が多いが、金は黒
+                        if (bgColor === "#dbab09" || bgColor === "#d29922") textColor = "#000";
+                    }
+                    badge.style.backgroundColor = bgColor;
+                    badge.style.color = textColor;
                 }
-                badge.style.backgroundColor = bgColor;
-                badge.style.color = textColor;
             }
 
-            // Phase Info
+            // Phase Schedule Info (Calendar)
             document.getElementById('phase-title').innerText = data.phase_title;
             document.getElementById('phase-desc').innerText = data.phase_desc;
             document.getElementById('phase-box').style.borderLeftColor = data.phase_color;
-
-            // ■ FANTASTIC BEAST 判定 (Phase 4 到達時)
-            // 対象: 左プレート(mat-box), 右プレート(diag-status), フェーズ左枠(phase-box)
-            if (currentPhaseConfig && currentPhaseConfig.id === 4) {
-                // 3箇所をレインボー化
-                document.getElementById('mat-box').className = "maturity-box rainbow-bg";
-                document.getElementById('diag-status').className = "rainbow-bg";
-                document.getElementById('phase-box').className = "phase-box rainbow-border";
-                
-                // テキスト調整
-                document.getElementById('mat-val').style.color = "#fff";
-            } else {
-                // 通常リセット
-                document.getElementById('mat-box').className = "maturity-box";
-                document.getElementById('diag-status').className = ""; // 色は上で個別指定
-                document.getElementById('phase-box').className = "phase-box";
-                document.getElementById('mat-val').style.color = "#58a6ff";
-            }
-
-            // Step Range
-            if (currentPhaseConfig) {
-                const targetTotal = data.target_steps;
-                const minStep = Math.floor(targetTotal * (currentPhaseConfig.min_pct / 100));
-                let maxStep = Math.floor(targetTotal * (currentPhaseConfig.max_pct / 100));
-                if (maxStep > targetTotal * 2) maxStep = "∞"; 
-                document.getElementById('phase-range').innerText = 
-                    `${minStep.toLocaleString()} ~ ${maxStep} Steps`;
+            
+            // Phase Step Range
+            // 現在のフェーズIDを特定
+            let currentPhaseId = 1;
+            if(data.config && data.config.phases) {
+               const p = data.config.phases.find(p => p.title === data.phase_title);
+               if(p) {
+                   const targetTotal = data.target_steps;
+                   const minStep = Math.floor(targetTotal * (p.min_pct / 100));
+                   let maxStep = Math.floor(targetTotal * (p.max_pct / 100));
+                   if (maxStep > targetTotal * 2) maxStep = "∞"; 
+                   document.getElementById('phase-range').innerText = `${minStep.toLocaleString()} ~ ${maxStep} Steps`;
+                   currentPhaseId = p.id;
+               }
             }
 
             // Curriculum List
@@ -353,9 +364,7 @@
                 let listHtml = "";
                 data.config.phases.forEach(p => {
                     let colorStyle = `color:${p.color}`;
-                    if (p.id === 4) colorStyle = "color:#FFD700"; // Gold text for list
-                    let activeMarker = (p.title === data.phase_title) ? "◀ CURRENT" : "";
-                    
+                    let activeMarker = (p.id === currentPhaseId) ? "◀ CURRENT" : "";
                     listHtml += `
                     <div class="p-item">
                         <span class="p-pct">${p.min_pct}%-</span>
@@ -381,9 +390,9 @@
                 document.getElementById('ana-avg').innerText = ana.speed_stats.avg;
                 document.getElementById('ana-conc').innerText = ana.conclusion;
                 if(ana.conclusion.includes("順調") || ana.conclusion.includes("生存")) {
-                    document.getElementById('ana-conc').style.color = "#3fb950";
+                    document.getElementById('ana-conc').style.color = "#238636";
                 } else {
-                    document.getElementById('ana-conc').style.color = "#f85149";
+                    document.getElementById('ana-conc').style.color = "#da3633";
                 }
             }
             let rows = "";
@@ -392,9 +401,13 @@
                 if (log.beh.includes("WIN")) cls = "res-win";
                 else if (log.beh.includes("DEATH") || log.beh.includes("BUST")) cls = "res-bust";
                 else cls = "res-fail";
+                
+                // ログのスコア色もダークトーンに
+                let scoreColor = log.r > 0 ? '#238636' : '#da3633';
+                
                 rows += `<tr>
                     <td>${log.t}</td>
-                    <td style="color:${log.r > 0 ? '#3fb950' : '#f85149'}">${log.r}</td>
+                    <td style="color:${scoreColor}">${log.r}</td>
                     <td>${log.l}</td>
                     <td class="${cls}">${log.beh}</td>
                 </tr>`;
