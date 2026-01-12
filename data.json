@@ -1,27 +1,33 @@
 {
     "status": "active",
-    "total_steps": 397729,
+    "total_steps": 4033,
     "target_steps": 3000000,
-    "prog_pct": 13.3,
+    "prog_pct": 0.1,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
-    "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
-    "phase_color": "#FF4B4B",
+    "phase_desc": "初期段階。まずは相場の脈動を感じ取る時期。",
+    "phase_color": "#da3633",
+    "maturity": {
+        "title": "Phase 2: Hunting (狩りの学習)",
+        "color": "#d29922",
+        "id": 2
+    },
     "diagnosis": {
-        "status_text": "デスゲーム中 (赤)",
-        "status_color": "#FF0000",
+        "status_text": "生存の兆しあり (黄)",
+        "status_color": "#d29922",
+        "status_detail": "直近100戦: 43勝 / 勝率 43%",
         "sniper_stats": {
-            "mission_rate": "56.5 %",
-            "speed_range": "2 - 288",
-            "margin_range": "53.1 - 999.0 %"
+            "mission_rate": "60.7 %",
+            "speed_range": "2 - 128",
+            "margin_range": "115.7 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 3740,
-        "FAIL": 719,
-        "BUST": 2161
+        "WIN": 74,
+        "FAIL": 0,
+        "BUST": 48
     },
-    "ai_status": "Analyzed",
-    "total_eps": 6620,
+    "ai_status": "Training (4,033)",
+    "total_eps": 122,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -29,141 +35,126 @@
                 "id": 1,
                 "min_pct": 0,
                 "max_pct": 33,
-                "color": "#FF4B4B",
+                "color": "#da3633",
                 "title": "Phase 1: Awakening (野性の目覚め)",
-                "goal": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。"
+                "goal": "初期段階。まずは相場の脈動を感じ取る時期。"
             },
             {
                 "id": 2,
                 "min_pct": 33,
                 "max_pct": 66,
-                "color": "#FFA500",
+                "color": "#d29922",
                 "title": "Phase 2: Hunting (狩りの学習)",
-                "goal": "罰則増加。無駄な飛びつきをやめ、獲物が通る『時間』と『勢い』を見極める。"
+                "goal": "成長段階。無駄撃ちを減らし、勝てる時だけ撃つ時期。"
             },
             {
                 "id": 3,
                 "min_pct": 66,
                 "max_pct": 100,
-                "color": "#00FF00",
+                "color": "#238636",
                 "title": "Phase 3: Apex Predator (頂点捕食者)",
-                "goal": "罰則＝死。Dragon Eye(大局観)を駆使し、一撃で仕留める完成形。"
+                "goal": "完成間近。即死ペナルティの中で精度を極める時期。"
             },
             {
                 "id": 4,
                 "min_pct": 100,
                 "max_pct": 9999,
-                "color": "#FFD700",
+                "color": "#dbab09",
                 "title": "Phase 4: FANTASTIC BEAST",
-                "goal": "神の領域。全てを超越した存在。レインボーモード解放。"
+                "goal": "神の領域。全てを超越した存在。"
             }
         ]
     },
     "logs": [
         {
             "t": 14,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": 9220.3,
+            "l": 10,
+            "beh": "WIN"
         },
         {
             "t": 13,
-            "r": -19415.1,
-            "l": 59,
-            "beh": "DEATH/BUST"
+            "r": 9874.3,
+            "l": 7,
+            "beh": "WIN"
         },
         {
             "t": 12,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": -4484.2,
+            "l": 74,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 11,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 10,
-            "r": 9950.6,
-            "l": 6,
-            "beh": "WIN"
-        },
-        {
-            "t": 9,
-            "r": -20929.9,
-            "l": 118,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 8,
-            "r": 22.4,
-            "l": 137,
+            "r": 3902.2,
+            "l": 35,
             "beh": "CUT/WAIT"
         },
         {
-            "t": 7,
-            "r": -10002.9,
-            "l": 288,
+            "t": 10,
+            "r": -15678.5,
+            "l": 37,
             "beh": "DEATH/BUST"
+        },
+        {
+            "t": 9,
+            "r": 9922.6,
+            "l": 3,
+            "beh": "WIN"
+        },
+        {
+            "t": 8,
+            "r": 9923.2,
+            "l": 5,
+            "beh": "WIN"
+        },
+        {
+            "t": 7,
+            "r": 7737.0,
+            "l": 13,
+            "beh": "WIN"
         },
         {
             "t": 6,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": -6441.4,
+            "l": 13,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 5,
-            "r": 9974.8,
-            "l": 259,
-            "beh": "WIN"
-        },
-        {
-            "t": 4,
-            "r": -10002.9,
-            "l": 288,
+            "r": -32789.9,
+            "l": 139,
             "beh": "DEATH/BUST"
         },
         {
-            "t": 3,
-            "r": 5168.4,
-            "l": 218,
+            "t": 4,
+            "r": 9616.9,
+            "l": 7,
             "beh": "WIN"
         },
         {
+            "t": 3,
+            "r": -37262.9,
+            "l": 107,
+            "beh": "DEATH/BUST"
+        },
+        {
             "t": 2,
-            "r": -10002.9,
-            "l": 288,
+            "r": -43802.4,
+            "l": 157,
             "beh": "DEATH/BUST"
         },
         {
             "t": 1,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": 7696.7,
+            "l": 20,
+            "beh": "WIN"
         },
         {
             "t": 0,
-            "r": -10002.9,
-            "l": 288,
-            "beh": "DEATH/BUST"
+            "r": -5897.1,
+            "l": 11,
+            "beh": "FAIL/DEEP"
         }
-    ],
-    "analysis_report": {
-        "analyzed_eps": 6621,
-        "overall_win_rate": "56.49 %",
-        "overall_bust_rate": "32.64 %",
-        "speed_stats": {
-            "fastest": 2,
-            "slowest": 288,
-            "avg": 30.2
-        },
-        "margin_stats": {
-            "lowest": 53.1,
-            "highest": 999.0
-        },
-        "conclusion": "生存圏 確立"
-    }
+    ]
 }
