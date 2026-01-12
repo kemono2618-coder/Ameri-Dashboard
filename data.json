@@ -1,8 +1,8 @@
 {
     "status": "active",
-    "total_steps": 653185,
+    "total_steps": 658339,
     "target_steps": 3000000,
-    "prog_pct": 21.8,
+    "prog_pct": 21.9,
     "phase_title": "Phase 1: Awakening (野性の目覚め)",
     "phase_desc": "罰則軽微。インジケーターなしの『裸のチャート』で相場の脈動を感じ取る。",
     "phase_color": "#FF4B4B",
@@ -10,18 +10,18 @@
         "status_text": "デスゲーム中 (赤)",
         "status_color": "#FF0000",
         "sniper_stats": {
-            "mission_rate": "59.1 %",
+            "mission_rate": "59.0 %",
             "speed_range": "2 - 288",
             "margin_range": "51.1 - 999.0 %"
         }
     },
     "combat_stats": {
-        "WIN": 4138,
-        "FAIL": 303,
-        "BUST": 2565
+        "WIN": 4148,
+        "FAIL": 307,
+        "BUST": 2575
     },
-    "ai_status": "Training (653,185)",
-    "total_eps": 7006,
+    "ai_status": "Training (658,339)",
+    "total_eps": 7030,
     "avg_score": 0,
     "config": {
         "phases": [
@@ -54,93 +54,93 @@
     "logs": [
         {
             "t": 14,
-            "r": -7363.9,
-            "l": 78,
-            "beh": "FAIL/DEEP"
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
         },
         {
             "t": 13,
-            "r": 9950.2,
-            "l": 50,
-            "beh": "WIN"
+            "r": -8572.5,
+            "l": 197,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 12,
-            "r": 9948.6,
+            "r": -10052.9,
             "l": 288,
-            "beh": "WIN"
+            "beh": "DEATH/BUST"
         },
         {
             "t": 11,
-            "r": -7477.4,
-            "l": 123,
-            "beh": "FAIL/DEEP"
+            "r": -10052.9,
+            "l": 288,
+            "beh": "DEATH/BUST"
         },
         {
             "t": 10,
-            "r": 9947.1,
-            "l": 288,
-            "beh": "WIN"
+            "r": -7404.5,
+            "l": 238,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 9,
-            "r": -7355.7,
-            "l": 51,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 8,
-            "r": -14661.7,
-            "l": 237,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 7,
-            "r": -7353.2,
-            "l": 81,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 6,
-            "r": -7353.3,
-            "l": 171,
-            "beh": "FAIL/DEEP"
-        },
-        {
-            "t": 5,
-            "r": 10095.5,
-            "l": 223,
-            "beh": "WIN"
-        },
-        {
-            "t": 4,
-            "r": -14645.9,
-            "l": 34,
-            "beh": "DEATH/BUST"
-        },
-        {
-            "t": 3,
             "r": 9947.1,
             "l": 288,
             "beh": "WIN"
         },
         {
+            "t": 8,
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
+        },
+        {
+            "t": 7,
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
+        },
+        {
+            "t": 6,
+            "r": 8463.8,
+            "l": 173,
+            "beh": "WIN"
+        },
+        {
+            "t": 5,
+            "r": -7391.6,
+            "l": 186,
+            "beh": "FAIL/DEEP"
+        },
+        {
+            "t": 4,
+            "r": 9947.1,
+            "l": 288,
+            "beh": "WIN"
+        },
+        {
+            "t": 3,
+            "r": -7372.6,
+            "l": 254,
+            "beh": "FAIL/DEEP"
+        },
+        {
             "t": 2,
-            "r": -7346.1,
-            "l": 142,
+            "r": -7384.1,
+            "l": 139,
             "beh": "FAIL/DEEP"
         },
         {
             "t": 1,
-            "r": 9947.1,
-            "l": 288,
-            "beh": "WIN"
+            "r": -7377.4,
+            "l": 36,
+            "beh": "FAIL/DEEP"
         },
         {
             "t": 0,
-            "r": 9947.1,
-            "l": 288,
-            "beh": "WIN"
+            "r": -29373.9,
+            "l": 34,
+            "beh": "DEATH/BUST"
         }
     ]
 }
