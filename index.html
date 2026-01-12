@@ -33,20 +33,71 @@
         .dist-bar:hover { opacity: 1.0; }
         .dist-bar:hover::after { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #000; color: #fff; font-size: 0.7rem; padding: 2px 4px; border-radius: 2px; white-space: nowrap; z-index: 10; }
 
-        .diag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        .maturity-box { background: rgba(13, 17, 23, 0.5); border: 2px solid var(--border); padding: 1rem; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+        /* ■ Double Meter Layout (高さ揃え対応) */
+        .diag-split { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem; 
+            margin-top: 1rem; 
+            /* 左右の高さを強制的に揃える */
+            grid-auto-rows: 1fr; 
+        }
+        
+        /* Left: Maturity Meter */
+        .maturity-box { 
+            background: rgba(13, 17, 23, 0.5); 
+            border: 2px solid var(--border); 
+            padding: 1rem; 
+            border-radius: 4px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100%; 
+            min-height: 120px; /* 最低高さを確保 */
+            box-sizing: border-box; 
+        }
         .mat-val { font-size: 2rem; font-weight: bold; }
         
-        .status-box-frame { background: rgba(48, 54, 61, 0.5); border: 2px dashed #484f58; padding: 0; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; overflow:hidden;}
-        #diag-status { width: 100%; padding: 0.75rem; text-align:center; font-weight:bold; background: #30363d; color:#fff; }
-        #diag-detail { padding: 0.8rem; color: #c9d1d9; font-size: 0.9rem; text-align: center; font-family: monospace; }
+        /* Right: Diagnosis */
+        .status-box-frame { 
+            background: rgba(48, 54, 61, 0.5); 
+            border: 2px dashed #484f58; 
+            padding: 0; 
+            border-radius: 4px; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100%; 
+            min-height: 120px; /* 左と合わせる */
+            box-sizing: border-box; 
+            overflow: hidden;
+        }
+        #diag-status { 
+            width: 100%; 
+            padding: 1rem 0; 
+            text-align:center; 
+            font-weight:bold; 
+            background: #30363d; 
+            color:#fff; 
+            flex: 0 0 auto; 
+        }
+        #diag-detail { 
+            padding: 0.8rem; 
+            color: #c9d1d9; 
+            font-size: 0.9rem; 
+            text-align: center; 
+            font-family: monospace; 
+            flex: 1 1 auto; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .pressure-box { background: var(--secondary-bg); border: 1px solid var(--border); padding: 1rem; margin-top: 0; border-radius: 4px; }
         .pressure-bar-bg { width: 100%; height: 20px; background: #30363d; border-radius: 10px; overflow: hidden; position: relative; }
         .pressure-bar-fill { height: 100%; width: 0%; transition: width 0.5s; }
         .pressure-text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; text-align: center; line-height: 20px; font-size: 0.8rem; font-weight: bold; color: #fff; text-shadow: 0 0 2px #000; }
 
-        /* Zone Guide Accordion */
         details.zone-details { margin-bottom: 2rem; background: #161b22; border: 1px solid var(--border); border-radius: 4px; margin-top: 1rem; }
         details.zone-details summary { padding: 0.8rem; cursor: pointer; color: #8b949e; font-weight: bold; list-style: none; }
         details.zone-details summary:hover { color: #58a6ff; background: #21262d; }
@@ -83,7 +134,7 @@
         <div class="main">
             <div class="top-bar">
                 <div style="display:flex; align-items:baseline; gap:1rem;">
-                    <h1>Ameri-Sniper Ver 9.6</h1>
+                    <h1>Ameri-Sniper System</h1>
                     <span style="color:#8b949e;">Target: <span id="target-steps">--</span> Steps</span>
                 </div>
                 <div style="text-align:right;">
@@ -228,8 +279,13 @@
                 document.getElementById('ana-win').innerText = r.overall_win_rate;
                 document.getElementById('ana-bust').innerText = r.overall_bust_rate;
                 document.getElementById('s-rate').innerText = r.overall_win_rate;
-                document.getElementById('s-speed').innerText = `${r.speed_stats.fastest} / ${r.speed_stats.slowest} / ${r.speed_stats.avg}`;
-                document.getElementById('s-margin').innerText = `${r.margin_stats.lowest} / ${r.margin_stats.highest} / ${r.margin_stats.avg}`;
+                
+                // AVG undefined対策
+                const speedAvg = (r.speed_stats && r.speed_stats.avg !== undefined) ? r.speed_stats.avg : "--";
+                const marginAvg = (r.margin_stats && r.margin_stats.avg !== undefined) ? r.margin_stats.avg : "--";
+                
+                document.getElementById('s-speed').innerText = `${r.speed_stats.fastest} / ${r.speed_stats.slowest} / ${speedAvg}`;
+                document.getElementById('s-margin').innerText = `${r.margin_stats.lowest} / ${r.margin_stats.highest} / ${marginAvg}`;
                 
                 if (r.distributions) {
                     renderDist("dist-speed", r.distributions.speed);
@@ -248,7 +304,7 @@
                 }
             }
 
-            // Curriculum Zone List (復活したアコーディオン)
+            // Zones
             if (data.config && data.config.zones) {
                 let listHtml = "";
                 data.config.zones.forEach(z => {
